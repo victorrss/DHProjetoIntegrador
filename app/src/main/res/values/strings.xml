@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">MarvelGeek</string>
+    <string name="app_name">Marvel Geek</string>
+    <string name="ab_search">Pesquisa</string>
 </resources>
