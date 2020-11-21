@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="darkRed">#FF891B0D</color>
     <color name="marvelRed">#FFB72512</color>
     <color name="black">#FF000000</color>
     <color name="darkgray">#FF292929</color>
     <color name="white">#FFFFFFFF</color>
-</resources>
+    <color name="mtrl_fab_icon_text_color_selector">#FFFFFFFF</color><![CDATA[
+
+]]></resources>
