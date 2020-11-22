@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Marvel Geek</string>
+    <string name="ab_search">Pesquisa</string>
+    <string name="author">Autor</string>
+    <string name="authorName">Unknown Author</string>
+    <string name="authorAtualization">Última atualização:</string>
+    <string name="authorAtualizationData">00/00/0000</string>
+</resources>
