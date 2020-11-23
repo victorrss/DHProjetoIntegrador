@@ -12,5 +12,9 @@ class HomeActivity : AppCompatActivity() {
         btAutor.setOnClickListener {
             startActivity(Intent(this,AuthorActivity::class.java))
         }
+
+        btEvento.setOnClickListener {
+            startActivity(Intent(this,EventActivity::class.java))
+        }
     }
 }
