@@ -16,5 +16,13 @@ class HomeActivity : AppCompatActivity() {
         btEvento.setOnClickListener {
             startActivity(Intent(this,EventActivity::class.java))
         }
+
+        abHome.setNavigationOnClickListener {
+            val frag = FavoriteFragment.newInstance()
+            supportFragmentManager.beginTransaction().apply {
+                add(R.id.homeFragment,frag)
+                commit()
+            }
+        }
     }
 }
