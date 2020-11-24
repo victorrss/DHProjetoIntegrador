@@ -1,11 +1,13 @@
 package com.kotlin.marvelgeek
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_favorite.*
 
@@ -20,7 +22,6 @@ class FavoriteFragment : Fragment(), FavoriteAdapter.OnLongClickFavoritoListener
         return inflater.inflate(R.layout.fragment_favorite, container, false)
     }
 
-    @Override
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         rvFavorite.adapter = adapter
         rvFavorite.layoutManager = LinearLayoutManager(context)
@@ -32,9 +33,21 @@ class FavoriteFragment : Fragment(), FavoriteAdapter.OnLongClickFavoritoListener
     }
 
     override fun onLongClickFavorito(position: Int) {
+
         val name = listaFavorito[position].nome
-        listaFavorito.removeAt(position)
-        adapter.notification(name)
+
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Excluir")
+        builder.setIcon(R.drawable.ic_delete)
+        builder.setMessage("Você deseja excluir $name da sua lista de favoritos?")
+        builder.setPositiveButton("Sim"){dialog, which ->
+            listaFavorito.removeAt(position)
+            adapter.notification(name)
+        }
+        builder.setNegativeButton("Não"){dialog,which ->
+        }
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 
     // Retorna uma lista de favoritos fixa
