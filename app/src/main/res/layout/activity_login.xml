@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fundo_login_herois"
+        android:alpha=".80"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+
+        <ImageView
+            android:layout_width="420dp"
+            android:layout_height="300dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/logo_marvelgeek_transparente" />
+
+        <Button
+            android:id="@+id/btnLoginVisitante"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="350dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="Entrar Como Visitante"
+            android:backgroundTint="#B3292929"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnLoginFacebook"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="420dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="Entrar com o Facebook"
+            android:backgroundTint="#B33E5994"
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/ic_facebook_app_logo"
+            />
+
+        <Button
+            android:id="@+id/btnLoginTwitter"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="490dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="Entrar com o Twitter"
+            android:backgroundTint="#B31B9BE8"
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/ic_twitter"/>
+
+        <Button
+            android:id="@+id/btnLoginGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="560dp"
+            android:backgroundTint="#B3D84438"
+            android:drawableLeft="@drawable/ic_google"
+            android:text="Entrar com o Google"
+            android:textColor="@color/white" />
+
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
