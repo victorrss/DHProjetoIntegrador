@@ -9,14 +9,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        btAutor.setOnClickListener {
-            startActivity(Intent(this,AuthorActivity::class.java))
-        }
-
-        btEvento.setOnClickListener {
-            startActivity(Intent(this,EventActivity::class.java))
-        }
-
+        
         abHome.setNavigationOnClickListener {
             val frag = FavoriteFragment.newInstance()
             supportFragmentManager.beginTransaction().apply {
