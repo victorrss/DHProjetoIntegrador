@@ -30,20 +30,6 @@
         app:layout_constraintTop_toBottomOf="@+id/tbHome"
         android:layout_height="0dp"/>
 
-    <Button
-        android:id="@+id/btAutor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/marvelRed"
-        android:text="Autor"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.879"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.005" />
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/clAppBar"
         android:layout_width="match_parent"
@@ -76,15 +62,5 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <Button
-        android:id="@+id/btEvento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/marvelRed"
-        android:text="Evento"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/tbHome"
-        app:layout_constraintEnd_toStartOf="@+id/btAutor"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
