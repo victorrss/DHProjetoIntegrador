@@ -1,21 +1,5 @@
 <resources>
     <string name="app_name">Marvel Geek</string>
     <string name="ab_search">Pesquisa</string>
-
-    <string name="author">Autor</string>
-    <string name="authorName">Mark Bernardo</string>
-    <string name="authorQuadrinhos">Outros Quadrinhos:</string>
-    <string name="authorAtualization">Última atualização:</string>
-
-    <string name="event">Evento</string>
-    <string name="eventName">Loki sets about convincing the super-villains of Earth</string>
-    <string name="eventListaHerois">Lista de Heróis:</string>
-    <string name="eventListaCriadores">Lista de Criadores:</string>
-
-    <string name="heroeName">Nome do Herói</string>
-    <string name="heroeBio">Briografia</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-
+    <string name="str_buscar_personagem">Buscar personagem</string>
 </resources>
