@@ -44,6 +44,7 @@
             android:id="@+id/quiFraTvQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_marginTop="15dp"
             android:fontFamily="sans-serif-medium"
             android:text="Parabéns, você acertou  4 de 5 questões do quiz!"
@@ -75,7 +76,7 @@
             android:layout_height="60dp"
             android:backgroundTint="#B33E5994"
             android:drawableLeft="@drawable/ic_facebook_app_logo"
-            android:text="Entrar com o Facebook"
+            android:text="Compartilhar com o Facebook"
             android:textColor="@color/white" />
 
         <Button
@@ -84,7 +85,7 @@
             android:layout_height="60dp"
             android:backgroundTint="#B31B9BE8"
             android:drawableLeft="@drawable/ic_twitter"
-            android:text="Entrar com o Twitter"
+            android:text="Compartilhar com o Twitter"
             android:textColor="@color/white" />
 
         <Button
@@ -93,7 +94,7 @@
             android:layout_height="60dp"
             android:backgroundTint="#B3D84438"
             android:drawableLeft="@drawable/ic_google"
-            android:text="Entrar com o Google"
+            android:text="Compartilhar com o Google"
             android:textColor="@color/white" />
     </LinearLayout>
 
