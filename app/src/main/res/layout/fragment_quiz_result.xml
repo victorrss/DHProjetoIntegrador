@@ -44,6 +44,7 @@
             android:id="@+id/quiFraTvQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_marginTop="15dp"
             android:fontFamily="sans-serif-medium"
             android:text="Parabéns, você acertou  4 de 5 questões do quiz!"
