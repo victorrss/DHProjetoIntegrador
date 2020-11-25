@@ -106,32 +106,7 @@
                 app:layout_constraintBottom_toTopOf="@id/chaActLlEvents"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/chaActLlComics">
-
-                <TextView
-                    android:id="@+id/chaActTvLabelStories"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Histórias"
-                    android:textColor="@color/white"
-                    android:textSize="23sp" />
-
-                <View
-                    android:id="@+id/dividerStories"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="?android:attr/listDivider" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/chaActRvStories"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_stories" />
-            </LinearLayout>
+                app:layout_constraintTop_toBottomOf="@id/chaActLlComics"/>
 
             <LinearLayout
                 android:id="@+id/chaActLlEvents"

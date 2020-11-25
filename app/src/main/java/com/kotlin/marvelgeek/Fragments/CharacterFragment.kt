@@ -35,18 +35,21 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic, StorieA
         var adapterSerie = SerieAdapter(serieList, this)
 
         view.chaActRvComics.adapter = adapterComic
-        view.chaActRvStories.adapter = adapterStorie
+
         view.chaActRvEvents.adapter = adapterEvent
         view.chaActRvSeries.adapter = adapterSerie
 
-        view.chaActRvComics.layoutManager = LinearLayoutManager(activity)
-        view.chaActRvStories.layoutManager = LinearLayoutManager(activity)
-        view.chaActRvEvents.layoutManager = LinearLayoutManager(activity)
-        view.chaActRvSeries.layoutManager = LinearLayoutManager(activity)
+
+
+        view.chaActRvComics.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL , false)
+        view.chaActRvEvents.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL , false)
+        view.chaActRvSeries.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL , false)
 
         view.abHome.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment2_to_favoriteFragment)
+            findNavController().navigate(R.id.action_characterFragment_to_favoriteFragment)
         }
+
+
 
         return view
     }
@@ -84,14 +87,21 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic, StorieA
     )
 
     override fun onClickComic(position: Int) {
+        findNavController().navigate(R.id.action_characterFragment_to_historiaFragment)
+    }
+
+
+
+    override fun onClickEvent(position: Int) {
+        findNavController().navigate(R.id.action_characterFragment_to_eventFragment)
+    }
+
+
+    override fun onClickSerie(position: Int) {
+
     }
 
     override fun onClickStorie(position: Int) {
-    }
 
-    override fun onClickEvent(position: Int) {
-    }
-
-    override fun onClickSerie(position: Int) {
     }
 }

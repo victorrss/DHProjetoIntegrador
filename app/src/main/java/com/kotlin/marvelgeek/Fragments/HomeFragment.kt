@@ -135,6 +135,9 @@ import kotlinx.android.synthetic.main.activity_home.view.*
                 findNavController().navigate(R.id.action_homeFragment2_to_favoriteFragment)
             }
 
+            view.fbQuiz.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment2_to_quizFragment)
+            }
 
             return view
 
