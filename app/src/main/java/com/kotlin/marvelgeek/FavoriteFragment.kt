@@ -51,11 +51,36 @@ class FavoriteFragment : Fragment(), FavoriteAdapter.OnLongClickFavoritoListener
     }
 
     // Retorna uma lista de favoritos fixa
-    fun getAllFavorites() = arrayListOf(Favorito(R.drawable.ic_person,"Spider-Man","Bio Spider-Man"),
-        Favorito(R.drawable.ic_person,"Captain America","Bio Captain America"),
-        Favorito(R.drawable.ic_person,"Captain Marvel","Bio Captain Marvel"),
-        Favorito(R.drawable.ic_person,"Hulk","Bio Hulk"),
-        Favorito(R.drawable.ic_person,"Thor","Bio Thor"))
+    fun getAllFavorites() = listOf(Personagem(
+            1,
+            R.drawable.spiderman,
+            "Homem-Aranha",
+            "Todos as descrições das pessoas são sobre a humanidade do atendimento, a pessoa pega no pulso, examina, olha com carinho. Então eu acho que vai ter outra coisa, que os médicos cubanos trouxeram pro brasil, um alto grau de humanidade."
+    ),
+            Personagem(
+                    2,
+                    R.drawable.batman,
+                    "Batman",
+                    "Ai você fala o seguinte: \"- Mas vocês acabaram isso?\" Vou te falar: -\"Não, está em andamento!\" Tem obras que \"vai\" durar pra depois de 2010. Agora, por isso, nós já não desenhamos, não começamos a fazer projeto do que nós \"podêmo fazê\"? 11, 12, 13, 14... Por que é que não?"
+            ),
+            Personagem(
+                    3,
+                    R.drawable.hulk,
+                    "Hulk",
+                    "No meu xinélo da humildade eu gostaria muito de ver o Neymar e o Ganso. Por que eu acho que.... 11 entre 10 brasileiros gostariam. Você veja, eu já vi, parei de ver. Voltei a ver, e acho que o Neymar e o Ganso têm essa capacidade de fazer a gente olhar.\n"
+            ),
+            Personagem(
+                    1,
+                    R.drawable.spiderman,
+                    "Homem-Aranha",
+                    "Todos as descrições das pessoas são sobre a humanidade do atendimento, a pessoa pega no pulso, examina, olha com carinho. Então eu acho que vai ter outra coisa, que os médicos cubanos trouxeram pro brasil, um alto grau de humanidade."
+            ),
+            Personagem(
+                    2,
+                    R.drawable.batman,
+                    "Batman",
+                    "Ai você fala o seguinte: \"- Mas vocês acabaram isso?\" Vou te falar: -\"Não, está em andamento!\" Tem obras que \"vai\" durar pra depois de 2010. Agora, por isso, nós já não desenhamos, não começamos a fazer projeto do que nós \"podêmo fazê\"? 11, 12, 13, 14... Por que é que não?"
+            ),)
 
 
 }
