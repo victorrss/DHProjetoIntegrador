@@ -200,7 +200,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/abhome_menu"
-            app:navigationIcon="@drawable/ic_favorite" />
+            app:navigationIcon="@drawable/ic_favorite"
+            app:fabAlignmentMode="end"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fbQuiz"

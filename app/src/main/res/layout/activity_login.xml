@@ -9,10 +9,13 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:alpha=".50"
         android:scaleType="centerCrop"
-        android:src="@drawable/fundo_login_herois"
-        android:alpha=".80"
-        />
+        android:src="@drawable/fundo_login_herois_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
         android:layout_width="match_parent"
