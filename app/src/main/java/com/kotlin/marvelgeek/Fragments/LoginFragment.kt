@@ -32,6 +32,11 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
         }
 
+        view.btnLoginFacebook.setOnClickListener {
+
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+        }
+
         return view
 
     }
