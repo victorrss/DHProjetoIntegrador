@@ -9,6 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.kotlin.marvelgeek.model.Personagem
+import kotlinx.android.synthetic.main.card_home_personagem.view.*
 import java.util.*
 
 

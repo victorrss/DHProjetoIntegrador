@@ -1,34 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
-    android:background="@color/black">
+    android:background="@color/gray"
+    tools:context=".ui.HomeActivity">
 
-    <Toolbar
-        android:id="@+id/tbHome"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHome"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:background="@color/marvelRed"
-        android:title="@string/app_name"
-        android:titleTextColor="@color/white"
+        android:layout_height="0dp"
+        android:paddingBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <FrameLayout
-        android:id="@+id/homeFragment"
-        android:layout_width="match_parent"
-        android:layout_marginHorizontal="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/clAppBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tbHome"
-        android:layout_height="0dp"/>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/clAppBar"
@@ -57,9 +45,9 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/darkRed"
             android:clickable="true"
-            app:layout_anchor="@id/abHome"
+            app:layout_anchor="@+id/abHome"
+            app:layout_anchorGravity="center"
             app:srcCompat="@drawable/ic_game" />
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
