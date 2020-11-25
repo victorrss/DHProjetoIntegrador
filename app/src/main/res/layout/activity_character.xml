@@ -4,16 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CharacterActivity">
+    tools:context=".CharacterActivity"
+    android:background="@color/black">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="15dp">
+        android:padding="15dp"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
             <ImageView
                 android:id="@+id/chaActIvHero"
@@ -42,7 +45,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="Biografia"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="23sp" />
 
                 <View
@@ -56,6 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:textColor="@color/white"
                     android:fontFamily="sans-serif"
                     android:text="Caught in a gamma bomb explosion while trying to save the life of a teenager, Dr. Bruce Banner was transformed into the incredibly powerful creature called the Hulk. An all too often misunderstood hero, the angrier the Hulk gets, the stronger the Hulk gets."
                     android:textSize="18sp" />
@@ -76,9 +80,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
                     android:fontFamily="sans-serif-medium"
                     android:text="HQ's"
-                    android:textColor="@color/black"
                     android:textSize="23sp" />
 
                 <View
@@ -113,7 +117,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="Histórias"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="23sp" />
 
                 <View
@@ -148,7 +152,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="Eventos"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="23sp" />
 
                 <View
@@ -184,7 +188,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="Séries"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="23sp" />
 
                 <View
