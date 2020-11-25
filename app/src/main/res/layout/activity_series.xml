@@ -33,7 +33,7 @@
                 android:id="@+id/tvTituloSerie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:gravity="left"
                 android:text="Nome da Serie"
                 android:textColor="@color/white"
                 android:textSize="30dp" />
