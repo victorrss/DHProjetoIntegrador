@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.marvelgeek.model.Personagem
@@ -17,9 +18,18 @@ class FavoriteFragment : Fragment(), FavoriteAdapter.OnLongClickFavoritoListener
     var listaFavorito = getAllFavorites()
     var adapter = FavoriteAdapter(listaFavorito,this)
 
+
+
+    override fun onDestroyView() {
+        (activity as AppCompatActivity).supportActionBar?.setTitle(R.string.app_name)
+
+        super.onDestroyView()
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
+        (activity as AppCompatActivity).supportActionBar?.setTitle(R.string.toolbarFavoritosTitutlo)
         return inflater.inflate(R.layout.fragment_favorite, container, false)
     }
 

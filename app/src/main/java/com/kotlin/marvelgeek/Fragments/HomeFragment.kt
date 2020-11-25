@@ -21,7 +21,6 @@ import kotlinx.android.synthetic.main.activity_home.view.*
 
 
 
-
         override fun onCreate(savedInstanceState: Bundle?) {
             (activity as AppCompatActivity).supportActionBar?.show()
             setHasOptionsMenu(true)
