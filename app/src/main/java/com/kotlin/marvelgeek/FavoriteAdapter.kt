@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.card_home_personagem.view.*
 import java.util.*
 
 
-class FavoriteAdapter(private val listaFavoritos: ArrayList<Personagem>, val listener: OnLongClickFavoritoListener): RecyclerView.Adapter<FavoriteAdapter.FavoritosViewHolder>() {
+class FavoriteAdapter(private val listaFavoritos: ArrayList<Personagem>, val listener: ListenerOnClickFavorito): RecyclerView.Adapter<FavoriteAdapter.FavoritosViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoritosViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card_home_personagem, parent, false)
@@ -34,17 +34,19 @@ class FavoriteAdapter(private val listaFavoritos: ArrayList<Personagem>, val lis
         notifyDataSetChanged()
     }
 
-    interface OnLongClickFavoritoListener{
+    interface ListenerOnClickFavorito{
         fun onLongClickFavorito(position: Int)
+        fun onClickFavorito(position: Int)
     }
 
-    inner class FavoritosViewHolder(itemView: View):RecyclerView.ViewHolder(itemView), View.OnLongClickListener{
+    inner class FavoritosViewHolder(itemView: View):RecyclerView.ViewHolder(itemView), View.OnLongClickListener, View.OnClickListener{
         val nome: TextView = itemView.tvNome
         val descricao: TextView = itemView.tvDescricao
         val imagem: ImageView = itemView.ivAvatar
 
         init{
             itemView.setOnLongClickListener(this)
+            itemView.setOnClickListener(this)
         }
 
         override fun onLongClick(v: View?): Boolean {
@@ -53,6 +55,13 @@ class FavoriteAdapter(private val listaFavoritos: ArrayList<Personagem>, val lis
                 listener.onLongClickFavorito(position)
             }
             return true
+        }
+
+        override fun onClick(v: View?) {
+            val position = adapterPosition
+            if(position != RecyclerView.NO_POSITION){
+                listener.onClickFavorito(position)
+            }
         }
     }
 }

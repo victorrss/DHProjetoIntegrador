@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.marvelgeek.model.Personagem
 import kotlinx.android.synthetic.main.fragment_favorite.*
 
-class FavoriteFragment : Fragment(), FavoriteAdapter.OnLongClickFavoritoListener {
+class FavoriteFragment : Fragment(), FavoriteAdapter.ListenerOnClickFavorito {
 
     var listaFavorito = getAllFavorites()
     var adapter = FavoriteAdapter(listaFavorito,this)
@@ -61,6 +61,11 @@ class FavoriteFragment : Fragment(), FavoriteAdapter.OnLongClickFavoritoListener
         }
         val dialog: AlertDialog = builder.create()
         dialog.show()
+    }
+
+    override fun onClickFavorito(position: Int) {
+        // Mudar fragment
+        findNavController().navigate(R.id.action_favoriteFragment_to_characterFragment)
     }
 
     // Retorna uma lista de favoritos fixa
