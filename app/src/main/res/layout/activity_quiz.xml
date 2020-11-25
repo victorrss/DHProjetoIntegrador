@@ -4,6 +4,163 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".QuizActivity">
 
+    <LinearLayout
+        android:id="@+id/quiActLlQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@id/quiActLlOptions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/chaActTvLabelQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="Pergunta 1"
+            android:textColor="@color/white"
+            android:textSize="23sp" />
+
+        <View
+            android:id="@+id/dividerQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/quiActTvQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="sans-serif"
+            android:text="Em qual destes quadrinhos o super-herói Capitão América está presente?"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/quiActLlOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@id/quiActLlProgress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quiActLlQuestion">
+
+        <RadioGroup
+            android:id="@+id/quiActRgOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkedButton="@+id/radio_button_1">
+
+            <RadioButton
+                android:id="@+id/radio_button_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="A Era de Ultron Vol 1"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/radio_button_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="A Era do Sentinela Vol 1"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/radio_button_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Aranhaverso Vol 1"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/radio_button_4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Pecados Originais Vol 1"
+                android:textColor="@color/white" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/quiActLlProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="80dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quiActLlOptions">
+
+        <ProgressBar
+            android:id="@+id/determinateBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:progress="25"
+            android:progressTint="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Próximo" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="Voltar" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/clAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/abHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/marvelRed"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/abhome_menu"
+            app:navigationIcon="@drawable/ic_favorite" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fbQuiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/darkRed"
+            android:clickable="true"
+            app:layout_anchor="@id/abHome"
+            app:srcCompat="@drawable/ic_game" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
