@@ -7,101 +7,72 @@
     android:layout_height="match_parent"
     android:background="@color/opacityblack">
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-<!--        <Toolbar-->
-<!--            android:id="@+id/tbEvento"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@color/marvelRed"-->
-<!--            android:navigationIcon="@drawable/ic_back"-->
-<!--            android:title="@string/event"-->
-<!--            android:titleTextColor="@color/white"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <Toolbar
+            android:id="@+id/tbSeries"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/marvelRed"
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="vertical"-->
-<!--            android:background="@drawable/round"-->
-<!--            android:layout_margin="20dp">-->
+            android:titleTextColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-<!--            <ImageView-->
-<!--                android:id="@+id/ivEvent"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="300dp"-->
-<!--                android:src="@drawable/ic_activity" />-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
 
-<!--            <TextView-->
-<!--                android:id="@+id/tvAuthorName"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:gravity="center"-->
-<!--                android:text="@string/eventName"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="30dp" />-->
+            <TextView
+                android:id="@+id/tvTituloSerie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Nome da Serie"
+                android:textColor="@color/white"
+                android:textSize="30dp" />
 
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginHorizontal="20dp"-->
-<!--                android:layout_marginTop="30dp"-->
-<!--                android:gravity="left"-->
-<!--                android:text="@string/eventListaHerois"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="20dp" />-->
+            <TextView
+                android:id="@+id/tvDescricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="30dp"
+                android:gravity="left"
+                android:text="Descricao"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/tvListaHerois"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginHorizontal="20dp"-->
-<!--                android:layout_marginTop="5dp"-->
-<!--                android:gravity="left"-->
-<!--                android:inputType="textMultiLine"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="20dp" />-->
+            <TextView
+                android:id="@+id/tvAnoInicio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="30dp"
+                android:gravity="left"
+                android:text="Ano de Inicio"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
 
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginHorizontal="20dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:gravity="left"-->
-<!--                android:text="@string/eventListaCriadores"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="20dp" />-->
+            <TextView
+                android:id="@+id/tvAnoTermino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="30dp"
+                android:gravity="left"
+                android:text="Ano de Termino"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/tvListaCriadores"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginHorizontal="20dp"-->
-<!--                android:layout_marginTop="5dp"-->
-<!--                android:gravity="left"-->
-<!--                android:inputType="textMultiLine"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="20dp" />-->
+        </LinearLayout>
 
-<!--            <TextView-->
-<!--                android:id="@+id/tvEventAtualizacao"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginHorizontal="20dp"-->
-<!--                android:layout_marginVertical="20dp"-->
-<!--                android:gravity="left"-->
-<!--                android:inputType="textMultiLine"-->
-<!--                android:text="@string/authorAtualization"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="15dp" />-->
-
-<!--        </LinearLayout>-->
-
-<!--    </LinearLayout>-->
+    </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>
