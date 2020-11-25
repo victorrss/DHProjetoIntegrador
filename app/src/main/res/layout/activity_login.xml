@@ -74,6 +74,5 @@
             android:text="Entrar com o Google"
             android:textColor="@color/white" />
 
-
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
