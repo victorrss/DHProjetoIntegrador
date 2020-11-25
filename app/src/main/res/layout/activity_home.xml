@@ -48,6 +48,4 @@
             app:layout_anchorGravity="center"
             app:srcCompat="@drawable/ic_game" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
