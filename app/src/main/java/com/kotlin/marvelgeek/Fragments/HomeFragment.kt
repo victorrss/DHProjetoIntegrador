@@ -29,7 +29,7 @@ import kotlinx.android.synthetic.main.activity_home.view.*
 
         override fun OnClickItem(position: Int) {
             val personagem = personagens[position]
-            Toast.makeText(activity, personagem.nome, Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_homeFragment2_to_characterFragment)
         }
         private fun getPersonagens(): List<Personagem> {
             return listOf(

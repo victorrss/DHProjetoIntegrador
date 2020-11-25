@@ -43,6 +43,8 @@ class FavoriteFragment : Fragment(), FavoriteAdapter.OnLongClickFavoritoListener
         fun newInstance() = FavoriteFragment()
     }
 
+
+
     override fun onLongClickFavorito(position: Int) {
 
         val name = listaFavorito[position].nome

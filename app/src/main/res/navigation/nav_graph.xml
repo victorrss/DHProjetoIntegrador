@@ -21,10 +21,22 @@
         <action
             android:id="@+id/action_homeFragment2_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_characterFragment"
+            app:destination="@id/characterFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.kotlin.marvelgeek.FavoriteFragment"
         android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_characterFragment"
+            app:destination="@id/characterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterFragment"
+        android:name="com.kotlin.marvelgeek.Fragments.CharacterFragment"
+        android:label="fragment_character"
+        tools:layout="@layout/fragment_character" />
 </navigation>
