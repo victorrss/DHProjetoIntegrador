@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.kotlin.marvelgeek.model.Personagem
 import kotlinx.android.synthetic.main.fragment_favorite.*
 
 class FavoriteFragment : Fragment(), FavoriteAdapter.OnLongClickFavoritoListener {
@@ -80,7 +81,7 @@ class FavoriteFragment : Fragment(), FavoriteAdapter.OnLongClickFavoritoListener
                     R.drawable.batman,
                     "Batman",
                     "Ai você fala o seguinte: \"- Mas vocês acabaram isso?\" Vou te falar: -\"Não, está em andamento!\" Tem obras que \"vai\" durar pra depois de 2010. Agora, por isso, nós já não desenhamos, não começamos a fazer projeto do que nós \"podêmo fazê\"? 11, 12, 13, 14... Por que é que não?"
-            ),)
+            ))
 
 
 }
