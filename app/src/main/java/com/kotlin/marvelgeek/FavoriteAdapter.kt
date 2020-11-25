@@ -23,9 +23,9 @@ class FavoriteAdapter(private val listaFavoritos: ArrayList<Personagem>, val lis
 
     override fun onBindViewHolder(holder: FavoritosViewHolder, position: Int) {
         var favorito = listaFavoritos.get(position)
-        holder.tvNomeHerois.text = favorito.nome
-        holder.tvBioHerois.text = favorito.descricao
-        holder.ivHerois.setImageResource(favorito.avatar)
+        holder.nome.text = favorito.nome
+        holder.descricao.text = favorito.descricao
+        holder.imagem.setImageResource(favorito.avatar)
     }
 
     fun notification(name: String){
