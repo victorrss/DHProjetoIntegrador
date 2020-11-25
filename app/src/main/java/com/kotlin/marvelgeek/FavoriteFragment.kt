@@ -51,7 +51,7 @@ class FavoriteFragment : Fragment(), FavoriteAdapter.OnLongClickFavoritoListener
     }
 
     // Retorna uma lista de favoritos fixa
-    fun getAllFavorites() = listOf(Personagem(
+    fun getAllFavorites() = arrayListOf<Personagem>(Personagem(
             1,
             R.drawable.spiderman,
             "Homem-Aranha",
