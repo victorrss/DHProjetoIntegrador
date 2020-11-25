@@ -12,7 +12,6 @@ import kotlinx.android.synthetic.main.activity_login.view.*
 
 class LoginFragment : Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,7 +20,7 @@ class LoginFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
         view.btnLoginVisitante.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+           findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
 
         return view

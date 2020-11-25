@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginFragment">
+
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.kotlin.marvelgeek.Fragments.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_homeFragment2"
-            app:destination="@id/homeFragment2" />
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/homeFragment2"
+        android:id="@+id/homeFragment"
         android:name="com.kotlin.marvelgeek.Fragments.HomeFragment"
-        android:label="Marvel Geek"
+        android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 </navigation>
