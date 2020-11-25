@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
 
-class FavoriteAdapter(private val listaFavoritos: ArrayList<Favorito>, val listener: OnLongClickFavoritoListener): RecyclerView.Adapter<FavoriteAdapter.FavoritosViewHolder>() {
+class FavoriteAdapter(private val listaFavoritos: ArrayList<Personagem>, val listener: OnLongClickFavoritoListener): RecyclerView.Adapter<FavoriteAdapter.FavoritosViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoritosViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_favorite, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card_home_personagem, parent, false)
         return FavoritosViewHolder(itemView)
     }
 
@@ -24,8 +24,8 @@ class FavoriteAdapter(private val listaFavoritos: ArrayList<Favorito>, val liste
     override fun onBindViewHolder(holder: FavoritosViewHolder, position: Int) {
         var favorito = listaFavoritos.get(position)
         holder.tvNomeHerois.text = favorito.nome
-        holder.tvBioHerois.text = favorito.bio
-        holder.ivHerois.setImageResource(favorito.img)
+        holder.tvBioHerois.text = favorito.descricao
+        holder.ivHerois.setImageResource(favorito.avatar)
     }
 
     fun notification(name: String){
@@ -37,9 +37,9 @@ class FavoriteAdapter(private val listaFavoritos: ArrayList<Favorito>, val liste
     }
 
     inner class FavoritosViewHolder(itemView: View):RecyclerView.ViewHolder(itemView), View.OnLongClickListener{
-        var tvNomeHerois: TextView = itemView.findViewById(R.id.tvHeroeName)
-        var tvBioHerois: TextView = itemView.findViewById(R.id.tvHeroeBio)
-        var ivHerois: ImageView = itemView.findViewById(R.id.ivHeroe)
+        val nome: TextView = itemView.tvNome
+        val descricao: TextView = itemView.tvDescricao
+        val imagem: ImageView = itemView.ivAvatar
 
         init{
             itemView.setOnLongClickListener(this)
