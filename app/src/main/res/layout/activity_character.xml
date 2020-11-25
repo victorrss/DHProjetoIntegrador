@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".CharacterActivity">
 
     <ScrollView
@@ -42,7 +43,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="Biografia"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="23sp" />
 
                 <View
@@ -58,6 +59,7 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="sans-serif"
                     android:text="Caught in a gamma bomb explosion while trying to save the life of a teenager, Dr. Bruce Banner was transformed into the incredibly powerful creature called the Hulk. An all too often misunderstood hero, the angrier the Hulk gets, the stronger the Hulk gets."
+                    android:textColor="@color/white"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -78,7 +80,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="HQ's"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="23sp" />
 
                 <View
@@ -113,7 +115,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="Histórias"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="23sp" />
 
                 <View
@@ -128,7 +130,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_comics" />
+                    tools:listitem="@layout/item_stories" />
             </LinearLayout>
 
             <LinearLayout
@@ -148,7 +150,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="Eventos"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="23sp" />
 
                 <View
@@ -163,14 +165,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_comics" />
+                    tools:listitem="@layout/item_events" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/chaActLlSeries"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="80dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="80dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -184,7 +186,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="Séries"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="23sp" />
 
                 <View
@@ -199,7 +201,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_comics" />
+                    tools:listitem="@layout/item_series" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
