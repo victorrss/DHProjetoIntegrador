@@ -98,7 +98,7 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic, StorieA
 
 
     override fun onClickSerie(position: Int) {
-
+        findNavController().navigate(R.id.action_characterFragment_to_serieFragment)
     }
 
     override fun onClickStorie(position: Int) {

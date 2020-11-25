@@ -60,6 +60,9 @@
         <action
             android:id="@+id/action_characterFragment_to_quizFragment"
             app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_characterFragment_to_serieFragment"
+            app:destination="@id/serieFragment" />
     </fragment>
     <fragment
         android:id="@+id/historiaFragment"
@@ -91,4 +94,12 @@
             android:id="@+id/action_quizResultFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/authorFragment"
+        android:name="com.kotlin.marvelgeek.AuthorFragment"
+        android:label="AuthorFragment" />
+    <fragment
+        android:id="@+id/serieFragment"
+        android:name="com.kotlin.marvelgeek.Fragments.SerieFragment"
+        android:label="SerieFragment" />
 </navigation>
