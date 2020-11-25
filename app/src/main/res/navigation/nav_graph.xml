@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.kotlin.marvelgeek.FavoriteFragment"
+        android:name="com.kotlin.marvelgeek.Fragments.FavoriteFragment"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" >
         <action
