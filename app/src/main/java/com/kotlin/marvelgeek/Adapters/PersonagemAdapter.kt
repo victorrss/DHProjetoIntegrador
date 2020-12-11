@@ -1,4 +1,4 @@
-package com.kotlin.marvelgeek.model
+package com.kotlin.marvelgeek.Adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.kotlin.marvelgeek.model.Personagem
 import com.kotlin.marvelgeek.R
 import kotlinx.android.synthetic.main.card_home_personagem.view.*
 

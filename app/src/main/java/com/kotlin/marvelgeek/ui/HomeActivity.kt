@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.model.Personagem
-import com.kotlin.marvelgeek.model.PersonagemAdapter
+import com.kotlin.marvelgeek.Adapters.PersonagemAdapter
 import kotlinx.android.synthetic.main.activity_home.*
 
 

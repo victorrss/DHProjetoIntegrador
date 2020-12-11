@@ -96,7 +96,7 @@
     </fragment>
     <fragment
         android:id="@+id/authorFragment"
-        android:name="com.kotlin.marvelgeek.AuthorFragment"
+        android:name="com.kotlin.marvelgeek.Fragments.AuthorFragment"
         android:label="AuthorFragment" />
     <fragment
         android:id="@+id/serieFragment"

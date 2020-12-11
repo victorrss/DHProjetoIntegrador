@@ -1,4 +1,4 @@
-package com.kotlin.marvelgeek.model
+package com.kotlin.marvelgeek.Adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.kotlin.marvelgeek.model.Event
 import com.kotlin.marvelgeek.R
 
 class EventAdapter(
@@ -15,13 +16,13 @@ class EventAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): EventAdapter.ViewHolderEvent {
+    ): ViewHolderEvent {
         return ViewHolderEvent(
             LayoutInflater.from(parent.context).inflate(R.layout.item_events, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: EventAdapter.ViewHolderEvent, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolderEvent, position: Int) {
         var event: Event = eventList[position]
 
         holder.eventIvImage.setImageResource(event.image)

@@ -1,4 +1,4 @@
-package com.kotlin.marvelgeek.model
+package com.kotlin.marvelgeek.Adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.kotlin.marvelgeek.model.Serie
 import com.kotlin.marvelgeek.R
 
 class SerieAdapter(
@@ -21,7 +22,7 @@ class SerieAdapter(
         )
     }
 
-    override fun onBindViewHolder(holder: SerieAdapter.ViewHolderSerie, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolderSerie, position: Int) {
         var serie: Serie = serieList[position]
 
         holder.serieIvImage.setImageResource(serie.image)

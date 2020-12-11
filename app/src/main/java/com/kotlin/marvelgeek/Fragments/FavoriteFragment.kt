@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kotlin.marvelgeek.FavoriteAdapter
+import com.kotlin.marvelgeek.Adapters.FavoriteAdapter
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.model.Personagem
 import kotlinx.android.synthetic.main.fragment_favorite.*
@@ -71,7 +71,8 @@ class FavoriteFragment : Fragment(),
     }
 
     // Retorna uma lista de favoritos fixa
-    fun getAllFavorites() = arrayListOf<Personagem>(Personagem(
+    fun getAllFavorites() = arrayListOf<Personagem>(
+        Personagem(
             1,
         R.drawable.spiderman,
             "Homem-Aranha",
@@ -100,7 +101,8 @@ class FavoriteFragment : Fragment(),
                 R.drawable.batman,
                     "Batman",
                     "Ai você fala o seguinte: \"- Mas vocês acabaram isso?\" Vou te falar: -\"Não, está em andamento!\" Tem obras que \"vai\" durar pra depois de 2010. Agora, por isso, nós já não desenhamos, não começamos a fazer projeto do que nós \"podêmo fazê\"? 11, 12, 13, 14... Por que é que não?"
-            ))
+            )
+    )
 
 
 }

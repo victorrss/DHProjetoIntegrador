@@ -1,7 +1,8 @@
-package com.kotlin.marvelgeek
+package com.kotlin.marvelgeek.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.kotlin.marvelgeek.R
 import kotlinx.android.synthetic.main.activity_author.*
 
 class AuthorActivity : AppCompatActivity() {

@@ -1,13 +1,10 @@
-package com.kotlin.marvelgeek
+package com.kotlin.marvelgeek.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
+import com.kotlin.marvelgeek.R
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var navController: NavController

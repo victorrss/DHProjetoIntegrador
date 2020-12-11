@@ -1,4 +1,4 @@
-package com.kotlin.marvelgeek.model
+package com.kotlin.marvelgeek.Adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.kotlin.marvelgeek.model.Storie
 import com.kotlin.marvelgeek.R
 
 class StorieAdapter(
@@ -21,7 +22,7 @@ class StorieAdapter(
         )
     }
 
-    override fun onBindViewHolder(holder: StorieAdapter.ViewHolderStorie, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolderStorie, position: Int) {
         var storie: Storie = storieList[position]
 
         holder.storieIvImage.setImageResource(storie.image)

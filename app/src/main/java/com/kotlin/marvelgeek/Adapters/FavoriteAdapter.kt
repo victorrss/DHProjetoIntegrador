@@ -1,15 +1,13 @@
-package com.kotlin.marvelgeek
+package com.kotlin.marvelgeek.Adapters
 
-import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.kotlin.marvelgeek.model.Personagem
+import com.kotlin.marvelgeek.R
 import kotlinx.android.synthetic.main.card_home_personagem.view.*
 import java.util.*
 

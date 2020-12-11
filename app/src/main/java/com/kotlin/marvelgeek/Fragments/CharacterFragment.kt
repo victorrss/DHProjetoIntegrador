@@ -1,20 +1,22 @@
 package com.kotlin.marvelgeek.Fragments
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kotlin.marvelgeek.EventActivity
+import com.kotlin.marvelgeek.Adapters.ComicAdapter
+import com.kotlin.marvelgeek.Adapters.EventAdapter
+import com.kotlin.marvelgeek.Adapters.SerieAdapter
+import com.kotlin.marvelgeek.Adapters.StorieAdapter
+import com.kotlin.marvelgeek.model.Comic
+import com.kotlin.marvelgeek.model.Event
+import com.kotlin.marvelgeek.model.Serie
+import com.kotlin.marvelgeek.model.Storie
 import com.kotlin.marvelgeek.R
-import com.kotlin.marvelgeek.model.*
-import kotlinx.android.synthetic.main.activity_character.*
 import kotlinx.android.synthetic.main.activity_character.view.*
-import kotlinx.android.synthetic.main.activity_home.view.*
 import kotlinx.android.synthetic.main.activity_home.view.abHome
 
 class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic, StorieAdapter.onClickListenerStorie, EventAdapter.onClickListenerEvent, SerieAdapter.onClickListenerSerie {

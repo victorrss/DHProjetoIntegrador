@@ -1,10 +1,11 @@
-package com.kotlin.marvelgeek
+package com.kotlin.marvelgeek.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.kotlin.marvelgeek.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
