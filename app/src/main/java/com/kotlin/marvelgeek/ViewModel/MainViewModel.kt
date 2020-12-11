@@ -8,7 +8,10 @@ import com.kotlin.marvelgeek.Entities.CreatorID
 import com.kotlin.marvelgeek.Entities.EventC
 import com.kotlin.marvelgeek.Entities.SerieC
 import com.kotlin.marvelgeek.R
+import com.kotlin.marvelgeek.model.Comic
+import com.kotlin.marvelgeek.model.Event
 import com.kotlin.marvelgeek.model.Personagem
+import com.kotlin.marvelgeek.model.Serie
 import com.kotlin.marvelgeek.models.Character
 import com.kotlin.marvelgeek.models.ComicC
 import com.kotlin.marvelgeek.models.apiPrivateKey
@@ -27,6 +30,10 @@ class MainViewModel(repository: Repository): ViewModel() {
     val listEvent = MutableLiveData<ArrayList<EventC>>()
     val listSerie = MutableLiveData<ArrayList<SerieC>>()
     val author = MutableLiveData<CreatorID>()
+    val charecter = MutableLiveData<Character>()
+    val comic = MutableLiveData<ComicC>()
+    val event = MutableLiveData<EventC>()
+    val serie = MutableLiveData<SerieC>()
 
     // --------------------------- Tela Home ----------------------//
     // Personagem tela Home
@@ -50,7 +57,18 @@ class MainViewModel(repository: Repository): ViewModel() {
         return error
     }
 
-
+    fun setCharacter(character: Character) {
+        charecter.value = character
+    }
+    fun setComic(comicC: ComicC) {
+        comic.value = comicC
+    }
+    fun setEvent(eventC: EventC) {
+        event.value = eventC
+    }
+    fun setSerie(serieC: SerieC) {
+        serie.value = serieC
+    }
 
     // Personagem tela Favorito (Database)
     fun getFavorite(): String?{

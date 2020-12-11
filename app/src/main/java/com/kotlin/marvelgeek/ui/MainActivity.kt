@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_host)
         viewModel
-        viewModel.getCharacter(20, 2)
+        viewModel.getCharacter(50, 0)
     }
 
 

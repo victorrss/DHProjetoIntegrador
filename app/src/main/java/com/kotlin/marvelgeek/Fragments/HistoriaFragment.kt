@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.kotlin.marvelgeek.R
+import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.ComicC
 import com.kotlin.marvelgeek.models.CreatorComic
 import com.kotlin.marvelgeek.models.ItemComic
@@ -19,17 +21,16 @@ import kotlinx.android.synthetic.main.layout_historia.view.*
 
 class HistoriaFragment : Fragment() {
 
+
+    private val viewModel: MainViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_historia, container, false)
-        var mBundle =  Bundle()
         var autor: ItemComic? = null
-        if(mBundle != null) {
-            mBundle = requireArguments()
-        }
-        val comic =  mBundle.getSerializable("comic") as ComicC
+        val comic =  viewModel.comic.value!!
         (activity as AppCompatActivity).supportActionBar?.setTitle("Marvel Geek")
 
 

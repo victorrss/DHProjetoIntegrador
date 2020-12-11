@@ -121,9 +121,7 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
 
     override fun OnClickItem(position: Int) {
         val character = viewModel.listCharacter.value!!.get(position)
-        val bundle = Bundle()
-        bundle.putSerializable("character", character)
-        arguments = bundle
-        findNavController().navigate(R.id.action_homeFragment2_to_characterFragment, bundle)
+        viewModel.setCharacter(character)
+        findNavController().navigate(R.id.action_homeFragment2_to_characterFragment )
     }
 }

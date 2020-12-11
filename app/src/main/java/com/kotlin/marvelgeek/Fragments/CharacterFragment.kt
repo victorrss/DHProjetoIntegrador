@@ -46,15 +46,12 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_character, container, false)
-        var mBundle =  Bundle()
-        if(mBundle != null) {
-            mBundle = requireArguments()
-        }
-        var character =  mBundle.getSerializable("character") as Character
-        (activity as AppCompatActivity).supportActionBar?.setTitle(character.name)
+
+        var character =  viewModel.charecter.value
+        (activity as AppCompatActivity).supportActionBar?.setTitle(character!!.name)
 
 
-        Picasso.get().load("${character.thumbnail.path}.${character.thumbnail.extension}")
+        Picasso.get().load("${character!!.thumbnail.path}.${character!!.thumbnail.extension}")
             .fit()
             .into(view.chaActIvHero)
 
@@ -126,27 +123,21 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
 
     override fun onClickComic(position: Int) {
         val comic = viewModel.listComic.value!!.get(position)
-        val bundle = Bundle()
-        bundle.putSerializable("comic", comic)
-        arguments = bundle
-        findNavController().navigate(R.id.action_characterFragment_to_historiaFragment,bundle)
+       viewModel.setComic(comic)
+        findNavController().navigate(R.id.action_characterFragment_to_historiaFragment)
     }
 
     override fun onClickEvent(position: Int) {
         val event = viewModel.listEvent.value!!.get(position)
-        val bundle = Bundle()
-        bundle.putSerializable("event", event)
-        arguments = bundle
-        findNavController().navigate(R.id.action_characterFragment_to_eventFragment,bundle)
+        viewModel.setEvent(event)
+        findNavController().navigate(R.id.action_characterFragment_to_eventFragment)
     }
 
 
     override fun onClickSerie(position: Int) {
         val serie = viewModel.listSerie.value!!.get(position)
-        val bundle = Bundle()
-        bundle.putSerializable("serie", serie)
-        arguments = bundle
-        findNavController().navigate(R.id.action_characterFragment_to_serieFragment,bundle)
+        viewModel.setSerie(serie)
+        findNavController().navigate(R.id.action_characterFragment_to_serieFragment)
     }
 
 //    override fun onClickStorie(position: Int) {

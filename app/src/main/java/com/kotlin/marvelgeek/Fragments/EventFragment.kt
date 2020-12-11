@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.activityViewModels
 import com.kotlin.marvelgeek.Entities.EventC
 import com.kotlin.marvelgeek.R
+import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.ComicC
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_character.view.*
@@ -20,17 +22,16 @@ class EventFragment : Fragment() {
 
     // listaHerois: List<String> = getListaHerois()
     // listaCriadores: List<String> = getListaCriadores()
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_event, container, false)
-        var mBundle =  Bundle()
-        if(mBundle != null) {
-            mBundle = requireArguments()
-        }
+
+
         (activity as AppCompatActivity).supportActionBar?.setTitle("Marvel Geek")
-        val event =  mBundle.getSerializable("event") as EventC
+        val event =  viewModel.event.value!!
 
         Picasso.get().load("${event.thumbnail.path}.${event.thumbnail.extension}")
             .fit()

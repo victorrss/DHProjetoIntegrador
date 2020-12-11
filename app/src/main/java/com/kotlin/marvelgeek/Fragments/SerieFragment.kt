@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.activityViewModels
 import com.kotlin.marvelgeek.Entities.SerieC
 import com.kotlin.marvelgeek.R
+import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.ComicC
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_series.view.*
@@ -17,17 +19,15 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class SerieFragment : Fragment() {
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_serie, container, false)
-        var mBundle =  Bundle()
-        if(mBundle != null) {
-            mBundle = requireArguments()
-        }
-        val serie =  mBundle.getSerializable("serie") as SerieC
+
+        val serie =  viewModel.serie.value!!
         (activity as AppCompatActivity).supportActionBar?.setTitle("Marvel Geek")
 
         if (serie.modified != null){
