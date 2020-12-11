@@ -77,10 +77,12 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
 
 
         viewModel.listCharacter.observe(viewLifecycleOwner){
-            it.forEach {
+            //it.forEach {
+            // Comentei porque na view estava aparecendo um nome e no vetor estava outro nome,
+            // acho que esse filtro precisa estar no view model
                 adapter.addListCharacter(it)
 
-            }
+            //}
 
         }
     }

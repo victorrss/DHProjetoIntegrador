@@ -1,5 +1,7 @@
 package com.kotlin.marvelgeek.services
 
+import com.kotlin.marvelgeek.Entities.ResEvent
+import com.kotlin.marvelgeek.Entities.ResSerie
 import com.kotlin.marvelgeek.models.ResCharacter
 import com.kotlin.marvelgeek.models.ResComic
 import retrofit2.Retrofit
@@ -27,22 +29,22 @@ interface Repository {
         @Query("hash") p4: String
     ): ResComic
 
-//    @GET("characters/{id}/events")
-//    suspend fun getResultEvents(
-//        @Path("id") p1: Long,
-//        @Query("ts") p2: String,
-//        @Query("apikey") p3: String,
-//        @Query("hash") p4: String
-//    ): ResEvent
-//
-//    @GET("characters/{id}/series")
-//    suspend fun getResultSeries(
-//        @Path("id") p1: Long,
-//        @Query("ts") p2: String,
-//        @Query("apikey") p3: String,
-//        @Query("hash") p4: String
-//    ): ResSerie
-//
+    @GET("characters/{id}/events")
+    suspend fun getResultEvents(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResEvent
+
+    @GET("characters/{id}/series")
+    suspend fun getResultSeries(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResSerie
+
 //    @GET("characters/{id}/stories")
 //    suspend fun getResultStories(
 //        @Path("id") p1: Long,

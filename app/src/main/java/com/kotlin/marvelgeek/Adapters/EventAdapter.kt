@@ -1,18 +1,22 @@
 package com.kotlin.marvelgeek.Adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.kotlin.marvelgeek.Entities.EventC
 import com.kotlin.marvelgeek.model.Event
 import com.kotlin.marvelgeek.R
+import com.kotlin.marvelgeek.models.ComicC
+import com.squareup.picasso.Picasso
 
-class EventAdapter(
-    private val eventList: ArrayList<Event>,
-    val listener: onClickListenerEvent
-) : RecyclerView.Adapter<EventAdapter.ViewHolderEvent>() {
+class EventAdapter(val listener: onClickListenerEvent) : RecyclerView.Adapter<EventAdapter.ViewHolderEvent>() {
+
+    var listEvent = ArrayList<EventC>()
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -23,13 +27,21 @@ class EventAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolderEvent, position: Int) {
-        var event: Event = eventList[position]
+        var event: EventC = listEvent[position]
 
-        holder.eventIvImage.setImageResource(event.image)
+        Picasso.get().load("${event.thumbnail.path}.${event.thumbnail.extension}")
+            .fit()
+            .into(holder.eventIvImage)
         holder.eventTvTitle.text = event.title
     }
 
-    override fun getItemCount(): Int = eventList.size
+    override fun getItemCount(): Int = listEvent.size
+
+    fun addListEvent(list: ArrayList<EventC>){
+        listEvent = list
+        Log.i("Adapter",listEvent.toString())
+        notifyDataSetChanged()
+    }
 
     interface onClickListenerEvent {
         fun onClickEvent(position: Int)

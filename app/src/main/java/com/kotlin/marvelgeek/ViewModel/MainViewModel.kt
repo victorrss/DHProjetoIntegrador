@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.kotlin.marvelgeek.Entities.EventC
+import com.kotlin.marvelgeek.Entities.SerieC
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.model.Personagem
 import com.kotlin.marvelgeek.models.Character
@@ -21,7 +23,8 @@ class MainViewModel(repository: Repository): ViewModel() {
     val listCharacter = MutableLiveData<ArrayList<Character>>()
     val listFavorite = MutableLiveData<ArrayList<Personagem>>()
     val listComic = MutableLiveData<ArrayList<ComicC>>()
-    var auxListComic = arrayListOf<ComicC>()
+    val listEvent = MutableLiveData<ArrayList<EventC>>()
+    val listSerie = MutableLiveData<ArrayList<SerieC>>()
 
     // --------------------------- Tela Home ----------------------//
     // Personagem tela Home
@@ -80,9 +83,51 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 listComic.value = resultado.data.results
+                //Log.i("View Model",listComic.value.toString())
+            }catch (e: Exception){
+                //Log.e("getComic",e.toString())
+                error = e.toString()
+            }
+        }
+        return error
+    }
+
+    fun getEvent(id: Long): String?{
+        var error: String? = null
+        val ts = timeStamp()
+        viewModelScope.launch {
+            try {
+                val resultado = repository.getResultEvents(
+                    id,
+                    ts,
+                    apiPublicKey,
+                    "${ts}$apiPrivateKey$apiPublicKey".md5()
+                )
+                listEvent.value = resultado.data.results
+                //Log.i("View Model",listComic.value.toString())
+            }catch (e: Exception){
+                //Log.e("getEvent",e.toString())
+                error = e.toString()
+            }
+        }
+        return error
+    }
+
+    fun getSerie(id: Long): String?{
+        var error: String? = null
+        val ts = timeStamp()
+        viewModelScope.launch {
+            try {
+                val resultado = repository.getResultSeries(
+                    id,
+                    ts,
+                    apiPublicKey,
+                    "${ts}$apiPrivateKey$apiPublicKey".md5()
+                )
+                listSerie.value = resultado.data.results
                 Log.i("View Model",listComic.value.toString())
             }catch (e: Exception){
-                Log.e("getComic",e.toString())
+                Log.e("getSerie",e.toString())
                 error = e.toString()
             }
         }

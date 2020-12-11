@@ -1,18 +1,20 @@
 package com.kotlin.marvelgeek.Adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.kotlin.marvelgeek.model.Serie
+import com.kotlin.marvelgeek.Entities.SerieC
 import com.kotlin.marvelgeek.R
+import com.squareup.picasso.Picasso
 
-class SerieAdapter(
-    private val serieList: ArrayList<Serie>,
-    val listener: onClickListenerSerie
-) : RecyclerView.Adapter<SerieAdapter.ViewHolderSerie>() {
+class SerieAdapter(val listener: onClickListenerSerie) : RecyclerView.Adapter<SerieAdapter.ViewHolderSerie>() {
+
+    var listSerie = ArrayList<SerieC>()
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -23,13 +25,21 @@ class SerieAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolderSerie, position: Int) {
-        var serie: Serie = serieList[position]
+        var serie = listSerie[position]
 
-        holder.serieIvImage.setImageResource(serie.image)
+        Picasso.get().load("${serie.thumbnail.path}.${serie.thumbnail.extension}")
+            .fit()
+            .into(holder.serieIvImage)
         holder.serieTvTitle.text = serie.title
     }
 
-    override fun getItemCount(): Int = serieList.size
+    override fun getItemCount(): Int = listSerie.size
+
+    fun addListSerie(list: ArrayList<SerieC>){
+        listSerie = list
+        Log.i("Adapter",listSerie.toString())
+        notifyDataSetChanged()
+    }
 
     interface onClickListenerSerie {
         fun onClickSerie(position: Int)

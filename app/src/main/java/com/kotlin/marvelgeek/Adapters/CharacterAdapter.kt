@@ -49,13 +49,8 @@ class CharacterAdapter(
                 }catch (e:Exception) {
                     Log.e("Tag", e.toString())
                 }
-
-
-
             }
             override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
-
-
             }
 
             override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {}
@@ -63,21 +58,17 @@ class CharacterAdapter(
 
         holder.nome.text = character.name
         holder.descricao.text = character.description
-
-
-
-
     }
 
     override fun getItemCount() = listCharacter.size
 
-    fun addListCharacter(list: Character){
-        if(list.description != "") {
-            listCharacter.add(list)
+    fun addListCharacter(list: ArrayList<Character>){
+        //if(list.description != "") {
+            listCharacter.addAll(list)
             notifyDataSetChanged()
-        } else {
-            notifyDataSetChanged()
-        }
+        //} else {
+        //    notifyDataSetChanged()
+        //}
     }
 
     interface OnClickItemListener {

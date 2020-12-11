@@ -29,12 +29,14 @@ import com.kotlin.marvelgeek.models.Character
 import com.kotlin.marvelgeek.services.repository
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_character.view.*
+import kotlinx.android.synthetic.main.activity_character.view.fbQuiz
+import kotlinx.android.synthetic.main.activity_home.view.*
 import kotlinx.android.synthetic.main.activity_home.view.abHome
 
-class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic{
+class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
+    EventAdapter.onClickListenerEvent,
+    SerieAdapter.onClickListenerSerie {
     //StorieAdapter.onClickListenerStorie,
-    //EventAdapter.onClickListenerEvent,
-    //SerieAdapter.onClickListenerSerie {
 
     private val viewModel: MainViewModel by activityViewModels()
 
@@ -58,23 +60,58 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic{
 
         view.chaActTvBio.text = character.description
 
+        // Comic--------------------------------------------------------------------------------------------------------------
         var adapterComic = ComicAdapter(this)
         view.chaActRvComics.adapter = adapterComic
         view.chaActRvComics.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL , false)
-
-        // Comic
-        var error = viewModel.getComic(character.id)
-        if (error != null){
+        view.chaActRvComics.setHasFixedSize(true)
+        var errorComic = viewModel.getComic(character.id)
+        if (errorComic != null){
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Server problem:")
             builder.setIcon(R.drawable.ic_info)
-            builder.setMessage(error)
+            builder.setMessage(errorComic)
             val dialog: AlertDialog = builder.create()
             dialog.show()
         }
-
         viewModel.listComic.observe(viewLifecycleOwner){
             adapterComic.addListComic(it)
+        }
+
+        // Event--------------------------------------------------------------------------------------------------------------
+        var adapterEvent = EventAdapter(this)
+        view.chaActRvEvents.adapter = adapterEvent
+        view.chaActRvEvents.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL , false)
+        view.chaActRvEvents.setHasFixedSize(true)
+        var errorEvent = viewModel.getEvent(character.id)
+        if (errorEvent != null){
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Server problem:")
+            builder.setIcon(R.drawable.ic_info)
+            builder.setMessage(errorEvent)
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+        }
+        viewModel.listEvent.observe(viewLifecycleOwner){
+            adapterEvent.addListEvent(it)
+        }
+
+        // Serie--------------------------------------------------------------------------------------------------------------
+        var adapterSerie = SerieAdapter(this)
+        view.chaActRvSeries.adapter = adapterSerie
+        view.chaActRvSeries.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL , false)
+        view.chaActRvSeries.setHasFixedSize(true)
+        var errorSeries = viewModel.getSerie(character.id)
+        if (errorSeries != null){
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Server problem:")
+            builder.setIcon(R.drawable.ic_info)
+            builder.setMessage(errorEvent)
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+        }
+        viewModel.listSerie.observe(viewLifecycleOwner){
+            adapterSerie.addListSerie(it)
         }
 
 
@@ -104,20 +141,32 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic{
     }
 
     override fun onClickComic(position: Int) {
-        //findNavController().navigate(R.id.action_characterFragment_to_historiaFragment)
+        val comic = viewModel.listComic.value!!.get(position)
+        val bundle = Bundle()
+        bundle.putSerializable("comic", comic)
+        arguments = bundle
+        findNavController().navigate(R.id.action_characterFragment_to_historiaFragment,bundle)
     }
 
 
 
-//    override fun onClickEvent(position: Int) {
-//        //findNavController().navigate(R.id.action_characterFragment_to_eventFragment)
-//    }
-//
-//
-//    override fun onClickSerie(position: Int) {
-//        //findNavController().navigate(R.id.action_characterFragment_to_serieFragment)
-//    }
-//
+    override fun onClickEvent(position: Int) {
+        val event = viewModel.listEvent.value!!.get(position)
+        val bundle = Bundle()
+        bundle.putSerializable("event", event)
+        arguments = bundle
+        findNavController().navigate(R.id.action_characterFragment_to_eventFragment,bundle)
+    }
+
+
+    override fun onClickSerie(position: Int) {
+        val serie = viewModel.listSerie.value!!.get(position)
+        val bundle = Bundle()
+        bundle.putSerializable("serie", serie)
+        arguments = bundle
+        findNavController().navigate(R.id.action_characterFragment_to_serieFragment,bundle)
+    }
+
 //    override fun onClickStorie(position: Int) {
 //        //findNavController().navigate(R.id.action_characterFragment_to_serieFragment)
 //    }
