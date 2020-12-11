@@ -24,9 +24,9 @@ class EventActivity : AppCompatActivity() {
             tvListaCriadores.append("-" + it + "\n")
         }
 
-        tbEvento.setNavigationOnClickListener {
-            finish()
-        }
+        //tbEvento.setNavigationOnClickListener {
+        //    finish()
+        //}
     }
 
     private fun getListaHerois(): ArrayList<String>{

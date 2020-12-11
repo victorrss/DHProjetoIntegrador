@@ -40,7 +40,7 @@
             android:layout_marginTop="350dp"
             android:layout_marginHorizontal="20dp"
             android:text="Entrar Como Visitante"
-            android:backgroundTint=""
+            android:backgroundTint="@color/darkgray"
             android:textColor="@color/white" />
 
         <Button

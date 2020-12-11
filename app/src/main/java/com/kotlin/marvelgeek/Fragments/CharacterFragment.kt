@@ -7,9 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.marvelgeek.Adapters.ComicAdapter
@@ -21,6 +24,7 @@ import com.kotlin.marvelgeek.model.Event
 import com.kotlin.marvelgeek.model.Serie
 import com.kotlin.marvelgeek.model.Storie
 import com.kotlin.marvelgeek.R
+import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.Character
 import com.kotlin.marvelgeek.services.repository
 import com.squareup.picasso.Picasso
@@ -32,13 +36,7 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic{
     //EventAdapter.onClickListenerEvent,
     //SerieAdapter.onClickListenerSerie {
 
-    val viewModel by viewModels<MainViewModel>{
-        object : ViewModelProvider.Factory{
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                return MainViewModel(repository) as T
-            }
-        }
-    }
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,24 +59,20 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic{
         view.chaActTvBio.text = character.description
 
         var adapterComic = ComicAdapter(this)
+        view.chaActRvComics.adapter = adapterComic
         view.chaActRvComics.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL , false)
 
         // Comic
-        character.comics.items.forEach {
-            var id = it.resourceURI.split("/")
-            //Atualizando os valores da lista
-            var error = viewModel.getComic(id[id.size-1].toLong())
-            if (error != null){
-                val builder = AlertDialog.Builder(context)
-                builder.setTitle("Server problem:")
-                builder.setIcon(R.drawable.ic_info)
-                builder.setMessage(error)
-                val dialog: AlertDialog = builder.create()
-                dialog.show()
-            }
+        var error = viewModel.getComic(character.id)
+        if (error != null){
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Server problem:")
+            builder.setIcon(R.drawable.ic_info)
+            builder.setMessage(error)
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
         }
 
-        while(viewModel.viewModelScope.isActive);
         viewModel.listComic.observe(viewLifecycleOwner){
             adapterComic.addListComic(it)
         }

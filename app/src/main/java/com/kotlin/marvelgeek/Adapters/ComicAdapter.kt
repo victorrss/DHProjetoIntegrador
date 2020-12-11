@@ -8,12 +8,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kotlin.marvelgeek.R
-import com.kotlin.marvelgeek.models.Comic
+import com.kotlin.marvelgeek.models.ComicC
 import com.squareup.picasso.Picasso
 
 class ComicAdapter(val listener: onClickListenerComic) : RecyclerView.Adapter<ComicAdapter.ViewHolderComic>() {
 
-    var listComic = ArrayList<Comic>()
+    var listComic = ArrayList<ComicC>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -25,7 +25,7 @@ class ComicAdapter(val listener: onClickListenerComic) : RecyclerView.Adapter<Co
     }
 
     override fun onBindViewHolder(holder: ComicAdapter.ViewHolderComic, position: Int) {
-        var comic: com.kotlin.marvelgeek.models.Comic = listComic[position]
+        var comic: ComicC = listComic[position]
 
         Picasso.get().load("${comic.thumbnail.path}.${comic.thumbnail.extension}")
             .fit()
@@ -35,9 +35,9 @@ class ComicAdapter(val listener: onClickListenerComic) : RecyclerView.Adapter<Co
 
     override fun getItemCount(): Int = listComic.size
 
-    fun addListComic(list: ArrayList<com.kotlin.marvelgeek.models.Comic>){
-        Log.i("TAG3",list.toString())
-        listComic.addAll(list)
+    fun addListComic(list: ArrayList<ComicC>){
+        listComic = list
+        Log.i("Adapter",listComic.toString())
         notifyDataSetChanged()
     }
 

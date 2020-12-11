@@ -10,7 +10,7 @@ data class ResCharacter(val code: Int,
 
 data class DataCharacter(val results: ArrayList<Character>)
 
-data class Character(val id: Int,
+data class Character(val id: Long,
                      val name: String,
                      val description: String,
                      val urls: ArrayList<URL>,

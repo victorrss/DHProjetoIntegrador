@@ -1,6 +1,5 @@
 package com.kotlin.marvelgeek.ViewModel
 
-import android.graphics.Bitmap
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.model.Personagem
 import com.kotlin.marvelgeek.models.Character
-import com.kotlin.marvelgeek.models.Comic
+import com.kotlin.marvelgeek.models.ComicC
 import com.kotlin.marvelgeek.models.apiPrivateKey
 import com.kotlin.marvelgeek.models.apiPublicKey
 import com.kotlin.marvelgeek.services.Repository
@@ -21,8 +20,8 @@ class MainViewModel(repository: Repository): ViewModel() {
 
     val listCharacter = MutableLiveData<ArrayList<Character>>()
     val listFavorite = MutableLiveData<ArrayList<Personagem>>()
-    val listComic = MutableLiveData<ArrayList<Comic>>()
-    var auxListComic = arrayListOf<Comic>()
+    val listComic = MutableLiveData<ArrayList<ComicC>>()
+    var auxListComic = arrayListOf<ComicC>()
 
     // --------------------------- Tela Home ----------------------//
     // Personagem tela Home
@@ -80,11 +79,8 @@ class MainViewModel(repository: Repository): ViewModel() {
                     apiPublicKey,
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
-                if(listComic.value == null)
-                    listComic.value = arrayListOf(resultado.data.results[0])
-                else
-                    listComic.value!!.add(resultado.data.results[0])
-                Log.i("getComic",listComic.value.toString())
+                listComic.value = resultado.data.results
+                Log.i("View Model",listComic.value.toString())
             }catch (e: Exception){
                 Log.e("getComic",e.toString())
                 error = e.toString()
