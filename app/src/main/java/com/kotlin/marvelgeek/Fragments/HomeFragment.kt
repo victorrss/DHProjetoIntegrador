@@ -4,10 +4,7 @@ import android.app.AlertDialog
 import android.app.SearchManager
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.drawable.Drawable
-import android.icu.number.NumberFormatter.with
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -23,12 +20,10 @@ import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.CharacterAdapter
 import com.kotlin.marvelgeek.services.repository
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_home.view.*
-import java.lang.Exception
 
 
-@Suppress("DEPRECATION")
+
 class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     var error: String? = null
     val viewModel by viewModels<MainViewModel>{
@@ -40,11 +35,11 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     }
 
     private lateinit var adapter: CharacterAdapter
-    fun createPaletteSync(bitmap: Bitmap): Palette = Palette.from(bitmap).generate()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (activity as AppCompatActivity).supportActionBar?.show()
-         error = viewModel.getCharacter(30, 2)
+         error = viewModel.getCharacter(20, 2)
 
         setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
@@ -93,8 +88,10 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         view.rvHome.setHasFixedSize(true)
 
         viewModel.listCharacter.observe(viewLifecycleOwner){
+            it.forEach {
+                adapter.addListCharacter(it)
+            }
 
-            adapter.addListCharacter(it)
         }
 
         //Atualizando os valores da lista

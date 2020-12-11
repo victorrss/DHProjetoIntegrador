@@ -81,9 +81,10 @@ class CharacterAdapter(
 
     override fun getItemCount() = listCharacter.size
 
-    fun addListCharacter(list: ArrayList<Character>){
-
-        listCharacter.addAll(list)
+    fun addListCharacter(list: Character){
+        if(list.description != "") {
+            listCharacter.add(list)
+        }
         notifyDataSetChanged()
     }
 
