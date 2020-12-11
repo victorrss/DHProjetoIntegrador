@@ -34,6 +34,7 @@ class AuthorFragment : Fragment() {
         if(mBundle != null) {
             mBundle = requireArguments()
         }
+        // Autor
         val autor =  mBundle.getSerializable("author") as ItemComic
         val id = autor.resourceURI.split("/")[autor.resourceURI.split("/").size - 1].toLong()
         (activity as AppCompatActivity).supportActionBar?.setTitle("Marvel Geek")
