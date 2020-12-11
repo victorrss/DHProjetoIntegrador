@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backgroundCharacter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
@@ -106,7 +107,7 @@
                 app:layout_constraintBottom_toTopOf="@id/chaActLlEvents"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/chaActLlComics"/>
+                app:layout_constraintTop_toBottomOf="@id/chaActLlComics" />
 
             <LinearLayout
                 android:id="@+id/chaActLlEvents"
@@ -196,12 +197,12 @@
             android:layout_gravity="bottom"
             android:backgroundTint="@color/marvelRed"
             android:clickable="true"
+            app:fabAlignmentMode="end"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/abhome_menu"
-            app:navigationIcon="@drawable/ic_favorite"
-            app:fabAlignmentMode="end"/>
+            app:navigationIcon="@drawable/ic_favorite" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fbQuiz"

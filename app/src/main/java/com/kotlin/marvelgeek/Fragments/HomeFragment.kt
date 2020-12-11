@@ -30,10 +30,14 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
 
     private lateinit var adapter: CharacterAdapter
 
+    override fun onAttach(context: Context) {
+        viewModel.getCharacter(100, 2)
+
+        super.onAttach(context)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (activity as AppCompatActivity).supportActionBar?.show()
-
         setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
     }
@@ -75,16 +79,6 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         view.rvHome.setLayoutManager(LinearLayoutManager(activity))
         view.rvHome.setHasFixedSize(true)
 
-
-        viewModel.listCharacter.observe(viewLifecycleOwner){
-            //it.forEach {
-            // Comentei porque na view estava aparecendo um nome e no vetor estava outro nome,
-            // acho que esse filtro precisa estar no view model
-                adapter.addListCharacter(it)
-
-            //}
-
-        }
     }
 
     override fun onCreateView(
@@ -94,9 +88,10 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-
-
-
+        viewModel.listCharacter.observe(viewLifecycleOwner){
+            adapter.addListCharacter(it)
+        }
+        
 
         //Atualizando os valores da lista
         if (error != null){

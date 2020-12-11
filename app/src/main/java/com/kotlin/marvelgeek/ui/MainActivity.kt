@@ -11,8 +11,6 @@ import com.kotlin.marvelgeek.ViewModel.MyViewModelFactory
 import com.kotlin.marvelgeek.services.repository
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var navController: NavController
-    private lateinit var appBarConfiguration: AppBarConfiguration
 
     private val viewModel: MainViewModel by viewModels {
         MyViewModelFactory(repository)
@@ -22,8 +20,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_host)
+
         viewModel
-        viewModel.getCharacter(50, 0)
     }
 
 

@@ -40,35 +40,18 @@ class CharacterAdapter(
 
         val character = listCharacter[position]
 
-        Picasso.get().load("${character.thumbnail.path}.${character.thumbnail.extension}").config(Bitmap.Config.RGB_565).into(object : com.squareup.picasso.Target {
-            override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
-                val vibrantSwatch = createPaletteSync(bitmap!!).vibrantSwatch
-                try{
-                    holder.imagem.setImageBitmap(bitmap)
-                    holder.background.setCardBackgroundColor(vibrantSwatch?.rgb!!)
-                }catch (e:Exception) {
-                    Log.e("Tag", e.toString())
-                }
-            }
-            override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
-            }
-
-            override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {}
-        })
-
         holder.nome.text = character.name
         holder.descricao.text = character.description
+        holder.imagem.setImageBitmap(character.thumb)
+        holder.background.setCardBackgroundColor(character.color)
     }
 
     override fun getItemCount() = listCharacter.size
 
     fun addListCharacter(list: ArrayList<Character>){
-        //if(list.description != "") {
             listCharacter.addAll(list)
             notifyDataSetChanged()
-        //} else {
-        //    notifyDataSetChanged()
-        //}
+
     }
 
     interface OnClickItemListener {
@@ -94,6 +77,5 @@ class CharacterAdapter(
     }
 
 
-    fun createPaletteSync(bitmap: Bitmap): Palette = Palette.from(bitmap).generate()
 
 }

@@ -1,9 +1,14 @@
 package com.kotlin.marvelgeek.ViewModel
 
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.palette.graphics.Palette
+import com.bumptech.glide.Glide
 import com.kotlin.marvelgeek.Entities.CreatorID
 import com.kotlin.marvelgeek.Entities.EventC
 import com.kotlin.marvelgeek.Entities.SerieC
@@ -18,6 +23,8 @@ import com.kotlin.marvelgeek.models.apiPrivateKey
 import com.kotlin.marvelgeek.models.apiPublicKey
 import com.kotlin.marvelgeek.services.Repository
 import com.kotlin.marvelgeek.services.repository
+import com.kotlin.marvelgeek.ui.MainActivity
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.launch
 import java.math.BigInteger
 import java.security.MessageDigest
@@ -49,7 +56,32 @@ class MainViewModel(repository: Repository): ViewModel() {
                         apiPublicKey,
                         "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
-                listCharacter.value = resultado.data.results
+               var array = arrayListOf<Character>()
+
+                resultado.data.results!!.forEach {
+
+                    if(it.description != ""){
+                        Picasso.get().load("${it.thumbnail.path}.${it.thumbnail.extension}").config(
+                            Bitmap.Config.RGB_565).into(object : com.squareup.picasso.Target {
+                            override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
+                                val vibrantSwatch = createPaletteSync(bitmap!!).vibrantSwatch
+                                try{
+                                    it.color = vibrantSwatch?.rgb!!
+                                    it.thumb = bitmap
+                                }catch (e: java.lang.Exception) {
+                                    Log.e("Tag", e.toString())
+                                }
+                            }
+                            override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
+                            }
+
+                            override fun onBitmapFailed(e: java.lang.Exception?, errorDrawable: Drawable?) {}
+                        })
+
+                        array.add(it)
+                    }
+              }
+                listCharacter.value = array
             }catch (e: Exception){
                 Log.e("getCharacter",e.toString())
             }
@@ -189,6 +221,9 @@ class MainViewModel(repository: Repository): ViewModel() {
         //Log.i("MD5",BigInteger(1, md.digest(toByteArray())).toString(16).padStart(32, '0'))
         return BigInteger(1, md.digest(toByteArray())).toString(16).padStart(32, '0')
     }
+
+    fun createPaletteSync(bitmap: Bitmap): Palette = Palette.from(bitmap).generate()
+
 
     // Retorna uma lista de favoritos fixa
     fun getAllFavorites() = arrayListOf(Personagem(
