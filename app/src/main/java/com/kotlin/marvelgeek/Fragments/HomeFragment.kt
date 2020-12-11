@@ -30,11 +30,6 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
 
     private lateinit var adapter: CharacterAdapter
 
-    override fun onAttach(context: Context) {
-        viewModel.getCharacter(100, 2)
-
-        super.onAttach(context)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (activity as AppCompatActivity).supportActionBar?.show()
@@ -91,7 +86,7 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         viewModel.listCharacter.observe(viewLifecycleOwner){
             adapter.addListCharacter(it)
         }
-        
+
 
         //Atualizando os valores da lista
         if (error != null){

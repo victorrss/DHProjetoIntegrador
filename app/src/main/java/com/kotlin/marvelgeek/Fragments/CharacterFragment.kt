@@ -55,8 +55,7 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
         var character =  viewModel.charecter.value
         view.backgroundCharacter.setBackgroundColor(character!!.color)
         (activity as AppCompatActivity).supportActionBar?.setTitle(character!!.name)
-        (activity as AppCompatActivity).supportActionBar?.setBackgroundDrawable(ColorDrawable(character.color))
-        requireActivity().getWindow().setStatusBarColor(character.color)
+       
 
 
 
