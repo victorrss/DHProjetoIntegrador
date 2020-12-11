@@ -45,15 +45,15 @@
 
 <!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
 
-    <ImageButton
+    <ImageView
         android:id="@+id/imComic"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="350dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fotoexemplo" />
+        app:srcCompat="@drawable/fotoexemplo"/>
 
     <TextView
         android:id="@+id/tvComic"
