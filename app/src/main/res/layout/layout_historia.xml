@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,6 +8,9 @@
     tools:context=".ui.MainActivity"
     android:background="@color/black">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 <!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
 <!--        android:id="@+id/clAppBar"-->
@@ -43,7 +46,7 @@
 <!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imComic"
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:scaleType="fitXY"
@@ -53,7 +56,7 @@
         app:srcCompat="@drawable/fotoexemplo" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvComic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -66,10 +69,10 @@
         android:textColor="@color/white"
         android:textSize="24dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton"
+        app:layout_constraintEnd_toEndOf="@+id/imComic"
         app:layout_constraintHorizontal_bias="0.681"
-        app:layout_constraintStart_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintStart_toStartOf="@+id/imComic"
+        app:layout_constraintTop_toBottomOf="@+id/imComic" />
 
     <TextView
         android:id="@+id/textView4"
@@ -82,7 +85,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/tvComic" />
 
     <TextView
         android:id="@+id/textView2"
@@ -95,10 +98,10 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/tvComic" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tvPenciller"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -109,7 +112,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvWriter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -121,7 +124,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tvComicDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -136,7 +139,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPenciller" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

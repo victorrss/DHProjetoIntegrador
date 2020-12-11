@@ -114,22 +114,6 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
             adapterSerie.addListSerie(it)
         }
 
-
-
-        //var adapterStorie = StorieAdapter(storieList, this)
-        //var adapterEvent = EventAdapter(eventList, this)
-        //var adapterSerie = SerieAdapter(serieList, this)
-
-        //view.chaActRvComics.adapter = adapterComic
-        //view.chaActRvEvents.adapter = adapterEvent
-        //view.chaActRvSeries.adapter = adapterSerie
-
-
-        //view.chaActRvEvents.layoutManager = LinearLayoutManager(activity,
-        //LinearLayoutManager.HORIZONTAL , false)
-        //view.chaActRvSeries.layoutManager = LinearLayoutManager(activity,
-        //LinearLayoutManager.HORIZONTAL , false)
-
         view.abHome.setNavigationOnClickListener {
             findNavController().navigate(R.id.action_characterFragment_to_favoriteFragment)
         }
@@ -147,8 +131,6 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
         arguments = bundle
         findNavController().navigate(R.id.action_characterFragment_to_historiaFragment,bundle)
     }
-
-
 
     override fun onClickEvent(position: Int) {
         val event = viewModel.listEvent.value!!.get(position)
