@@ -71,5 +71,4 @@ dependencies {
     implementation 'jp.wasabeef:picasso-transformations:2.2.1'
 
     implementation 'androidx.palette:palette-ktx:1.0.0'
-
 }

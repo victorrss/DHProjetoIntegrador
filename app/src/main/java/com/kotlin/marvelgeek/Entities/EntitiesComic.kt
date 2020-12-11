@@ -7,7 +7,7 @@ import kotlin.collections.ArrayList
 data class ResComic(val code: Int,
                     val data: DataComic)
 
-    data class DataComic(val results: ArrayList<Comic>)
+data class DataComic(val results: ArrayList<Comic>)
 
 data class Comic(val id: Int,
                  val title: String,
