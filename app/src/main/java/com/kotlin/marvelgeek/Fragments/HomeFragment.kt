@@ -9,37 +9,30 @@ import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
-import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.CharacterAdapter
-import com.kotlin.marvelgeek.services.repository
+
 import kotlinx.android.synthetic.main.activity_home.view.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+
 
 
 
 class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     var error: String? = null
-    val viewModel by viewModels<MainViewModel>{
-        object : ViewModelProvider.Factory{
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                return MainViewModel(repository) as T
-            }
-        }
-    }
+    private val viewModel: MainViewModel by activityViewModels()
 
     private lateinit var adapter: CharacterAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (activity as AppCompatActivity).supportActionBar?.show()
-         error = viewModel.getCharacter(20, 2)
 
         setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
@@ -74,6 +67,23 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        adapter = CharacterAdapter(this)
+        view.rvHome.adapter = adapter
+        view.rvHome.setLayoutManager(LinearLayoutManager(activity))
+        view.rvHome.setHasFixedSize(true)
+
+
+        viewModel.listCharacter.observe(viewLifecycleOwner){
+            it.forEach {
+                adapter.addListCharacter(it)
+
+            }
+
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -82,17 +92,9 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        adapter = CharacterAdapter(this)
-        view.rvHome.adapter = adapter
-        view.rvHome.setLayoutManager(LinearLayoutManager(activity))
-        view.rvHome.setHasFixedSize(true)
 
-        viewModel.listCharacter.observe(viewLifecycleOwner){
-            it.forEach {
-                adapter.addListCharacter(it)
-            }
 
-        }
+
 
         //Atualizando os valores da lista
         if (error != null){

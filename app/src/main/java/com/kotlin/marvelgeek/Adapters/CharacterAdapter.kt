@@ -40,12 +40,6 @@ class CharacterAdapter(
 
         val character = listCharacter[position]
 
-
-//        Picasso.get()
-//            .load("${character.thumbnail.path}.${character.thumbnail.extension}")
-//            .config(Bitmap.Config.RGB_565)
-//            .into(holder.imagem)
-
         Picasso.get().load("${character.thumbnail.path}.${character.thumbnail.extension}").config(Bitmap.Config.RGB_565).into(object : com.squareup.picasso.Target {
             override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
                 val vibrantSwatch = createPaletteSync(bitmap!!).vibrantSwatch
@@ -67,14 +61,10 @@ class CharacterAdapter(
             override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {}
         })
 
-
         holder.nome.text = character.name
         holder.descricao.text = character.description
 
-//        Picasso.get().load("$imagePath")
-//            .fit()
-//            .transform(CropCircleTransformation())
-//            .into(holder.imagem)
+
 
 
     }
@@ -84,8 +74,10 @@ class CharacterAdapter(
     fun addListCharacter(list: Character){
         if(list.description != "") {
             listCharacter.add(list)
+            notifyDataSetChanged()
+        } else {
+            notifyDataSetChanged()
         }
-        notifyDataSetChanged()
     }
 
     interface OnClickItemListener {
