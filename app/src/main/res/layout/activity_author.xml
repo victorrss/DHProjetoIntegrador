@@ -33,8 +33,9 @@
             <ImageView
                 android:id="@+id/ivAuthor"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:src="@drawable/ic_person" />
+                android:layout_height="350dp"
+                android:src="@drawable/ic_person"
+                android:scaleType="centerCrop"/>
 
             <TextView
                 android:id="@+id/tvAuthorName"

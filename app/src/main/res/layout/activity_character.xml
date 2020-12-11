@@ -19,12 +19,13 @@
             <ImageView
                 android:id="@+id/chaActIvHero"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="350dp"
                 android:src="@drawable/hulk_3"
                 app:layout_constraintBottom_toTopOf="@id/chaActLlBio"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:scaleType="centerCrop"/>
 
             <LinearLayout
                 android:id="@+id/chaActLlBio"
