@@ -53,6 +53,10 @@ class CharacterAdapter(
             notifyDataSetChanged()
 
     }
+    fun notifyAdapter(){
+        notifyDataSetChanged()
+
+    }
 
     interface OnClickItemListener {
         fun OnClickItem(position: Int)

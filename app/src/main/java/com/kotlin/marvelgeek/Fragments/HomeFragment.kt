@@ -80,13 +80,6 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        viewModel.listCharacter.observe(viewLifecycleOwner){
-            adapter.addListCharacter(it)
-        }
-        adapter = CharacterAdapter(this)
-        view.rvHome.adapter = adapter
-        view.rvHome.setLayoutManager(LinearLayoutManager(activity))
-        view.rvHome.setHasFixedSize(true)
 
         //Atualizando os valores da lista
         if (error != null){
@@ -107,6 +100,17 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         }
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        viewModel.listCharacter.observe(viewLifecycleOwner){
+            adapter.addListCharacter(it)
+        }
+        super.onViewCreated(view, savedInstanceState)
+        adapter = CharacterAdapter(this)
+        view.rvHome.adapter = adapter
+        view.rvHome.setLayoutManager(LinearLayoutManager(activity))
+        view.rvHome.setHasFixedSize(true)
     }
 
     override fun OnClickItem(position: Int) {
