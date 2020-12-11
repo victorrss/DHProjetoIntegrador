@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.models.ComicC
 import com.squareup.picasso.Picasso
@@ -26,7 +27,7 @@ class HistoriaFragment : Fragment() {
             mBundle = requireArguments()
         }
         val comic =  mBundle.getSerializable("comic") as ComicC
-        Log.i("ComicFragment",comic.toString())
+        (activity as AppCompatActivity).supportActionBar?.setTitle("Marvel Geek")
 
 
         Picasso.get().load("${comic.thumbnail.path}.${comic.thumbnail.extension}")

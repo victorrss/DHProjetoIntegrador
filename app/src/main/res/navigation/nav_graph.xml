@@ -72,6 +72,9 @@
         <action
             android:id="@+id/action_historiaFragment_to_quizFragment"
             app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_historiaFragment_to_authorFragment"
+            app:destination="@id/authorFragment" />
     </fragment>
     <fragment
         android:id="@+id/eventFragment"
