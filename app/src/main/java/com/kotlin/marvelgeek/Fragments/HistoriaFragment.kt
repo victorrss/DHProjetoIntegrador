@@ -7,8 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.models.ComicC
+import com.kotlin.marvelgeek.models.CreatorComic
+import com.kotlin.marvelgeek.models.ItemComic
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layout_historia.*
 import kotlinx.android.synthetic.main.layout_historia.view.*
@@ -16,13 +19,13 @@ import kotlinx.android.synthetic.main.layout_historia.view.*
 
 class HistoriaFragment : Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_historia, container, false)
         var mBundle =  Bundle()
+        var autor: ItemComic? = null
         if(mBundle != null) {
             mBundle = requireArguments()
         }
@@ -38,10 +41,18 @@ class HistoriaFragment : Fragment() {
         comic.creators.items.forEach {
             if(it.role == "penciller")
                 view.tvPenciller.text = it.name
-            else(it.role == "writer")
+            else if(it.role == "writer") {
                 view.tvWriter.text = it.name
+                autor = it
+            }
         }
 
+        view.tvWriter.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putSerializable("author", autor)
+            arguments = bundle
+            findNavController().navigate(R.id.action_historiaFragment_to_authorFragment,bundle)
+        }
         return view
     }
 

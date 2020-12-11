@@ -54,7 +54,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:gravity="left"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:inputType="textMultiLine"/>
 
             <TextView
@@ -66,7 +66,7 @@
                 android:gravity="left"
                 android:text="@string/authorAtualization"
                 android:textColor="@color/white"
-                android:textSize="15dp"
+                android:textSize="10dp"
                 android:inputType="textMultiLine"/>
 
 

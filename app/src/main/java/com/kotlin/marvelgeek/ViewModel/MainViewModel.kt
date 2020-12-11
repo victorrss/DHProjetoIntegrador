@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.kotlin.marvelgeek.Entities.CreatorID
 import com.kotlin.marvelgeek.Entities.EventC
 import com.kotlin.marvelgeek.Entities.SerieC
 import com.kotlin.marvelgeek.R
@@ -25,6 +26,7 @@ class MainViewModel(repository: Repository): ViewModel() {
     val listComic = MutableLiveData<ArrayList<ComicC>>()
     val listEvent = MutableLiveData<ArrayList<EventC>>()
     val listSerie = MutableLiveData<ArrayList<SerieC>>()
+    val author = MutableLiveData<CreatorID>()
 
     // --------------------------- Tela Home ----------------------//
     // Personagem tela Home
@@ -125,7 +127,6 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 listSerie.value = resultado.data.results
-                Log.i("View Model",listComic.value.toString())
             }catch (e: Exception){
                 Log.e("getSerie",e.toString())
                 error = e.toString()
@@ -134,6 +135,28 @@ class MainViewModel(repository: Repository): ViewModel() {
         return error
     }
 
+    // --------------------------- Tela Autor ----------------------//
+    fun getAutor(id: Long): String?{
+        var error: String? = null
+        val ts = timeStamp()
+        viewModelScope.launch {
+            try {
+                val resultado = repository.getResultCreator(
+                    id,
+                    ts,
+                    apiPublicKey,
+                    "${ts}$apiPrivateKey$apiPublicKey".md5()
+                )
+                author.value = resultado.data.results[0]
+                Log.i("View Model",author.value.toString())
+            }catch (e: Exception){
+                error = e.toString()
+                Log.e("TAG",e.toString())
+            }
+        }
+        Log.i("View Model","finalizando")
+        return error
+    }
 
     // TimeStamp
     fun timeStamp(): String{

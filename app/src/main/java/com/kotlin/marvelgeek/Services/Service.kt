@@ -1,5 +1,6 @@
 package com.kotlin.marvelgeek.services
 
+import com.kotlin.marvelgeek.Entities.ResCreator
 import com.kotlin.marvelgeek.Entities.ResEvent
 import com.kotlin.marvelgeek.Entities.ResSerie
 import com.kotlin.marvelgeek.models.ResCharacter
@@ -45,13 +46,13 @@ interface Repository {
         @Query("hash") p4: String
     ): ResSerie
 
-//    @GET("characters/{id}/stories")
-//    suspend fun getResultStories(
-//        @Path("id") p1: Long,
-//        @Query("ts") p2: String,
-//        @Query("apikey") p3: String,
-//        @Query("hash") p4: String
-//    ): ResStory
+    @GET("creators/{id}")
+    suspend fun getResultCreator(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResCreator
 }
 
 val urlApiMarvel = "https://gateway.marvel.com/v1/public/"
