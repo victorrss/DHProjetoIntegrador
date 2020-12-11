@@ -61,8 +61,8 @@ class MainViewModel(repository: Repository): ViewModel() {
                 resultado.data.results!!.forEach {
 
                     if(it.description != ""){
-                        Picasso.get().load("${it.thumbnail.path}.${it.thumbnail.extension}").config(
-                            Bitmap.Config.RGB_565).into(object : com.squareup.picasso.Target {
+                        Picasso.get().load("${it.thumbnail.path}.${it.thumbnail.extension}").resize(300, 300)
+                            .into(object : com.squareup.picasso.Target {
                             override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
                                 val vibrantSwatch = createPaletteSync(bitmap!!).vibrantSwatch
                                 try{
@@ -88,6 +88,8 @@ class MainViewModel(repository: Repository): ViewModel() {
         }
         return error
     }
+
+
 
     fun setCharacter(character: Character) {
         charecter.value = character

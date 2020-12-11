@@ -28,13 +28,19 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     var error: String? = null
     private val viewModel: MainViewModel by activityViewModels()
 
+
     private lateinit var adapter: CharacterAdapter
 
+    override fun onAttach(context: Context) {
+        viewModel.getCharacter(100, 2)
+        super.onAttach(context)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (activity as AppCompatActivity).supportActionBar?.show()
         setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -66,15 +72,6 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        adapter = CharacterAdapter(this)
-        view.rvHome.adapter = adapter
-        view.rvHome.setLayoutManager(LinearLayoutManager(activity))
-        view.rvHome.setHasFixedSize(true)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -86,7 +83,10 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         viewModel.listCharacter.observe(viewLifecycleOwner){
             adapter.addListCharacter(it)
         }
-
+        adapter = CharacterAdapter(this)
+        view.rvHome.adapter = adapter
+        view.rvHome.setLayoutManager(LinearLayoutManager(activity))
+        view.rvHome.setHasFixedSize(true)
 
         //Atualizando os valores da lista
         if (error != null){
@@ -114,4 +114,6 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         viewModel.setCharacter(character)
         findNavController().navigate(R.id.action_homeFragment2_to_characterFragment )
     }
+
+
 }
