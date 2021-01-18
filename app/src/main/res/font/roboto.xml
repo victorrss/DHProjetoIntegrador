@@ -52,7 +52,7 @@
     <font
         android:font="@font/roboto_blackitalic"
         android:fontStyle="italic"
-        android:fontWeight="700" />
+        android:fontWeight="900" />
 
 
 </font-family>
