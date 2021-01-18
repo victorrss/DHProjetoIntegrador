@@ -66,6 +66,7 @@
                 android:id="@+id/quiFraRgOption1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:tag="0"
                 android:text="A Era de Ultron Vol 1"
                 android:textColor="@color/white" />
 
@@ -73,6 +74,7 @@
                 android:id="@+id/quiFraRgOption2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:tag="1"
                 android:text="A Era do Sentinela Vol 1"
                 android:textColor="@color/white" />
 
@@ -80,6 +82,7 @@
                 android:id="@+id/quiFraRgOption3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:tag="2"
                 android:text="Aranhaverso Vol 1"
                 android:textColor="@color/white" />
 
@@ -87,6 +90,7 @@
                 android:id="@+id/quiFraRgOption4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:tag="3"
                 android:text="Pecados Originais Vol 1"
                 android:textColor="@color/white" />
         </RadioGroup>
@@ -96,7 +100,7 @@
         android:id="@+id/quiFraLlProgress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp"
@@ -124,17 +128,36 @@
                 android:id="@+id/quiFraBtnBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
                 android:text="VOLTAR" />
 
             <Button
                 android:id="@+id/quiFraBtnNext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
                 android:text="PRÓXIMO" />
-        </LinearLayout>
-    </LinearLayout>
 
+            <Button
+                android:id="@+id/quiFraBtnFinish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Finalizar" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+<!--
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/clAppBar"
         android:layout_width="match_parent"
@@ -165,4 +188,5 @@
             app:layout_anchor="@id/abHome"
             app:srcCompat="@drawable/ic_game" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+ -->
 </androidx.constraintlayout.widget.ConstraintLayout>

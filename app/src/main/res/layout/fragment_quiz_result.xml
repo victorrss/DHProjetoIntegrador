@@ -4,19 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:backgroundTintMode="screen"
     tools:context=".Fragments.QuizFragment">
 
-    <!--    <ImageView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:alpha="0.5"-->
-    <!--        android:cropToPadding="true"-->
-    <!--        android:scaleType="centerCrop"-->
-    <!--        android:src="@drawable/series_marvel"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <LinearLayout
+        android:id="@+id/quiResFraLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/logo_marvelgeek_transparente" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/quiResFraLlResult"
@@ -28,7 +35,7 @@
         app:layout_constraintBottom_toTopOf="@+id/quiResFraLlShare"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/quiResFraLogo">
 
         <RatingBar
             android:id="@+id/ratingBar"
@@ -44,9 +51,9 @@
             android:id="@+id/quiFraTvQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginTop="15dp"
             android:fontFamily="sans-serif-medium"
+            android:gravity="center"
             android:text="Parabéns, você acertou  4 de 5 questões do quiz!"
             android:textColor="@color/black"
             android:textSize="25sp" />
@@ -65,37 +72,47 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/quiResFraLlPlay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quiResFraLlResult">
 
         <Button
-            android:id="@+id/btnShareFacebook"
+            android:id="@+id/btnShare"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:backgroundTint="#B33E5994"
-            android:drawableLeft="@drawable/ic_facebook_app_logo"
-            android:text="Compartilhar com o Facebook"
+            android:backgroundTint="@color/marvelRed"
+            android:drawableLeft="@drawable/ic_baseline_share_24"
+            android:text="Compartilhar"
             android:textColor="@color/white" />
+        <!--
+                <Button
+                    android:id="@+id/btnShareFacebook"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:backgroundTint="#B33E5994"
+                    android:drawableLeft="@drawable/ic_facebook_app_logo"
+                    android:text="Compartilhar com o Facebook"
+                    android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/btnShareTwitter"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:backgroundTint="#B31B9BE8"
-            android:drawableLeft="@drawable/ic_twitter"
-            android:text="Compartilhar com o Twitter"
-            android:textColor="@color/white" />
+                <Button
+                    android:id="@+id/btnShareTwitter"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:backgroundTint="#B31B9BE8"
+                    android:drawableLeft="@drawable/ic_twitter"
+                    android:text="Compartilhar com o Twitter"
+                    android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/btnShareGoogle"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:backgroundTint="#B3D84438"
-            android:drawableLeft="@drawable/ic_google"
-            android:text="Compartilhar com o Google"
-            android:textColor="@color/white" />
+                <Button
+                    android:id="@+id/btnShareGoogle"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:backgroundTint="#B3D84438"
+                    android:drawableLeft="@drawable/ic_google"
+                    android:text="Compartilhar com o Google"
+                    android:textColor="@color/white" />
+        -->
     </LinearLayout>
 
     <LinearLayout
@@ -107,23 +124,24 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/quiResFraLlShare">
-
-        <Button
-            android:id="@+id/quiResFraBtnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="VOLTAR" />
-
+        app:layout_constraintTop_toBottomOf="@id/quiResFraLlShare"
+        app:layout_constraintVertical_bias="1.0">
+        <!--
+                <Button
+                    android:id="@+id/quiResFraBtnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VOLTAR" />
+        -->
         <Button
             android:id="@+id/quiResFraBtnNewGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
             android:text="NOVO JOGO" />
     </LinearLayout>
-
+    <!--
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/clAppBar"
         android:layout_width="match_parent"
@@ -154,4 +172,5 @@
             app:layout_anchor="@id/abHome"
             app:srcCompat="@drawable/ic_game" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    -->
 </androidx.constraintlayout.widget.ConstraintLayout>

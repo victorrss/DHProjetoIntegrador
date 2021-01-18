@@ -77,6 +77,7 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as AppCompatActivity).supportActionBar?.setTitle(R.string.app_name)
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
@@ -96,7 +97,7 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         }
 
         view.fbQuiz.setOnClickListener {
-            //findNavController().navigate(R.id.action_homeFragment_to_quizFragment)
+            findNavController().navigate(R.id.action_homeFragment2_to_quizFragment)
         }
 
         return view
