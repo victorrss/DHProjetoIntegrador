@@ -30,11 +30,8 @@ import kotlinx.android.synthetic.main.activity_login.view.*
 
 class LoginFragment : Fragment() {
     private val RC_SIGN_IN = 0
-    //private lateinit var callbackManager: CallbackManager
     private lateinit var auth: FirebaseAuth
-
     private val callbackManager = CallbackManager.Factory.create()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,66 +73,38 @@ class LoginFragment : Fragment() {
         // Build a GoogleSignInClient with the options specified by gso.
         val mGoogleSignInClient = activity?.let { GoogleSignIn.getClient(it, gso) };
 
-        view.btnLoginGoogle.setOnClickListener{
+        view.btnLoginGoogle.setOnClickListener {
             val signInIntent: Intent = mGoogleSignInClient!!.signInIntent
             startActivityForResult(signInIntent, RC_SIGN_IN)
         }
 
         // FACEBOOK SIGN-IN ------------------------------------------------------------------------
-//        callbackManager = CallbackManager.Factory.create()
-//
-//        btnLoginFacebook.setPermissions()
-//        btnLoginFacebook.fragment = this
-//        btnLoginFacebook.registerCallback(
-//            callbackManager,
-//            object : FacebookCallback<LoginResult> {
-//                override fun onSuccess(loginResult: LoginResult) {
-//                    handleSignInResultFacebook(loginResult.accessToken)
-//                }
-//
-//                override fun onCancel() {}
-//                override fun onError(error: FacebookException) {}
-//            })
-
-        // VISITANTE SIGN-IN -----------------------------------------------------------------------
-
-        view.btnLoginFacebook.setOnClickListener{
-
+        view.btnLoginFacebook.setOnClickListener {
             LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"))
-
             LoginManager.getInstance().registerCallback(callbackManager,
-            object : FacebookCallback<LoginResult>{
+                object : FacebookCallback<LoginResult> {
+                    override fun onSuccess(result: LoginResult?) {
+                        result?.let {
+                            val token = it.accessToken
+                            val credential = FacebookAuthProvider.getCredential(token.token)
 
-                override fun onSuccess(result: LoginResult?) {
-
-                    result?.let {
-                        val token = it.accessToken
-
-                        val credential = FacebookAuthProvider.getCredential(token.token)
-
-                        FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener{
-                         if (it.isSuccessful){
-                             Log.i("TAG","Login com sucesso")
-                         }else{
-                             Log.i("TAG","Login falho")
-                         }
-
-
+                            FirebaseAuth.getInstance().signInWithCredential(credential)
+                                .addOnCompleteListener {
+                                    if (it.isSuccessful) {
+                                        Log.i("TAG", "Login com sucesso")
+                                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+                                    } else {
+                                        Log.i("TAG", "Login falho")
+                                    }
+                                }
                         }
                     }
-                }
-
-                override fun onCancel() {
-                    TODO("Not yet implemented")
-                }
-
-                override fun onError(error: FacebookException?) {
-                    TODO("Not yet implemented")
-                }
-            })
+                    override fun onCancel() {}
+                    override fun onError(error: FacebookException?) {}
+                })
         }
 
-
+        // VISITANTE SIGN-IN -----------------------------------------------------------------------
         view.btnLoginVisitante.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
         }
@@ -173,25 +142,4 @@ class LoginFragment : Fragment() {
             ).show()
         }
     }
-
-//    private fun handleSignInResultFacebook(token: AccessToken) {
-//        val credential = FacebookAuthProvider.getCredential(token.token)
-//        Log.i("Teste", "handleSignInResultFacebook")
-//        auth.signInWithCredential(credential).addOnCompleteListener { task ->
-//                if (task.isSuccessful) {
-//                    // Sign in success, update UI with the signed-in user's information
-//                    val userFacebook = auth.currentUser
-//
-//                    if (userFacebook != null) {
-//                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
-//                    }
-//                } else {
-//                    // If sign in fails, display a message to the user.
-//                    Toast.makeText(
-//                        view?.context, "Authentication failed.",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                }
-//            }
-//    }
 }
