@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.facebook.*
+import com.facebook.FacebookSdk.getApplicationContext
+import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -28,8 +30,11 @@ import kotlinx.android.synthetic.main.activity_login.view.*
 
 class LoginFragment : Fragment() {
     private val RC_SIGN_IN = 0
-    private lateinit var callbackManager: CallbackManager
+    //private lateinit var callbackManager: CallbackManager
     private lateinit var auth: FirebaseAuth
+
+    private val callbackManager = CallbackManager.Factory.create()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,6 +98,44 @@ class LoginFragment : Fragment() {
 //            })
 
         // VISITANTE SIGN-IN -----------------------------------------------------------------------
+
+        view.btnLoginFacebook.setOnClickListener{
+
+            LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"))
+
+            LoginManager.getInstance().registerCallback(callbackManager,
+            object : FacebookCallback<LoginResult>{
+
+                override fun onSuccess(result: LoginResult?) {
+
+                    result?.let {
+                        val token = it.accessToken
+
+                        val credential = FacebookAuthProvider.getCredential(token.token)
+
+                        FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener{
+                         if (it.isSuccessful){
+                             Log.i("TAG","Login com sucesso")
+                         }else{
+                             Log.i("TAG","Login falho")
+                         }
+
+
+                        }
+                    }
+                }
+
+                override fun onCancel() {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onError(error: FacebookException?) {
+                    TODO("Not yet implemented")
+                }
+            })
+        }
+
+
         view.btnLoginVisitante.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
         }
@@ -102,6 +145,8 @@ class LoginFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
+        callbackManager.onActivityResult(requestCode, resultCode, data)
 
         // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
         if (requestCode === RC_SIGN_IN) {
