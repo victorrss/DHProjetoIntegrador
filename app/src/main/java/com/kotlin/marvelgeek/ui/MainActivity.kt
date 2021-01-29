@@ -16,13 +16,9 @@ class MainActivity : AppCompatActivity() {
         MyViewModelFactory(repository)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_host)
         viewModel
-
     }
-
-
 }
