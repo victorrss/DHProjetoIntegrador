@@ -31,6 +31,14 @@ class LoginFragment : Fragment() {
     private lateinit var callbackManager: CallbackManager
     private lateinit var auth: FirebaseAuth
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onAttachFragment(childFragment: Fragment) {
+        super.onAttachFragment(childFragment)
+    }
+
     override fun onStart() {
         (activity as AppCompatActivity).supportActionBar?.hide()
         super.onStart()
@@ -42,16 +50,12 @@ class LoginFragment : Fragment() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        FacebookSdk.sdkInitialize(view?.context);
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        FacebookSdk.sdkInitialize(context)
+
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
@@ -73,20 +77,20 @@ class LoginFragment : Fragment() {
         }
 
         // FACEBOOK SIGN-IN ------------------------------------------------------------------------
-        callbackManager = CallbackManager.Factory.create()
-
-        btnLoginFacebook.setReadPermissions("email", "public_profile")
-        btnLoginFacebook.fragment = this
-        btnLoginFacebook.registerCallback(
-            callbackManager,
-            object : FacebookCallback<LoginResult> {
-                override fun onSuccess(loginResult: LoginResult) {
-                    handleSignInResultFacebook(loginResult.accessToken)
-                }
-
-                override fun onCancel() {}
-                override fun onError(error: FacebookException) {}
-            })
+//        callbackManager = CallbackManager.Factory.create()
+//
+//        btnLoginFacebook.setPermissions()
+//        btnLoginFacebook.fragment = this
+//        btnLoginFacebook.registerCallback(
+//            callbackManager,
+//            object : FacebookCallback<LoginResult> {
+//                override fun onSuccess(loginResult: LoginResult) {
+//                    handleSignInResultFacebook(loginResult.accessToken)
+//                }
+//
+//                override fun onCancel() {}
+//                override fun onError(error: FacebookException) {}
+//            })
 
         // VISITANTE SIGN-IN -----------------------------------------------------------------------
         view.btnLoginVisitante.setOnClickListener {
@@ -125,24 +129,24 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun handleSignInResultFacebook(token: AccessToken) {
-        val credential = FacebookAuthProvider.getCredential(token.token)
-        Log.i("Teste", "handleSignInResultFacebook")
-        auth.signInWithCredential(credential).addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    val userFacebook = auth.currentUser
-
-                    if (userFacebook != null) {
-                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
-                    }
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Toast.makeText(
-                        view?.context, "Authentication failed.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-    }
+//    private fun handleSignInResultFacebook(token: AccessToken) {
+//        val credential = FacebookAuthProvider.getCredential(token.token)
+//        Log.i("Teste", "handleSignInResultFacebook")
+//        auth.signInWithCredential(credential).addOnCompleteListener { task ->
+//                if (task.isSuccessful) {
+//                    // Sign in success, update UI with the signed-in user's information
+//                    val userFacebook = auth.currentUser
+//
+//                    if (userFacebook != null) {
+//                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+//                    }
+//                } else {
+//                    // If sign in fails, display a message to the user.
+//                    Toast.makeText(
+//                        view?.context, "Authentication failed.",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                }
+//            }
+//    }
 }
