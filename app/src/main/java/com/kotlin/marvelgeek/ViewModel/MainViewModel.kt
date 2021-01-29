@@ -56,32 +56,7 @@ class MainViewModel(repository: Repository): ViewModel() {
                         apiPublicKey,
                         "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
-               var array = arrayListOf<Character>()
-
-                resultado.data.results!!.forEach {
-
-                    if(it.description != ""){
-                        Picasso.get().load("${it.thumbnail.path}.${it.thumbnail.extension}").resize(300, 300)
-                            .into(object : com.squareup.picasso.Target {
-                            override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
-                                val vibrantSwatch = createPaletteSync(bitmap!!).vibrantSwatch
-                                try{
-                                    it.color = vibrantSwatch?.rgb!!
-                                    it.thumb = bitmap
-                                }catch (e: java.lang.Exception) {
-                                    Log.e("Tag", e.toString())
-                                }
-                            }
-                            override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
-                            }
-
-                            override fun onBitmapFailed(e: java.lang.Exception?, errorDrawable: Drawable?) {}
-                        })
-
-                        array.add(it)
-                    }
-              }
-                listCharacter.value = array
+                listCharacter.value = ArrayList(resultado.data.results.filterNot {it.description.isNullOrEmpty()})
             }catch (e: Exception){
                 Log.e("getCharacter",e.toString())
             }
