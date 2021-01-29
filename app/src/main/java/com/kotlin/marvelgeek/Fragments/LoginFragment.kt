@@ -34,6 +34,18 @@ class LoginFragment : Fragment() {
     override fun onStart() {
         (activity as AppCompatActivity).supportActionBar?.hide()
         super.onStart()
+
+        val user = auth.currentUser
+
+        if (user != null) {
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        FacebookSdk.sdkInitialize(view?.context);
     }
 
     override fun onCreateView(
@@ -61,8 +73,6 @@ class LoginFragment : Fragment() {
         }
 
         // FACEBOOK SIGN-IN ------------------------------------------------------------------------
-        FacebookSdk.sdkInitialize(view.context);
-
         callbackManager = CallbackManager.Factory.create()
 
         btnLoginFacebook.setReadPermissions("email", "public_profile")
@@ -118,19 +128,18 @@ class LoginFragment : Fragment() {
     private fun handleSignInResultFacebook(token: AccessToken) {
         val credential = FacebookAuthProvider.getCredential(token.token)
         Log.i("Teste", "handleSignInResultFacebook")
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
+        auth.signInWithCredential(credential).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     val userFacebook = auth.currentUser
 
                     if (userFacebook != null) {
-                        callMain(userFacebook.displayName.toString(), userFacebook.email.toString())
+                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
                     }
                 } else {
                     // If sign in fails, display a message to the user.
                     Toast.makeText(
-                        baseContext, "Authentication failed.",
+                        view?.context, "Authentication failed.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
