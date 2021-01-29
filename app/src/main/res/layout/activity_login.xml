@@ -22,8 +22,7 @@
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <ImageView
@@ -37,34 +36,35 @@
             android:id="@+id/btnLoginVisitante"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="350dp"
             android:layout_marginHorizontal="20dp"
-            android:text="Entrar Como Visitante"
+            android:layout_marginTop="350dp"
             android:backgroundTint="@color/darkgray"
+            android:text="Entrar Como Visitante"
             android:textColor="@color/white" />
 
         <Button
             android:id="@+id/btnLoginFacebook"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="420dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginHorizontal="20dp"
-            android:text="Entrar com o Facebook"
+            android:layout_marginTop="420dp"
+            android:layout_marginBottom="30dp"
             android:backgroundTint="#B33E5994"
-            android:textColor="@color/white"
             android:drawableLeft="@drawable/ic_facebook_app_logo"
-            />
+            android:text="Entrar com o facebook"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/btnLoginTwitter"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="490dp"
             android:layout_marginHorizontal="20dp"
-            android:text="Entrar com o Twitter"
+            android:layout_marginTop="490dp"
             android:backgroundTint="#B31B9BE8"
-            android:textColor="@color/white"
-            android:drawableLeft="@drawable/ic_twitter"/>
+            android:drawableLeft="@drawable/ic_twitter"
+            android:text="Entrar com o Twitter"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/btnLoginGoogle"
