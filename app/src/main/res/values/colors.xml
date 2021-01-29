@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <color name="darkRed">#FF891B0D</color>
     <color name="marvelRed">#FFB72512</color>
+    <color name="marvelRedT">#77B72512</color>
     <color name="black">#FF000000</color>
     <color name="opacityblack">#ff000000</color>
     <color name="darkgray">#FF292929</color>

@@ -21,9 +21,6 @@ import kotlinx.android.synthetic.main.activity_home.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 
-
-
-
 class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     var error: String? = null
     private val viewModel: MainViewModel by activityViewModels()
@@ -115,10 +112,8 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     }
 
     override fun OnClickItem(position: Int) {
-        val character = viewModel.listCharacter.value!!.get(position)
+        val character = viewModel.listCharacter.value!![position]
         viewModel.setCharacter(character)
-        findNavController().navigate(R.id.action_homeFragment2_to_characterFragment )
+        findNavController().navigate(R.id.action_homeFragment2_to_characterFragment)
     }
-
-
 }

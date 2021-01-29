@@ -3,8 +3,6 @@ package com.kotlin.marvelgeek.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.navigation.NavController
-import androidx.navigation.ui.AppBarConfiguration
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.ViewModel.MyViewModelFactory
@@ -16,13 +14,9 @@ class MainActivity : AppCompatActivity() {
         MyViewModelFactory(repository)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_host)
         viewModel
-
     }
-
-
 }
