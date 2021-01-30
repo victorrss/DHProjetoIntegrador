@@ -29,6 +29,7 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     private lateinit var adapter: CharacterAdapter
 
     override fun onAttach(context: Context) {
+
         viewModel.getCharacter(100, 2)
         super.onAttach(context)
     }
