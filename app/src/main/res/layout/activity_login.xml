@@ -4,78 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.MainActivity"
+    android:background="@drawable/back4">
+
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:alpha="0.2"
-        android:src="@drawable/fundo_login_herois_1"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="300dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/marvel_geek_no_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RelativeLayout
+    <Button
+        android:id="@+id/btnLoginVisitante"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/darkgray"
+        android:text="@string/logInVisitor"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <!--        <Button-->
+<!--            android:id="@+id/btnLoginTwitter"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_marginHorizontal="20dp"-->
+<!--            android:layout_marginTop="490dp"-->
+<!--            android:backgroundTint="#B31B9BE8"-->
+<!--            android:drawableLeft="@drawable/ic_twitter"-->
+<!--            android:text="Entrar com o Twitter"-->
+<!--            android:textColor="@color/white" />-->
+
+    <Button
+        android:id="@+id/btnLoginFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/facebookColor"
+        android:drawableLeft="@drawable/ic_facebook_app_logo"
+        android:text="@string/loginFacebook"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginVisitante" />
+
+    <Button
+        android:id="@+id/btnLoginGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="20dp"
+        android:backgroundTint="@color/googleColor"
+        android:drawableLeft="@drawable/ic_google"
+        android:layout_marginTop="20dp"
+        android:text="@string/loginGoogle"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginFacebook" />
 
 
-        <ImageView
-            android:layout_width="420dp"
-            android:layout_height="300dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/marvel_geek_no_bg" />
-
-        <Button
-            android:id="@+id/btnLoginVisitante"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="350dp"
-            android:backgroundTint="@color/darkgray"
-            android:text="Entrar Como Visitante"
-            android:textColor="@color/white" />
-
-        <Button
-            android:id="@+id/btnLoginFacebook"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="420dp"
-            android:layout_marginBottom="30dp"
-            android:backgroundTint="#B33E5994"
-            android:drawableLeft="@drawable/ic_facebook_app_logo"
-            android:text="Entrar com o facebook"
-            android:textColor="@color/white" />
-
-        <Button
-            android:id="@+id/btnLoginTwitter"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="490dp"
-            android:backgroundTint="#B31B9BE8"
-            android:drawableLeft="@drawable/ic_twitter"
-            android:text="Entrar com o Twitter"
-            android:textColor="@color/white" />
-
-        <Button
-            android:id="@+id/btnLoginGoogle"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="560dp"
-            android:backgroundTint="#B3D84438"
-            android:drawableLeft="@drawable/ic_google"
-            android:text="Entrar com o Google"
-            android:textColor="@color/white" />
-
-    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

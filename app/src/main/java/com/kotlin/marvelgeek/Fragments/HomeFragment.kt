@@ -13,6 +13,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.facebook.FacebookSdk
+import com.facebook.FacebookSdk.getApplicationContext
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.CharacterAdapter
@@ -75,6 +77,10 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        if(viewModel.user == null)
+            viewModel.showToast(getApplicationContext(),"Welcome: Visitor")
+        else
+            viewModel.showToast(getApplicationContext(),"Welcome: ${viewModel.user}")
         (activity as AppCompatActivity).supportActionBar?.setTitle(R.string.app_name)
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)

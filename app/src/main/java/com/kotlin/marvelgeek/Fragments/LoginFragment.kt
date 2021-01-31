@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.facebook.*
 import com.facebook.FacebookSdk.getApplicationContext
@@ -24,15 +26,15 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.kotlin.marvelgeek.R
+import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.ui.TestActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.view.*
 
 
 class LoginFragment : Fragment() {
-    private val RC_SIGN_IN = 0
-    private lateinit var auth: FirebaseAuth
-    private val callbackManager = CallbackManager.Factory.create()
+
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +48,7 @@ class LoginFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.hide()
         super.onStart()
 
-        val user = auth.currentUser
+        val user = viewModel.auth.currentUser
 
         if (user != null) {
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
@@ -61,45 +63,43 @@ class LoginFragment : Fragment() {
 
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_login, container, false)
+        viewModel.initAuth()
+        viewModel.initGSO()
+        val mGoogleSignInClient = activity?.let { GoogleSignIn.getClient(it, viewModel.gso) }
 
-        // Initialize Firebase
-        auth = FirebaseAuth.getInstance()
 
-        // GOOGLE SIGN-IN --------------------------------------------------------------------------
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestEmail()
-            .build()
-
-        val mGoogleSignInClient = activity?.let { GoogleSignIn.getClient(it, gso) };
 
         view.btnLoginGoogle.setOnClickListener {
             val signInIntent: Intent = mGoogleSignInClient!!.signInIntent
-            startActivityForResult(signInIntent, RC_SIGN_IN)
+            startActivityForResult(signInIntent, viewModel.RC_SIGN_IN)
         }
 
         // FACEBOOK SIGN-IN ------------------------------------------------------------------------
         view.btnLoginFacebook.setOnClickListener {
             LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"))
-            LoginManager.getInstance().registerCallback(callbackManager,
+            LoginManager.getInstance().registerCallback(viewModel.callbackManager,
                 object : FacebookCallback<LoginResult> {
                     override fun onSuccess(result: LoginResult?) {
                         result?.let {
-                            val token = it.accessToken
+                            val token = result.accessToken
                             val credential = FacebookAuthProvider.getCredential(token.token)
 
                             FirebaseAuth.getInstance().signInWithCredential(credential)
                                 .addOnCompleteListener {
                                     if (it.isSuccessful) {
-                                        Log.i("TAG", "Login com sucesso")
+                                        //Log.i("TAG", "Login com sucesso")
+                                        //viewModel.showToast(getApplicationContext(),"Welcome: ${it.result!!.user!!.email}")
+                                        viewModel.user = it.result!!.user!!.email
                                         findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
                                     } else {
-                                        Log.i("TAG", "Login falho")
+                                        //Log.i("TAG", "Login falho")
+                                        viewModel.showToast(getApplicationContext(),"LogIn Failed")
                                     }
                                 }
                         }
                     }
-                    override fun onCancel() {}
-                    override fun onError(error: FacebookException?) {}
+                    override fun onCancel() {viewModel.showToast(getApplicationContext(),"LogIn Cancel")}
+                    override fun onError(error: FacebookException?) {viewModel.showToast(getApplicationContext(),error.toString())}
                 })
         }
 
@@ -107,21 +107,16 @@ class LoginFragment : Fragment() {
         view.btnLoginVisitante.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
         }
-
-        view.btnLoginTwitter.setOnClickListener {
-            startActivity(Intent(context,TestActivity::class.java))
-        }
-
         return view
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        callbackManager.onActivityResult(requestCode, resultCode, data)
+        viewModel.callbackManager.onActivityResult(requestCode, resultCode, data)
 
         // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-        if (requestCode === RC_SIGN_IN) {
+        if (requestCode === viewModel.RC_SIGN_IN) {
             // The Task returned from this call is always completed, no need to attach a listener.
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             handleSignInResultGoogle(task)
@@ -134,15 +129,14 @@ class LoginFragment : Fragment() {
 
             // Signed in successfully, show authenticated UI.
             if (userGoogle != null) {
+                //viewModel.showToast(getApplicationContext(),"Welcome: ${userGoogle.email}")
+                viewModel.user = userGoogle.email
                 findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
             }
         } catch (e: ApiException) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Toast.makeText(
-                activity, "Authentication failed.",
-                Toast.LENGTH_SHORT
-            ).show()
+            viewModel.showToast(getApplicationContext(),"LogIn failed.")
         }
     }
 }

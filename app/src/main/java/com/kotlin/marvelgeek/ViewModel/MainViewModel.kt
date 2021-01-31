@@ -4,11 +4,21 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.palette.graphics.Palette
 import com.bumptech.glide.Glide
+import com.facebook.CallbackManager
+import com.facebook.login.LoginResult
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FacebookAuthProvider
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.kotlin.marvelgeek.Entities.CreatorID
 import com.kotlin.marvelgeek.Entities.EventC
 import com.kotlin.marvelgeek.Entities.SerieC
@@ -31,6 +41,12 @@ import java.security.MessageDigest
 
 class MainViewModel(repository: Repository): ViewModel() {
 
+    lateinit var auth: FirebaseAuth
+    lateinit var gso: GoogleSignInOptions
+    val callbackManager = CallbackManager.Factory.create()
+    var user: Any? = null
+    val RC_SIGN_IN = 0
+
     val listCharacter = MutableLiveData<ArrayList<Character>>()
     val listFavorite = MutableLiveData<ArrayList<Personagem>>()
     val listComic = MutableLiveData<ArrayList<ComicC>>()
@@ -41,6 +57,26 @@ class MainViewModel(repository: Repository): ViewModel() {
     val comic = MutableLiveData<ComicC>()
     val event = MutableLiveData<EventC>()
     val serie = MutableLiveData<SerieC>()
+
+
+    // --------------------------- Tela Home ----------------------//
+    // Initialize Firebase
+    fun initAuth(){
+        auth = FirebaseAuth.getInstance()
+    }
+
+    // GSO
+    fun initGSO(){
+        // GOOGLE SIGN-IN --------------------------------------------------------------------------
+        gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestEmail()
+            .build()
+    }
+
+    // Sign In Google
+    fun googleSignIn(result :LoginResult){
+
+    }
 
     // --------------------------- Tela Home ----------------------//
     // Personagem tela Home
@@ -227,4 +263,8 @@ class MainViewModel(repository: Repository): ViewModel() {
             "Homem-Aranha",
             "Todos as descrições das pessoas são sobre a humanidade do atendimento, a pessoa pega no pulso, examina, olha com carinho. Então eu acho que vai ter outra coisa, que os médicos cubanos trouxeram pro brasil, um alto grau de humanidade."
         ))
+
+    fun showToast(context: Context,msg:String){
+        Toast.makeText(context,msg, Toast.LENGTH_LONG).show()
+    }
 }
