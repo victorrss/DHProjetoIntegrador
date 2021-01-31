@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.kotlin.marvelgeek.R
+import com.kotlin.marvelgeek.ui.TestActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.view.*
 
@@ -105,6 +106,10 @@ class LoginFragment : Fragment() {
         // VISITANTE SIGN-IN -----------------------------------------------------------------------
         view.btnLoginVisitante.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+        }
+
+        view.btnLoginTwitter.setOnClickListener {
+            startActivity(Intent(context,TestActivity::class.java))
         }
 
         return view

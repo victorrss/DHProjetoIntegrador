@@ -1,6 +1,7 @@
 package com.kotlin.marvelgeek.models
 
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -46,39 +47,40 @@ class CharacterAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter
         holder.nome.text = character.name
         holder.descricao.text = character.description
         holder.imagem.setImageBitmap(character.thumb)
-        Glide.with(holder.itemView.context)
-            .asBitmap()
-            .load("${character.thumbnail.path}.${character.thumbnail.extension}")
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .listener(object : RequestListener<Bitmap?> {
-                override fun onLoadFailed(
-                    @Nullable e: GlideException?,
-                    model: Any?,
-                    target: Target<Bitmap?>?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    return false
-                }
-
-                override fun onResourceReady(
-                    resource: Bitmap?,
-                    model: Any?,
-                    target: Target<Bitmap?>?,
-                    dataSource: DataSource?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    if (resource != null) {
-                        try {
-                            character.color = Palette.from(resource!!).generate().dominantSwatch!!.rgb
-                            holder.background.setCardBackgroundColor(character.color)
-                        } catch (e: Exception) {
-                            Log.i("Error", e.toString())
-                        }
-                    }
-                    return false
-                }
-            })
-            .into(holder.imagem)
+        //holder.background.setCardBackgroundColor(Color.parseColor("#416b3b"))
+//        Glide.with(holder.itemView.context)
+//            .asBitmap()
+//            .load("${character.thumbnail.path}.${character.thumbnail.extension}")
+//            .diskCacheStrategy(DiskCacheStrategy.ALL)
+//            .listener(object : RequestListener<Bitmap?> {
+//                override fun onLoadFailed(
+//                    @Nullable e: GlideException?,
+//                    model: Any?,
+//                    target: Target<Bitmap?>?,
+//                    isFirstResource: Boolean
+//                ): Boolean {
+//                    return false
+//                }
+//
+//                override fun onResourceReady(
+//                    resource: Bitmap?,
+//                    model: Any?,
+//                    target: Target<Bitmap?>?,
+//                    dataSource: DataSource?,
+//                    isFirstResource: Boolean
+//                ): Boolean {
+//                    if (resource != null) {
+//                        try {
+//                            //character.color = Palette.from(resource!!).generate().dominantSwatch!!.rgb
+//                            //holder.background.setCardBackgroundColor(character.color)
+//                        } catch (e: Exception) {
+//                            Log.i("Error", e.toString())
+//                        }
+//                    }
+//                    return false
+//                }
+//            })
+//            .into(holder.imagem)
     }
 
     override fun getItemCount() = listCharacter.size

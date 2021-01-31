@@ -1,0 +1,1492 @@
+Ant-Man (Eric OGrady)	#40100,#c8a620
+Amadeus Cho	#912616,#8f462f
+Anthem	#25101a,#26110e
+Arcana	#25101a,#26110e
+Arclight	#928c88,#f0eadf
+Banshee (Theresa Rourke)	#84a7c5,#d3e2f1
+Absorbing Man	#2e719d,#5ea3ca
+Alvin Maker	#25101a,#26110e
+Bedlam	#25101a,#26110e
+Alicia Masters	#fbe8d1,#d0905
+Artiee	#25101a,#26110e
+Albert Cleary	#25101a,#26110e
+American Eagle (Jason Strongbow)	#cce0e8,#505d67
+Adam Warlock	#caa61a,#3c0703
+Alice	#50200,#b9912a
+Banshee	#9b9593,#8f4959
+A-Bomb (HAS)	#115291,#132a49
+Baron Zemo (Helmut Zemo)	#10000,#221224
+Adam Destine	#25101a,#26110e
+Alexander Pierce	#25101a,#26110e
+Azazel (Mutant)	#25101a,#26110e
+Agent Brand	#39b2ba,#4bc3cc
+Alpha Flight (Ultimate)	#25101a,#26110e
+Bastion	#c9a61c,#211915
+Alpha Flight	#492d60,#190c07
+Abyss	#50302,#a1015
+Arachne	#a33929,#912616
+Arcade	#466689,#7ea1ba
+Beast (Earth-311)	#795d47,#241a1e
+Angela (Aldrif Odinsdottir)	#9a4629,#4a2e5d
+Angel (Thomas Halloway)	#c18954,#c3641a
+3-D Man	#999896,#416b3b
+Ares	#a0302,#5db8c5
+Agents of Atlas	#fdfbf5,#171c1f
+Armory	#25101a,#26110e
+Battering Ram	#ffffff,#e9f0f7
+Aurora	#a19082,#806d5f
+Bart Rozum	#25101a,#26110e
+Avengers (Ultimate)	#25101a,#26110e
+Barracuda	#25101a,#26110e
+Argent	#25101a,#26110e
+Armor (Hisako Ichiki)	#f53c01,#fd4208
+Akemi	#25101a,#26110e
+Aegis (Trey Rollins)	#fefefe,#180d09
+Alex Power	#fcf2e5,#136b87
+Ajaxis	#bd8a95,#cdd4dc
+Amanda Sefton	#25101a,#26110e
+Amazoness	#25101a,#26110e
+Arsenic	#392310,#7a5a32
+Agent X (Nijo)	#25101a,#26110e
+Archangel	#b79c7d,#f4d178
+Aqueduct	#f9f8f5,#566471
+Alain	#25101a,#26110e
+Baron Strucker	#fefefe,#a0508
+Atlas (Team)	#25101a,#26110e
+Amun	#25101a,#26110e
+Becatron	#25101a,#26110e
+Ajak	#4c6976,#c141c
+Angel (Ultimate)	#f5dfc6,#55c0c9
+Beef	#ffffff,#e9f0f7
+Alexa Mendez	#25101a,#26110e
+Amiko	#25101a,#26110e
+Agent Zero	#ebd7c5,#f1a20
+Anita Blake	#375a62,#201f1d
+Armadillo	#f7cabc,#cf9a6d
+Beast (Ultimate)	#30201,#12171e
+Annihilus	#d68d46,#161f13
+Air-Walker (Gabriel Lan)	#25101a,#26110e
+Abomination (Ultimate)	#25101a,#26110e
+Asgardian	#25101a,#26110e
+Araña	#25101a,#26110e
+Angel (Warren Worthington III)	#25101a,#26110e
+Apocalypse	#ac6a30,#60403
+Albion	#25101a,#26110e
+Avengers	#954830,#fbf1e2
+Aginar	#25101a,#26110e
+Baron Zemo (Heinrich Zemo)	#e0704,#9e4c2e
+Asylum	#25101a,#26110e
+Askew-Tronics	#25101a,#26110e
+Arnim Zola	#ac937d,#eadcbb
+Apocalypse (Ultimate)	#25101a,#26110e
+Alex Wilder	#411a06,#fbfbf9
+Ben Grimm	#25101a,#26110e
+Beetle (Abner Jenkins)	#25101a,#26110e
+Batroc the Leaper	#c0c0ff,#9a4051
+Anole	#e6d7c7,#a2a588
+Amphibian (Earth-712)	#25101a,#26110e
+Ancient One (Ultimate)	#25101a,#26110e
+A.I.M.	#32729e,#f3d735
+Beast	#32647e,#912616
+Amora	#25101a,#26110e
+Beak	#555569,#959aa8
+Ant-Man (Scott Lang)	#32729e,#30000
+Abomination (Emil Blonsky)	#fefefd,#815a3c
+Ancient One	#fefbf4,#fcdbf2
+Baroness SBak	#25101a,#26110e
+Abyss (Age of Apocalypse)	#fefefe,#90401
+Aaron Stack	#25101a,#26110e
+Anne Marie Hoag	#25101a,#26110e
+Avalanche	#20101,#a59d91
+Black Bird	#25101a,#26110e
+Brood	#c8a51c,#cea658
+Brotherhood of Evil Mutants	#9d9a96,#d0503
+Bruce Banner	#25101a,#26110e
+Beyonder	#39b2ba,#4fc3cb
+Brute	#25101a,#26110e
+Bengal	#2e729f,#ce9757
+Big Bertha	#3d6382,#9f9487
+Blur	#25101a,#26110e
+Ben Reilly	#141930,#20100b
+Callisto (Age of Apocalypse)	#5eb8c8,#3aafb8
+Blue Marvel	#25101a,#26110e
+Blindfold	#a4326c,#28171f
+Capn Oz	#e9d8ae,#d09a7a
+Cable	#a6642e,#d29357
+Captain Britain (Ultimate)	#87afcd,#d2e1ec
+Blade	#40202,#446071
+Black Widow/Natasha Romanoff (MAA)	#336777,#542309
+Black Cat (Ultimate)	#140d07,#b39d85
+Blob (Ultimate)	#1d2331,#d18e5e
+Bullseye	#a23928,#151d16
+Bulldozer	#25101a,#26110e
+Betty Brant	#14110e,#f9dccb
+Blastaar	#9b5f33,#c99165
+Callisto	#6c5b4e,#242f26
+Black Panther	#30729e,#90807
+Betty Ross	#f6c599,#d79d78
+Brotherhood of Mutants (Ultimate)	#25101a,#26110e
+Caliban	#4f874f,#181b1f
+Blue Shield	#25101a,#26110e
+Brother Voodoo	#25101a,#26110e
+Black Cat	#4f874f,#90604
+Bride of Nine Spiders (Immortal Weapons)	#fefefe,#a366b3
+Cammi	#a69074,#7c6241
+Bloodscream	#10000,#a1217
+Cable (X-Men: Battle of the Atom)	#796040,#1b140c
+Captain Marvel (Carol Danvers)	#c6a31f,#d6a356
+Bloke	#73a0c9,#fdf100
+Bloodstorm	#25101a,#26110e
+Blue Blade	#f3d61f,#ecdfcb
+Bucky	#fefefd,#d2233
+Blacklash	#25101a,#26110e
+Boomer	#25101a,#26110e
+Captain America (Ultimate)	#4e874f,#186e92
+Box	#c7df91,#6121f
+Bill Hollister	#25101a,#26110e
+Cable (Ultimate)	#34719a,#19130e
+Calamity	#25101a,#26110e
+Blackout	#24111c,#7c5741
+Blazing Skull	#80201,#f9f8d8
+Captain Marvel (Mar-Vell)	#492c60,#a0705
+Black Tarantula	#b79376,#9f6230
+Captain America	#c7a41d,#40201
+Black Crow	#25101a,#26110e
+Ben Urich	#10101,#9d9380
+Bishop (Ultimate)	#25101a,#26110e
+Black Bolt (Marvel War of Heroes)	#afebfd,#b1928
+Captain Marvel (Genis-Vell)	#25101a,#26110e
+Cable (Deadpool)	#5d0c0a,#8b0301
+Beta-Ray Bill	#4e874f,#d79769
+Bug	#d3f0d1,#cbdc65
+Calypso	#fefdfd,#7b5341
+Bloodstrike	#25101a,#26110e
+Captain Cross	#25101a,#26110e
+Bob, Agent of Hydra	#9aa130,#676f25
+Captain Flint	#25101a,#26110e
+Boomerang	#341c92,#f1ece7
+Captain America (House of M)	#caa61b,#cfa851
+Black Tom	#fefefe,#30101
+Cannonball	#30504,#938677
+Blizzard	#25101a,#26110e
+Black Knight (Sir Percy of Scandia)	#f2d5c7,#2e170b
+Captain America (Sam Wilson)	#c9a51b,#c0403
+Blockbuster	#fdfdfd,#20202
+Black Panther (Ultimate)	#c0e10,#2f1317
+Captain America (Marvel War of Heroes)	#a9b0ba,#16161e
+Big Wheel	#e8decb,#a2988c
+Blob	#1d2432,#d28e5e
+Blink	#90605,#240b1e
+Black Bolt	#a33c27,#912616
+Captain America (LEGO Marvel Super Heroes)	#bf9574,#f6dfbc
+Ben Parker	#fcf9f5,#9f9286
+Black Widow	#55c3cb,#3ab1ba
+Blok	#25101a,#26110e
+Captain America/Steve Rogers (MAA)	#2d617b,#c2d48
+Blackheart	#10000,#70d15
+Captain Britain	#181c27,#4a5579
+Bushwacker	#25101a,#26110e
+Blonde Phantom	#e5d555,#f92213
+Butterfly	#5c6184,#8f9bb3
+Cable (Marvel: Avengers Alliance)	#534d45,#1f252a
+Black Queen	#25101a,#26110e
+Black Widow (LEGO Marvel Super Heroes)	#372516,#944d28
+Bi-Beast	#25101a,#26110e
+Bromley	#724d62,#b1925f
+Captain Marvel (Monica Rambeau)	#faf8f6,#190e0b
+Bloodaxe	#25101a,#26110e
+Black Widow (Ultimate)	#347099,#c19580
+Boom Boom	#280f07,#eb9d53
+Bishop	#4c854f,#251e1b
+Deadpool	#50c3cc,#3ab2ba
+Cloak	#121121,#4e4063
+Daredevil (Ultimate)	#c7a51e,#361e27
+Captain Universe	#fbf7ef,#e3a37
+Crossbones	#fdfcf9,#20130c
+Damage Control	#e3e1c4,#a5997e
+Cyclops (Ultimate)	#965022,#4f874f
+Cobalt Man	#25101a,#26110e
+Carnage	#311816,#3675a0
+Colossus (Ultimate)	#25101a,#26110e
+Cuckoo	#25101a,#26110e
+Carnage (Ultimate)	#5,#1a0603
+Count Nefaria	#eee8cb,#ab4629
+Dark Avengers	#312138,#101a22
+Crimson Dynamo (Iron Man 3 - The Official Game)	#7c4a3d,#3a1e16
+Cosmo (dog)	#25101a,#26110e
+ClanDestine	#50e09,#e0703
+DKen Neramani	#25101a,#26110e
+Dark Beast	#222e34,#4fc1cc
+Clea (Ultimate)	#25101a,#26110e
+Dazzler	#e6c9c0,#bea679
+Centurions	#8111c,#eceebb
+Daily Bugle	#f3eeca,#baa180
+Captain Stacy	#12100a,#54555e
+Cerise	#25101a,#26110e
+Dargo Ktor	#fefdfd,#120904
+Darkstar	#69aedb,#c0704
+Clint Barton	#25101a,#26110e
+Catseye	#ffffff,#e9f0f7
+Controller	#fdfbfa,#a0c0e6
+Cyclops (X-Men: Battle of the Atom)	#6c634a,#100a07
+Dakota North	#50101,#a61512
+Cypher	#170e09,#855c3a
+Celestials	#8b513c,#c69365
+Colossus	#291912,#a05b2d
+Dani Moonstar	#f9f1d0,#2a1b20
+Cargill	#f7e8d7,#b4978d
+Carol Hines	#25101a,#26110e
+Darkhawk	#bf691b,#dd8c3f
+Changeling	#fefefd,#76a5d5
+Daredevil (LEGO Marvel Super Heroes)	#25101a,#26110e
+Centennial	#8a5c3d,#c09068
+Corsair	#190903,#b44818
+Cornelius	#25101a,#26110e
+Dead Girl	#92ad6e,#91af7f
+Crimson King	#25101a,#26110e
+Crimson Dynamo	#371811,#ae3b25
+Carlie Cooper	#25101a,#26110e
+Christian Walker	#25101a,#26110e
+Charlie Campion	#25101a,#26110e
+Chase Stein	#3a200f,#935125
+Chameleon	#fefefd,#1d263d
+Cerebro	#ffffff,#e9f0f7
+Crusher Hogan (Ultimate)	#25101a,#26110e
+Crusher Hogan	#10000,#b4847f
+Carmella Unuscione	#25101a,#26110e
+Champions	#1c0802,#faf54f
+Chores MacGillicudy	#ad9b8e,#ecd8c5
+Deacon Frost	#25101a,#26110e
+Chamber	#f0e160,#f3f1c2
+Cyclops	#2e73a0,#24110f
+Cassandra Nova	#40302,#272342
+Crimson Crusader	#9d8884,#bb989e
+Daimon Hellstrom	#110705,#e94d21
+Dagger	#39b2ba,#d5a061
+Captain Midlands	#25101a,#26110e
+Cyber	#0,#226496
+Dark X-Men	#202a31,#f4f4ed
+Confederates of the Curious	#a18971,#331520
+Colleen Wing	#6eb5c4,#39b1b9
+Chimera	#25101a,#26110e
+Danny Rand	#cd8874,#12191f
+Crule	#25101a,#26110e
+Captain Marvel (Phyla-Vell)	#2c281e,#625e4f
+Daken	#4f884f,#120c08
+Darwin	#385876,#131e28
+Carol Danvers	#25101a,#26110e
+Deadpool (Deadpool)	#960706,#7a5048
+Cottonmouth	#25101a,#26110e
+Cardiac	#fdfdfc,#838282
+Cecilia Reyes	#25101a,#26110e
+Chat	#10121f,#445183
+Chod	#292b1b,#5e6d38
+Deadpool (LEGO Marvel Super Heroes)	#f5e8dc,#82a8ce
+Cloud 9	#94512f,#28130a
+Daredevil	#9a9796,#9c1c21
+Dazzler (Ultimate)	#edccf9,#350e29
+Curt Conners	#25101a,#26110e
+Colonel America	#25101a,#26110e
+Daredevil (Marvel Heroes)	#102e43,#84807f
+Countess	#25101a,#26110e
+Contessa (Vera Vidal)	#ad8d97,#eeddcb
+Constrictor	#f3f3af,#c1a579
+Cuthbert	#25101a,#26110e
+Dark Phoenix	#170704,#ac101d
+Crystal	#4f874f,#e58665
+Caretaker	#25101a,#26110e
+Charles Xavier	#25101a,#26110e
+Chronomancer	#25101a,#26110e
+Clea	#c0c25,#e4e3f4
+Ender Wiggin	#251d18,#6a5440
+Ezekiel Stane	#150e0b,#7e5747
+Elektra	#caa61b,#d0a455
+Diamondback (Rachel Leighton)	#c7a41c,#cfb144
+Deathcry	#c1118,#47627f
+Fabian Cortez	#40100,#4c151c
+Devos	#12638e,#b5af77
+Fantomex	#508850,#72a872
+Eternity	#a86b3a,#80a12
+Doctor Faustus	#b060a,#e1824
+Diablo	#201018,#426a55
+Elixir	#32719c,#161514
+Earthquake	#fcfcfc,#748bc3
+Fin Fang Foom	#faf0b2,#80704
+Felicia Hardy	#25101a,#26110e
+Dum Dum Dugan	#3f1502,#975f09
+Devil Dinosaur (HAS)	#d7dbca,#94161b
+Edwin Jarvis	#fbf2b8,#9d877a
+Elements of Doom	#25101a,#26110e
+Erik the Red	#25101a,#26110e
+Ezekiel	#ae9d98,#ddd2ce
+Echo	#b29582,#dfd9d0
+Debrii	#5338c,#51a44
+Doorman	#73bb,#10000
+Elsa Bloodstone	#10100,#a8917d
+Deena Pilgrim	#25101a,#26110e
+Eddie Lau	#25101a,#26110e
+Destiny	#25101a,#26110e
+Doctor Doom (Ultimate)	#b96821,#50402
+Epoch	#fefefd,#1f1e0f
+Firebird	#fcf3ce,#ee9b2f
+Doctor Strange (Ultimate)	#c6a11f,#d1a64d
+Elektra (Ultimate)	#492d5e,#142228
+Doop	#8ab180,#a3d5f2
+Enchantress (Amora)	#df9457,#b26623
+Doctor Spectrum	#a65018,#cc9b56
+Dexter Bennett	#dfcfbf,#c39d82
+Enchantress (Sylvie Lushton)	#25101a,#26110e
+Firebrand	#25101a,#26110e
+Dreaming Celestial	#25101a,#26110e
+Ego	#714f72,#c6a31d
+Energizer	#25101a,#26110e
+Eddie Brock	#70403,#714d61
+Demogoblin	#979694,#10a1b
+Falcon/Sam Wilson (MAA)	#ede7e2,#2e6778
+Deathbird	#8071f,#321427
+Deathstrike (Ultimate)	#25101a,#26110e
+Defenders	#542a58,#140a05
+Dormammu	#efdac0,#baa495
+Deviants	#a1324,#220e04
+Doctor Octopus (Ultimate)	#291206,#f9db56
+Elloe Kaifi	#969696,#50202
+Death	#922616,#a53523
+Expediter	#25101a,#26110e
+Deathlok	#c7a41b,#785547
+Exodus	#3b6f94,#89503a
+Drax	#999a8b,#645e43
+Detective Soap	#25101a,#26110e
+Dog Brother #1	#fdfdfd,#10101
+Dust	#aca191,#30202
+Elite	#25101a,#26110e
+Emma Frost	#38b2bb,#191919
+Fenris	#25101a,#26110e
+Dr. Strange (Marvel: Avengers Alliance)	#524942,#1e1009
+Excalibur	#2d140e,#8e4a37
+Dinah Soar	#25101a,#26110e
+Doctor Strange	#545f73,#68b0bc
+Electro (Ultimate)	#33212e,#ac8e62
+Edward "Ted" Forrester	#25101a,#26110e
+Doctor Doom	#2b1c0f,#2e719e
+Dreadnoughts	#25101a,#26110e
+Doctor Octopus	#906540,#c38f60
+Dormammu (Ultimate)	#25101a,#26110e
+Fallen One	#25101a,#26110e
+Doomsday Man	#25101a,#26110e
+Dirk Anger	#25101a,#26110e
+Feral	#25101a,#26110e
+Famine	#25101a,#26110e
+Electro	#40508,#c39d5b
+Firedrake	#d1ad4e,#cd831b
+Deadpool (X-Men: Battle of the Atom)	#784e48,#110806
+Dracula	#934031,#8e2717
+Druig	#25101a,#26110e
+Debra Whitman	#25101a,#26110e
+Falcon	#4f884f,#100806
+Eternals	#53c2cb,#3ab1ba
+Emplate	#30202,#705746
+Dragon Lord	#25101a,#26110e
+Exiles	#8a532f,#342217
+Doc Samson	#2f719e,#161209
+Fantastic Four (Ultimate)	#3080c,#2c1407
+Dragon Man	#8e9ed0,#f4d7c8
+Fat Cobra	#fefefd,#e04a3c
+Fantastic Four	#588059,#9b552b
+Domino	#50403,#902616
+Dorian Gray	#25101a,#26110e
+Fantastick Four	#92f3a,#326c79
+Devil Dinosaur (Devil Dinosaur)	#30719d,#ec2d3d
+Donald Blake	#f9d5ba,#dfe3e8
+Empath	#3d0b15,#93171f
+Hank Pym	#492c60,#10100
+Firestar	#30729e,#f9d842
+Ghost Rider (Daniel Ketch)	#120907,#55c1c9
+Giant Girl	#25101a,#26110e
+Frog Thor	#6a6148,#227c61
+Gladiator (Melvin Potter)	#2d3071,#2a110f
+Hammerhead	#30201,#988380
+Harrier	#fdfdfb,#200c03
+Grey Gargoyle	#a85d2c,#db8a3f
+Frog-Man	#c3e0f0,#8e8e74
+Gargoyle (Yuri Topolov)	#25101a,#26110e
+Firestar (Ultimate)	#110401,#eb933f
+Greymalkin	#25101a,#26110e
+Harry Heck	#25101a,#26110e
+GW Bridge	#25101a,#26110e
+Frankensteins Monster	#ada281,#81a793
+Flatman	#25101a,#26110e
+Grim Reaper	#fdfdfc,#30101
+Foggy Nelson	#0,#567066
+Freak	#f0503,#f18a5b
+Gene Sailors	#25101a,#26110e
+Genis-Vell	#25101a,#26110e
+Green Goblin (Ultimate)	#6070d,#60503
+Goblin Queen	#33170e,#4e8550
+Gunslinger	#25101a,#26110e
+Gorilla Man	#231915,#251a1e
+Gravity	#e39040,#d9771a
+George Stacy (Ultimate)	#25101a,#26110e
+Gressill	#25101a,#26110e
+Hairball	#25101a,#26110e
+Gideon	#7e5c4a,#b5a183
+Hardball	#4f884f,#a24b36
+Grandmaster	#f6eeb6,#c8d6e5
+Glenn Talbot	#25101a,#26110e
+Harley Davidson Cooper	#25101a,#26110e
+Gabe Jones	#60201,#ea7561
+Hawkeye (Marvel Heroes)	#f2b46,#3d1047
+Franklin Richards	#912616,#a13b2a
+Gamora (Marvel War of Heroes)	#221c2b,#282008
+Generation X	#25101a,#26110e
+Green Goblin (Harry Osborn)	#25101a,#26110e
+Gorgon	#4f874f,#60303
+Hammerhead (Ultimate)	#25101a,#26110e
+Gamma Corps	#25101a,#26110e
+Groot	#aa642f,#d38e50
+Hate-Monger (Adolf Hitler)	#b8e5fa,#8d5984
+Great Lakes Avengers	#291917,#32698b
+Hawkeye (Ultimate)	#c9a61c,#cda666
+Forgotten One	#281f18,#b09775
+Genesis	#10000,#71520
+Hawkeye (Kate Bishop)	#20000,#dc8f4e
+Guardian	#1c150c,#745f42
+Frank Castle	#25101a,#26110e
+Gamora	#c6a41d,#c8b054
+H.E.R.B.I.E.	#86a1b2,#d1219
+Happy Hogan	#fdfcfc,#715e4c
+Franklin Storm	#20100,#83817f
+Gargoyle	#25101a,#26110e
+Hedge Knight	#25101a,#26110e
+Giant-dok	#25101a,#26110e
+Fixer (Paul Norbert Ebersol)	#25101a,#26110e
+Galia	#25101a,#26110e
+Hannibal King	#25101a,#26110e
+Gambit	#979797,#291824
+Gladiator (Kallark)	#37719a,#301e19
+Ghost Rider (Marvel War of Heroes)	#555b62,#2d241e
+Guardsmen	#25101a,#26110e
+Forge (Ultimate)	#25101a,#26110e
+Giant Man	#7cb8e3,#bed8ee
+Giant-Man (Ultimate)	#cda285,#924d36
+Forearm	#25101a,#26110e
+Force Works	#36759f,#609dc3
+Half-Life (Tony Masterson)	#fefcfd,#eff04b
+Ghost Rider (Johnny Blaze)	#131421,#2e101e
+Hawkeye/Clint Barton (MAA)	#38687c,#da9e7d
+Havok	#508050,#50504
+Firelord	#fdfbfc,#fcfbfa
+Gauntlet (Joseph Green)	#8f4838,#902616
+Garia	#25101a,#26110e
+Frightful Four	#30509,#b49b80
+Git Hoskins	#90201,#250f1c
+Gertrude Yorkes	#392310,#7a5a32
+Green Goblin (Barry Norman Osborn)	#60401,#84115a
+Forge	#999693,#60715f
+Flying Dutchman	#25101a,#26110e
+Gwen Stacy	#ae998a,#e2dcd0
+Harry Osborn	#c98982,#120705
+Hawkeye	#4f884f,#271a24
+Golden Guardian	#25101a,#26110e
+Gwen Stacy (Ultimate)	#25101a,#26110e
+Harry Osborn (Ultimate)	#25101a,#26110e
+Harpoon	#25101a,#26110e
+Garrison Kane	#fefefe,#8f8278
+Glorian	#8a3843,#6b2c3a
+Guardians of the Galaxy	#34709c,#23150c
+Galactus	#72476b,#da8b77
+H.A.M.M.E.R.	#fce7dc,#271321
+Geiger	#c8a51c,#b289a3
+Goliath (Bill Foster)	#929ead,#968a80
+Gateway	#39559e,#d1326
+Iron Man	#22120e,#492c5f
+Hellcat (Patsy Walker)	#d49642,#e1592b
+Hiroim	#caa61c,#c9b153
+Iron Man (Marvel Heroes)	#123345,#460b06
+Hydra	#8e512f,#70b19
+Hellfire Club (Ultimate)	#25101a,#26110e
+Jack Power	#25101a,#26110e
+Jackpot	#25101a,#26110e
+Human Torch	#fdfad0,#4c2c5e
+Iron Fist (USM)	#eedb3e,#12361c
+Hulk (Ultimate)	#141c18,#57665b
+Human Torch (Jim Hammond)	#33739e,#dc9c4c
+J. Jonah Jameson	#b36728,#ce8f57
+Hope Summers	#53c3cb,#39b2ba
+Iceman	#71aebb,#c7a51f
+Hobgoblin (Robin Borne)	#2b0a04,#b1c31
+Human Fly (Richard Deacon)	#25101a,#26110e
+Hyperion (Earth-712)	#25101a,#26110e
+Human Cannonball	#25101a,#26110e
+Jazinda	#2e1607,#923f27
+Inertia	#fbf6f2,#9e8e88
+Hitman	#25101a,#26110e
+Iron Fist (Bei Bang-Wen)	#7d6631,#508850
+Jack Flag	#9ca6b6,#b8a49f
+Jackal	#23131b,#a99689
+Hypno-Hustler	#f6f5ba,#f151f
+In-Betweener	#a19b98,#f8ecdb
+Iron Fist (Danny Rand)	#492c61,#cadee9
+Invaders	#c9a51c,#dda44a
+Howard Saint	#25101a,#26110e
+Hulk (HAS)	#40803e,#96af8d
+Holy	#25101a,#26110e
+Hercules	#49854c,#1a130d
+Hulkling	#afa48d,#1c1a16
+Hulk (Marvel: Avengers Alliance)	#454544,#162d17
+Imperial Guard	#120c07,#37749e
+Hobgoblin (Roderick Kingsley)	#115ca5,#b78a58
+Imperfects	#25101a,#26110e
+Henry Peter Gyrich	#492d60,#30100
+Iron Man (Ultimate)	#c7a41c,#4e6277
+Iron Cross Army	#25101a,#26110e
+Human Robot	#1e121c,#e2e4f4
+Jack Murdock	#25101a,#26110e
+Ironclad	#f6e9af,#a2979c
+Hindsight Lad	#a0a15,#808080
+Hitomi Sakuma	#25101a,#26110e
+Iron Man (Marvel War of Heroes)	#1b2932,#15120d
+Iron Patriot	#25101a,#26110e
+Husk	#91826,#100705
+Hellion	#151411,#88ac99
+Hobgoblin (Jason Macendale)	#25101a,#26110e
+Hydro-Man	#204,#347492
+Jane Foster	#f9d5bb,#dc9374
+Invisible Woman (Marvel: Avengers Alliance)	#4b4744,#24170a
+Hex	#f9c766,#dc995d
+Holocaust (Age of Apocalypse)	#25101a,#26110e
+Imp	#a38a84,#faf2ee
+Hulk	#10000,#482c5e
+Heroes For Hire	#d5dde5,#bba286
+Iron Fist (Quan Yaozu)	#d09150,#a8692e
+Howard The Duck	#a01820,#2d1524
+Ilyana Rasputin	#25101a,#26110e
+Iceman (Ultimate)	#bfddee,#67b3da
+Invisible Woman	#55c1c9,#39b2ba
+Humbug	#a19a91,#9897a6
+Jamie Braddock	#25101a,#26110e
+Hulk/Bruce Banner (MAA)	#40773d,#2f6677
+Human Torch (Ultimate)	#4f884f,#210f09
+Hellions (Squad)	#e0604,#955f43
+Ink	#25101a,#26110e
+Iron Man (Iron Man 3 - The Official Game)	#845f4a,#89827b
+High Evolutionary	#39b2bb,#4ac4cc
+James Buchanan Barnes	#25101a,#26110e
+Hulk (Marvel Zombies)	#30301,#482c5e
+Iron Patriot (James Rhodes)	#15242d,#a49891
+Iron Lad	#29180e,#88523a
+Iron Monger	#25101a,#26110e
+Impossible Man	#fefefc,#300c35
+James Howlett	#e0d09,#666a44
+Jasper Sitwell	#25101a,#26110e
+Iron Fist (Wu Ao-Shi)	#93422b,#912616
+Iron Man (LEGO Marvel Super Heroes)	#c7e5f3,#fbecd5
+Iron Fist (Orson Randall)	#9d9991,#6f735d
+Ikaris	#f19156,#9c4f3b
+Hussar	#fdfdfc,#e3225f
+Iceman (X-Men: Battle of the Atom)	#7a9ebb,#c5e0f0
+Hepzibah	#86a497,#130b08
+Hellfire Club	#191512,#12151b
+Jean Grey	#28130c,#da964f
+Hulk-dok	#25101a,#26110e
+Janus, the Nega-Man	#25101a,#26110e
+Invisible Woman (Ultimate)	#20200,#fbf0b9
+Iron Man/Tony Stark (MAA)	#316979,#8d0817
+Inhumans	#4e864f,#b0603
+Illuminati	#39b1ba,#57bec8
+Hemingway	#25101a,#26110e
+Infant Terrible	#50614,#3d242e
+Jack O Lantern	#25101a,#26110e
+Hulk (LEGO Marvel Super Heroes)	#118a38,#62c10
+Lady Deathstrike	#4ec4cd,#39b2ba
+Jubilee	#fefcf8,#90653b
+Josiah X	#25101a,#26110e
+Lethal Legion	#24100b,#fbfaf8
+Lizard (Ultimate)	#60b17,#201411
+Kingpin	#f6ecd7,#c9a51b
+Juggernaut	#461c11,#b9976c
+Jule Carpenter	#25101a,#26110e
+Jocasta	#fefdfd,#989faa
+Kinsey Walden	#25101a,#26110e
+Johnny Storm	#25101a,#26110e
+Joshua Kane	#b7b793,#a0b0f
+Justin Hammer	#fefaf7,#10007
+Lifeguard	#25101a,#26110e
+Jennifer Smith	#25101a,#26110e
+Living Mummy	#25101a,#26110e
+Lily Hollister	#25101a,#26110e
+Joan the Mouse	#25101a,#26110e
+Kitty Pryde	#492c60,#c0604
+Jessica Jones	#dca68e,#54bec7
+Kat Farrell	#25101a,#26110e
+Lizard	#7e572f,#151708
+John Farson	#25101a,#26110e
+Lilandra	#30729e,#5e99be
+Killraven	#25101a,#26110e
+Karen Page	#25101a,#26110e
+Krista Starr	#25101a,#26110e
+Jigsaw	#f9f9f9,#1a202c
+Lightspeed	#eaddc4,#c29d85
+Joseph	#c9a61b,#c1aa69
+John Porter	#25101a,#26110e
+Leper Queen	#25101a,#26110e
+Lightning Lords of Nepal	#d1d8e7,#151e2d
+Landau	#25101a,#26110e
+Lava-Man	#25101a,#26110e
+Korvac	#e68c5a,#f8e6b8
+Karnak	#492d60,#705e45
+Jeryn Hogarth	#25101a,#26110e
+Jimmy Woo	#9e8174,#21161b
+Karen OMalley	#c79686,#b14c16
+Karma	#912616,#a73321
+Lady Bullseye	#2c0f17,#991c24
+Killer Shrike	#25101a,#26110e
+Jubilee (Age of Apocalypse)	#6b2365,#3b183f
+Kang	#caa61b,#62212
+Julian Keller	#25101a,#26110e
+Lady Ursula	#d9cf44,#956540
+Loa	#ca6918,#df8944
+Kulan Gath	#25101a,#26110e
+Justice	#faf8f7,#959bb2
+Jetstream	#25101a,#26110e
+Lady Vermin	#66503a,#b0a121
+Leader	#4cc4cc,#39b2ba
+Leech	#25101a,#26110e
+Kylun	#fdfdfd,#ba946a
+Klaw	#aa908d,#e45247
+Lilith	#4f884f,#40101
+Korg	#944838,#912616
+Lei Kung, The Thunderer	#25101a,#26110e
+Lady Mastermind	#32833,#6d5f4e
+Kronos	#fefefe,#828282
+Lockheed	#0,#5a4679
+Ken Ellis	#fbfafa,#c4e3f6
+Lockjaw	#1020a,#bc885a
+Korath	#451f05,#ddd86c
+Jean Grey (Ultimate)	#caa61c,#d09d68
+John Jameson	#415d81,#1a1c22
+Liz Osborn	#25101a,#26110e
+Ka-Zar	#776048,#bf9b6a
+Kabuki	#25101a,#26110e
+Joystick	#486381,#89aac8
+Living Tribunal	#3b273d,#b4a964
+Lila Cheney	#25101a,#26110e
+Leo (Zodiac)	#25101a,#26110e
+Lester	#1b0d03,#895b32
+King Cobra	#25101a,#26110e
+Lenny Balinger	#25101a,#26110e
+Living Lightning	#fdfbf9,#a88d78
+Kraven the Hunter	#50302,#356d96
+Khan	#25101a,#26110e
+Legion	#4f8750,#a73347
+Lake	#25101a,#26110e
+Junta	#f1ede4,#6d6b69
+Katie Power	#fbf9e1,#cc9a53
+Johnny Blaze	#a45118,#441506
+Kitty Pryde (X-Men: Battle of the Atom)	#2d1a14,#414c3f
+Jessica Drew	#25101a,#26110e
+Karolina Dean 	#16253f,#4a5b7b
+Kid Colt	#25101a,#26110e
+John Wraith	#25101a,#26110e
+Killmonger	#25101a,#26110e
+Layla Miller	#2f719e,#bb9a7a
+Kate Bishop	#f8f5e7,#99917f
+Lieutenant Marcus Stone	#ecdfcc,#cedee7
+Komodo (Melati Kusuma)	#482d5f,#b9a27a
+King Bedlam	#25101a,#26110e
+La Nuit	#bfcccd,#0
+Leopardon	#25101a,#26110e
+Kree	#c8a41c,#c7ae4a
+Lionheart	#25101a,#26110e
+Mercury	#25101a,#26110e
+Matthew Murdock	#25101a,#26110e
+Madame Web (Julia Carpenter)	#fcfaf6,#110c09
+Mandrill	#506072,#161b21
+Meteorite	#25101a,#26110e
+Maximus	#51bfc7,#3bb1b9
+Madelyne Pryor	#a0705,#4f834f
+Magik (Illyana Rasputin)	#c9a51c,#e0e0e
+Mandarin	#d6914e,#c66a1a
+Matsuo Tsurayaba	#fefefe,#221422
+Makkari	#25101a,#26110e
+Luminals	#804b62,#b18b74
+Mentallo	#776258,#aa8e7f
+M.O.D.O.K.	#31709b,#844f3c
+Meggan	#191b32,#938979
+M.O.D.A.M.	#25101a,#26110e
+Mary Jane Watson (House of M)	#efe6c2,#d4e7f1
+Loners	#7a6048,#3b261a
+Mephistopheles	#25101a,#26110e
+Mantis	#9f3a28,#912616
+Magneto (Ultimate)	#c5591a,#d98b40
+Mentor	#25101a,#26110e
+Marten Broadcloak	#25101a,#26110e
+Magdalene	#25101a,#26110e
+Magik (Amanda Sefton)	#30201,#a9927e
+Madrox	#9a3d2f,#40202
+Magneto (Age of Apocalypse)	#150903,#caa61c
+Maria Hill	#c56a1d,#e68c34
+Maverick (Christoph Nord)	#25101a,#26110e
+Mesmero	#bda57f,#876240
+Ma Gnuci	#25101a,#26110e
+Machine Man	#9c8f80,#f3e5ce
+Medusa	#380b20,#7e2344
+Martin Li	#25101a,#26110e
+Master Chief	#be9b59,#7c6545
+Maddog	#25101a,#26110e
+Marcus Van Sciver	#25101a,#26110e
+Masked Marvel (Unrevealed)	#25101a,#26110e
+Magneto (X-Men: Battle of the Atom)	#c3eefa,#d7fcfa
+Lucky Pierre	#9f9088,#a7979d
+M.O.D.O.K. (Iron Man 3 - The Official Game)	#352015,#795437
+Manta	#f7f5d6,#88a0b0
+Luke Cage	#80201,#38b2ba
+Masque	#25101a,#26110e
+Malice (Earth-161)	#25101a,#26110e
+Malcolm Colcord	#25101a,#26110e
+Major Mapleleaf	#25101a,#26110e
+Mach IV	#25101a,#26110e
+Metal Master	#25101a,#26110e
+Maginty	#25101a,#26110e
+Magus (Technarch)	#25101a,#26110e
+Lyja	#fefefe,#61b0d
+Mad Thinker	#de8f39,#cd6b16
+Luckman	#25101a,#26110e
+Mariko Yashida	#c996ad,#fde3a9
+Menace	#b4917f,#45251d
+Maelstrom	#150a12,#6c5c4b
+Marvel Apes	#25101a,#26110e
+Meltdown	#25101a,#26110e
+Magneto (House of M)	#4f884f,#599859
+Man-Thing	#2b0c06,#26070a
+Maggott	#25101a,#26110e
+Masters of Evil	#685f40,#4d5d67
+M.O.D.O.G.	#25101a,#26110e
+Lord Tyger	#946035,#3c0905
+M (Monet St. Croix)	#9e3d5f,#6f284f
+Marrow	#476275,#1a242b
+Mastermind	#381a09,#8d461a
+Marvel Boy	#faf6ed,#271c21
+Mephisto	#959594,#d0504
+Marvex	#25101a,#26110e
+Master Mold	#25101a,#26110e
+Mattie Franklin	#25101a,#26110e
+Longshot	#101215,#110905
+Madame Hydra	#11121c,#6c5a48
+May Parker	#4f884f,#599759
+Lorna Dane	#25101a,#26110e
+Magneto	#492d60,#f4dbd0
+Lord Hawal	#a9977e,#934b2c
+Longshot (Ultimate)	#fcfbf7,#87ad98
+Loki (LEGO Marvel Super Heroes)	#382921,#804f38
+Lucy in the Sky	#16253f,#4a5b7b
+Magus (Adam Warlock)	#b18d5b,#f8f539
+Lords of Avalon	#25101a,#26110e
+Mathemanic	#25101a,#26110e
+Maestro	#30201,#31407
+Mac Gargan	#25101a,#26110e
+Man-Wolf	#415d81,#1a1c22
+Maverick (Chris Bradley)	#fdfdfc,#9b8368
+Mandroid	#25101a,#26110e
+Madripoor	#a98673,#809ec1
+Magma (Amara Aquilla)	#dd8c49,#b14d30
+Mary Jane Watson	#a3938e,#60101
+Marvel Zombies	#f6eac4,#945230
+Logan	#25101a,#26110e
+Loki	#9d9792,#b1328
+Mary Jane Watson (Ultimate)	#c190c,#2d1e15
+Madame Masque	#101835,#4b5571
+Mauler	#25101a,#26110e
+Marauders	#50201,#d98d4a
+Miek	#7e5646,#bc8e73
+Mikhail Rasputin	#25101a,#26110e
+Mister Sinister (Deadpool)	#545964,#930503
+Mongu (Unrevealed)	#25101a,#26110e
+Nebula	#518651,#79a97a
+Mr. Fish	#25101a,#26110e
+Monster Badoon	#25101a,#26110e
+Night Thrasher (Dwayne Taylor)	#d2dcef,#d5997f
+Mordo	#25101a,#26110e
+Nick Fury (Ultimate)	#9b9286,#7e604b
+Miracleman	#39b2ba,#48c6cf
+Microbe	#fbf5f0,#50507d
+New Warriors	#9b9892,#251a0f
+Nekra	#60831,#10279c
+Micromax	#a0b1a,#d0503
+Namor	#50c5cd,#ac9186
+Newton Destine	#25101a,#26110e
+Mystique (Ultimate)	#25101a,#26110e
+Namorita	#c9a51c,#d0a557
+Natasha Romanoff	#25101a,#26110e
+Nicolaos	#25101a,#26110e
+Night Thrasher	#4f8750,#904339
+Nighthawk	#fefefd,#83817e
+Mockingbird	#912515,#a93e23
+Nick Fury (LEGO Marvel Super Heroes)	#25101a,#26110e
+Mystique (Age of Apocalypse)	#456a7a,#508452
+Network	#25101a,#26110e
+Mr. Negative	#1e232f,#495777
+Ms. Marvel (Kamala Khan)	#9d9691,#ae1130
+Nightmare	#10101,#676951
+Micro/Macro	#25101a,#26110e
+Misty Knight	#e1903d,#c0671d
+Mr. Fixit	#25101a,#26110e
+Mister Sinister (House of M)	#111223,#10060c
+Microchip	#25101a,#26110e
+Morg	#25101a,#26110e
+Mister Sinister (Ultimate)	#25101a,#26110e
+Mysterio	#e5e5ec,#15142f
+Mysterio (Daniel Berkhart)	#25101a,#26110e
+Mr. Fantastic (Ultimate)	#cba71b,#60305
+Moon Knight (Ultimate)	#25101a,#26110e
+Moon Girl (Lunella Layfayette)	#25101a,#26110e
+Molly Von Richtofen	#25101a,#26110e
+Moon Knight	#366d96,#262630
+Moonstone	#912616,#a23b2a
+Multiple Man	#b3a694,#efe1d1
+Mr. Meugniot	#ae8b75,#796351
+Mysterio (Francis Klum)	#25101a,#26110e
+Molly Hayes	#7c5f3a,#a89778
+New Goblin	#25101a,#26110e
+Mystique (House of M)	#af9788,#516779
+Nightcrawler (Ultimate)	#2022f,#87827a
+New X-Men	#32709a,#6ba4c4
+Next Avengers	#25101a,#26110e
+Nemesis	#25101a,#26110e
+Nico Minoru	#fae3bc,#f0705
+Mole Man	#30201,#8d887f
+Millie the Model	#1c0001,#a2877b
+Morgan Stark	#25101a,#26110e
+Millenium Guard	#25101a,#26110e
+Mystique	#c8a51d,#117aa5
+Moira MacTaggert (Ultimate)	#ba9581,#b0878d
+Moira MacTaggert	#e7e3d7,#191613
+Nextwave	#7b553c,#66c4c0
+Midnight (Earth-811)	#25101a,#26110e
+Mr. Immortal	#2d201d,#4d6083
+Moon Knight (House of M)	#25101a,#26110e
+MVP	#110705,#7d3d55
+Morph	#fefefe,#ea1b5f
+Molten Man	#c0f27,#82a0d4
+Mr. Hyde	#80704,#92857e
+MI: 13	#120805,#b58e73
+Mulholland Black	#25101a,#26110e
+Mr. X	#351a11,#8e4f30
+Naoko	#60101,#b2928b
+Nick Fury	#a66a34,#c38e57
+Mongoose	#aea38f,#e9d6c2
+Mojo	#b0803,#7b5f36
+Morlocks	#518252,#38667d
+Nakia (Nakia)	#25101a,#26110e
+Mother Askani	#25101a,#26110e
+Moondragon	#40c14,#9e857f
+Mr. Fantastic	#a63928,#912616
+Nehzno	#25101a,#26110e
+Night Nurse (Earth-9997)	#f4e7bf,#beaa93
+Mimic	#25101a,#26110e
+Mister Sinister	#a63524,#912616
+Mr. Payback	#25101a,#26110e
+Namora	#146d93,#436956
+Mr. Bumpo	#25101a,#26110e
+Morlun	#912616,#a33828
+New Mutants	#33729c,#e29e47
+Nightshade	#25101a,#26110e
+Molecule Man	#e58b34,#d9761a
+MS2	#25101a,#26110e
+Morbius	#4f884f,#1c2a31
+Miss America	#25101a,#26110e
+Mindworm	#4d585f,#2e3336
+Nightcrawler	#c96918,#60201
+Mister Fear	#25101a,#26110e
+Puma	#8c837c,#281812
+Purifiers	#695746,#492d5f
+Prodigy	#a5978c,#9c5d3e
+Obadiah Stane	#fefefd,#5da1e1
+Pride	#1e160e,#182319
+Punisher (Marvel: Avengers Alliance)	#474646,#140e0a
+Phil Coulson (Phil Coulson)	#25101a,#26110e
+Onslaught (Ultimate)	#25101a,#26110e
+Ogun	#e4e3c8,#1d0a16
+PsyNapse	#25101a,#26110e
+Proemial Gods	#91633,#af936b
+Patriot	#f3e7cc,#7d5b42
+Prima	#3f6b4a,#a3916f
+Okoye	#25101a,#26110e
+Patch	#25101a,#26110e
+Phil Sheldon	#cbd2db,#81a6cb
+Quake (Daisy Johnson)	#9c9891,#241c12
+Professor Monster	#25101a,#26110e
+Punisher (2099)	#d28852,#40101
+Orphan-Maker	#101227,#52527a
+Proudstar	#25101a,#26110e
+Piledriver	#f4e3c3,#d5996c
+Peter Parker	#25101a,#26110e
+Pip	#86a6bb,#cad8e1
+Omega Flight	#25101a,#26110e
+Nova (Sam Alexander)	#2f709b,#90402
+Puck (Zuzha Yu)	#30200,#c49870
+Punisher	#a23a2a,#912616
+Nomad (Steve Rogers)	#25101a,#26110e
+Nocturne	#25101a,#26110e
+Nine-Fold Daughters of Xao	#aa9378,#895437
+Nova	#397ca2,#90200
+Pretty Boy	#ffffff,#e9f0f7
+Omega Red	#3b150a,#341121
+Paladin	#c7a41c,#565e6d
+Ozymandias	#25101a,#26110e
+Phyla-Vell	#25101a,#26110e
+Phantom Reporter	#111111,#120f21
+Ord	#3090d,#878480
+Odin	#bc9874,#94673e
+Plazm	#25101a,#26110e
+pug	#25101a,#26110e
+Penance (Robert Baldwin)	#9b9991,#80604
+Paper Doll	#3369ae,#f9f7f5
+Quasar (Wendell Vaughn)	#4ac6cf,#39b2ba
+Orphan	#25101a,#26110e
+Pet Avengers	#fdfcfa,#954b2c
+Preak	#706d41,#aba877
+Northstar	#c78d55,#a15531
+Nomad (Rikki Barnes)	#1f7493,#101a22
+Proteus (House of M)	#25101a,#26110e
+Prowler	#0,#fefefe
+Quasar (Phyla-Vell)	#bf661f,#dd8e43
+Princess Powerful	#7c5f3a,#a89778
+Old Lace	#392310,#7a5a32
+Praxagora	#eae9e6,#dedee5
+Nuke	#fefefc,#556d79
+Nitro	#b78d7f,#f8ede1
+Prince of Orphans	#25101a,#26110e
+Pixie	#f5f4f2,#a1988c
+Nomad	#0,#472a3
+Payback	#25101a,#26110e
+Post	#25101a,#26110e
+Pestilence	#25101a,#26110e
+Quasimodo	#f6f5ef,#9aa1b5
+Puff Adder	#fefefe,#8d9274
+Pandemic	#25101a,#26110e
+Pyro	#32130e,#a24427
+Oracle	#fdfdfd,#99abc1
+Norrin Radd	#1d293f,#4c5e6d
+Onslaught	#939392,#2d0e1a
+Puck	#20000,#d08a6c
+Proteus	#4f874f,#585f69
+Phalanx	#3a6e8b,#77a1b3
+Puppet Master	#f5e5cf,#b5a09a
+Overlord	#25101a,#26110e
+Power Pack	#53c0ca,#39b1b9
+Purple Man	#40201,#ad4331
+Prism	#25101a,#26110e
+Psylocke	#9d9a98,#40302
+Pete Wisdom	#10101,#191d21
+Professor X (Ultimate)	#572657,#3b1f42
+Power Man (USM)	#39c5f7,#22211b
+Photon	#25101a,#26110e
+Omega Sentinel	#a99e8f,#e2dac5
+Polaris	#c8aa60,#487268
+Otto Octavius	#25101a,#26110e
+Nova (USM)	#4ac4f3,#b7e3f8
+Nova (Frankie Raye)	#4e874f,#71a572
+Outlaw Kid	#25101a,#26110e
+Omega the Unknown	#d5c2b5,#58617b
+Prowler (Rick Lawson)	#25101a,#26110e
+Owl	#17130e,#6c6454
+Pepper Potts	#fdfcfb,#8caab9
+Professor X	#39b2ba,#4fc3cc
+Paibok	#fefefe,#86887c
+Proteus (Ultimate)	#60302,#aa8f7f
+Peter Quill	#25101a,#26110e
+Psycho-Man	#3e786d,#f8f1bb
+Norman Osborn	#4e874e,#100b06
+Sabra	#25101a,#26110e
+Red Ghost	#4f884f,#1d0904
+Scarlet Spider (Kaine)	#121a1e,#d4e3da
+Rumiko Fujikawa	#25101a,#26110e
+Rachel Grey	#c8a51c,#a993a2
+S.H.I.E.L.D.	#a43828,#902616
+Quicksilver (Ultimate)	#3a6e93,#d1013
+Reavers	#b6ab86,#d0904
+Ronan	#922616,#a03927
+Scarlet Witch	#4b2c5e,#724065
+Rhodey	#25101a,#26110e
+Salo	#a29483,#25180d
+Ricochet	#25101a,#26110e
+Runaways	#51c3cc,#36b0b9
+Quentin Quire	#10000,#fadbb1
+Scarlet Witch (Ultimate)	#a0948f,#b28aa1
+Robert Baldwin 	#25101a,#26110e
+Random	#3030d,#270502
+Rogue (Age of Apocalypse)	#34729b,#70201
+Quicksilver (Age of Apocalypse)	#492d60,#8fb4bc
+Sentinel	#fefcf7,#181740
+Richard Fisk	#25101a,#26110e
+Riptide	#25101a,#26110e
+Scorpion (Ultimate)	#25101a,#26110e
+Reptil	#fdfcf7,#5b6b65
+Robin Chapel	#25101a,#26110e
+Rhino	#d3e4ee,#92a7b1
+Scalphunter	#0,#5759c8
+Scrambler	#aba495,#9fa7ae
+Roland Deschain	#25101a,#26110e
+Screwball	#25101a,#26110e
+Retro Girl	#25101a,#26110e
+Rogue (Ultimate)	#39b2ba,#52bbc5
+Scourge	#25101a,#26110e
+Red Shift	#25101a,#26110e
+Randall	#25101a,#26110e
+Scarlet Witch (Age of Apocalypse)	#50c2ca,#280603
+Queen Noir	#25101a,#26110e
+Roulette	#25101a,#26110e
+Red Skull (Albert Malik)	#25101a,#26110e
+Roughhouse	#25101a,#26110e
+Santa Claus	#25101a,#26110e
+Red Ghost (Ultimate)	#25101a,#26110e
+Red Wolf	#25101a,#26110e
+Sebastian Shaw	#f152e,#3d5788
+Risque	#b78b9c,#54655c
+Ravenous	#25101a,#26110e
+Rick Jones	#435e6d,#dd8f41
+Rogue (X-Men: Battle of the Atom)	#f4dab4,#cd9b75
+Red Hulk (HAS)	#dce1d0,#954131
+Red Hulk	#440703,#4f894f
+Sandman	#25101a,#26110e
+Reavers (Ultimate)	#25101a,#26110e
+Satana	#100a06,#7e593c
+Red Skull	#c7a41c,#6a4d51
+Scarecrow (Ebenezer Laughton)	#25101a,#26110e
+Rockslide	#25101a,#26110e
+Scarlet Spider (Ben Reilly)	#3b0313,#81b32
+Sentinels	#445589,#160d0a
+Roxanne Simpson	#25101a,#26110e
+Saracen (Muzzafar Lambert)	#25101a,#26110e
+Rogue	#cb6b16,#db8c3b
+Scarlet Witch (Marvel Heroes)	#85807e,#e2f42
+Russian	#bb8d77,#7a584b
+Scream (Donna Diego)	#25101a,#26110e
+Rocket Racer	#ab9d97,#21140e
+Rattler	#25101a,#26110e
+Quicksilver	#cb6a17,#d9853d
+Reaper	#25101a,#26110e
+Raza	#fdfbfc,#fbfbfb
+Red 9	#25101a,#26110e
+Senator Kelly	#fcfaf2,#1c0e06
+Raider	#25101a,#26110e
+Sabretooth (Ultimate)	#849bb0,#12100c
+Rocket Raccoon (Marvel Heroes)	#12252f,#828281
+Sage	#10000,#b4948a
+Sabretooth (House of M)	#ebdcd4,#27120e
+Rictor	#4f884f,#140b08
+Red She-Hulk	#c8a51b,#14191d
+Sabretooth	#e0a06,#fbf7ee
+Rafael Vega	#25101a,#26110e
+Scorpion (Carmilla Black)	#1e262d,#42606f
+Sasquatch (Walter Langkowski)	#25101a,#26110e
+Selene	#50402,#60b13
+Rick Jones (Ultimate)	#25101a,#26110e
+Rage	#8c2d53,#190d14
+Sauron	#c2803,#39241a
+Salems Seven (Ultimate)	#25101a,#26110e
+Sally Floyd	#d0e11,#cddaed
+Rocket Raccoon	#54c0c9,#39b2ba
+Rawhide Kid	#fdfcfb,#50303
+Randall Flagg	#141b20,#80504
+Secret Warriors	#357197,#160d08
+Radioactive Man	#e2e6bb,#b5b68e
+Robbie Robertson	#b9a282,#7e5a3a
+Romulus	#100c0a,#bc967a
+Revanche	#ffffff,#e9f0f7
+Sabretooth (Age of Apocalypse)	#cb8f71,#39b1b9
+Rogue (Deadpool)	#910302,#930204
+Redwing	#fefefd,#a54133
+She-Hulk (Jennifer Walters)	#d9883f,#c86b18
+Silver Sable	#482d5d,#654f6c
+Silver Centurion	#25101a,#26110e
+Slayback	#25101a,#26110e
+Speedball (Robert Baldwin)	#e6f0fa,#fefbfa
+Shadu the Shady	#2b0c1d,#a69384
+Skrulls (Ultimate)	#25101a,#26110e
+Spider-Ham (Larval Earth)	#25101a,#26110e
+Silver Fox	#fdfdfc,#31c0c
+Ser Duncan	#25101a,#26110e
+Shocker (Herman Schultz)	#25101a,#26110e
+Sinister Six	#40606f,#c0a764
+Shinobi Shaw	#f5eace,#190e05
+Shiver Man	#25101a,#26110e
+Shadowcat (Ultimate)	#35557a,#2c2017
+Skaar	#fefefe,#52655e
+Spider-Man (Ultimate)	#4a2c5f,#3b224c
+Solo (James Bourne)	#1d1b34,#545678
+Siren (Earth-93060)	#25101a,#26110e
+Shatterstar	#c38e64,#e0edf6
+Songbird	#efcce0,#ead8c5
+Spencer Smythe	#25101a,#26110e
+Skin	#27262c,#e2d7bd
+Spider-Man (2099)	#2e709c,#71210
+Spider-Man (Marvel: Avengers Alliance)	#514340,#460e08
+Spider-Man	#cca71b,#d7ab43
+Shard	#fdfdfd,#60402
+Shadowcat	#a08876,#140b07
+Sleeper	#25101a,#26110e
+ShiAr	#a73a29,#161e21
+Shanna the She-Devil	#f7f1d9,#c18d6b
+Shang-Chi	#40302,#492d5f
+Slipstream	#25101a,#26110e
+Sir Ram	#905f32,#450d07
+Shadow King (Age of Apocalypse)	#3977a1,#ba9e77
+Silvermane	#d7e7f7,#94908d
+Silver Samurai	#25201f,#191f1c
+Sister Grimm	#fae3bc,#f0705
+Skaar (HAS)	#92ad92,#71a0d
+She-Hulk (Lyra)	#99918d,#766152
+Shen	#17171e,#181514
+Silverclaw	#fcfcfb,#848381
+Shape	#bc9784,#f8f3f1
+Spider-Girl (Anya Corazon)	#271721,#73a872
+Spider-Girl (May Parker)	#4e5b80,#f1735
+Serpent Society	#3c647b,#c1a23
+Silver Samurai (Age of Apocalypse)	#f2ece7,#be9e6f
+Silhouette	#25101a,#26110e
+She-Hulk (Ultimate)	#c7a41d,#b8b75c
+Spider-Man (Ben Reilly)	#2e73a1,#2051c
+Smiling Tiger	#25101a,#26110e
+Spider-Man (Marvel Zombies)	#a29489,#a3482b
+Snowbird	#10100,#6eafcc
+She-Hulk (HAS)	#d8dccc,#0
+Spider-Woman (Charlotte Witter)	#f5e8bc,#2040b
+Shaman	#25101a,#26110e
+Shriek	#a63220,#922616
+Slyde	#70504,#a0f15
+Spider-Gwen (Spider-Gwen)	#4f884f,#fefefe
+Speed Demon	#d68b66,#216e90
+Spider-Man (LEGO Marvel Super Heroes)	#f6e6cc,#d5916b
+Spider-Man (Takuya Yamashiro)	#d74c16,#ca864d
+Silver Surfer	#4f884f,#faf8f6
+Shockwave	#f9f5c3,#7a6331
+Silk Fever	#25101a,#26110e
+Spacker Dave	#25101a,#26110e
+Shalla-bal	#25101a,#26110e
+Spider-Man (1602)	#4f884f,#395371
+Shooting Star	#25101a,#26110e
+Shadowcat (Age of Apocalypse)	#4f884f,#50b0e
+Shadow King	#90907,#151f23
+She-Hulk (Marvel War of Heroes)	#241f1b,#825f49
+Sleepwalker	#20000,#951244
+Sharon Carter	#88533a,#1f0d07
+Shiva	#25101a,#26110e
+Shinko Yamashiro	#25101a,#26110e
+Sentry (Robert Reynolds)	#d49c59,#49c4cf
+Sif	#f8ede7,#757171
+Slapstick	#a39894,#9babba
+Sin	#c9a61c,#c8ae45
+Shang-Chi (Ultimate)	#25101a,#26110e
+Skreet	#e9e9f3,#a69288
+Sharon Ventura	#25101a,#26110e
+Spider-Man (Ai Apaec)	#f6f0e5,#17110d
+Spider-Woman (Jessica Drew)	#366e93,#50101
+Shotgun	#25101a,#26110e
+Spider-dok	#25101a,#26110e
+Sons of the Tiger	#25101a,#26110e
+Smasher (Vril Rokk)	#fdfdfd,#f0f3f8
+Sphinx (Anath-Na Mut)	#25101a,#26110e
+Skrulls	#7f5438,#291e15
+Spider-Man (Noir)	#0,#151b1a
+Skullbuster (Cylla Markham)	#121724,#1f190f
+Spider-Man (House of M)	#39b2ba,#4ac4cd
+Shane Yamada-Jones	#9c602f,#b4a678
+Sheva Callister	#25101a,#26110e
+Spectrum	#faf8f6,#190e0b
+Sersi	#c9a61c,#daa45d
+Spider-Man (Miles Morales)	#51c2ca,#c0402
+Speed	#c0b1a,#200915
+Terrax	#25101a,#26110e
+Talisman (Elizabeth Twoyoungmen)	#25101a,#26110e
+The Fury	#171107,#846230
+The Liberteens	#25101a,#26110e
+Starjammers	#5bbec7,#39b0b8
+The Order	#25101a,#26110e
+Storm (Marvel Heroes)	#81807f,#e3447
+Sub-Mariner	#50c5cd,#ac9186
+Sugar Man	#32729c,#776247
+Spot	#fbfb3f,#130400
+Talon (Fraternity of Raptors)	#25101a,#26110e
+Spitfire	#f9f2e8,#aa9484
+Supernaut	#5070b,#e1d10
+Starfox	#d8cfbe,#331e13
+Thaddeus Ross	#25101a,#26110e
+Stilt-Man (Wibur Day)	#4f5f67,#83a0ae
+The Professor	#25101a,#26110e
+Super Hero Squad	#25101a,#26110e
+Star Brand	#25101a,#26110e
+The Executioner	#311811,#915338
+Tarantula (Luis Alvarez)	#25101a,#26110e
+Spirit	#b121b,#655f7c
+Tarot	#25101a,#26110e
+Tag	#25101a,#26110e
+Tana Nile	#fbf9fa,#515280
+Tempest	#25101a,#26110e
+Steve Rogers	#25101a,#26110e
+The 198	#25101a,#26110e
+Talkback (Chase Stein)	#25101a,#26110e
+Swordsman	#caa61b,#c6ac4b
+Synch	#ffffff,#e9f0f7
+The Fallen	#25101a,#26110e
+Terror	#0,#83827e
+Super-Adaptoid	#c39569,#735d45
+Sunspot	#353130,#c8925d
+Sunset Bain	#fefefd,#ca8a5a
+Swordsman (Jaques Duquesne)	#25101a,#26110e
+The Hunter	#85561f,#251a10
+Spiral (Rita Wayword)	#cdeaf5,#147e8b
+Stranger	#f1dac6,#afa19a
+Spyke	#25101a,#26110e
+Surge	#87abb9,#d0d9dd
+Starhawk (Stakar Ogord)	#25101a,#26110e
+Spider-Woman (Mattie Franklin)	#4f854f,#40202
+The Initiative	#af9785,#110603
+Stone Men	#25101a,#26110e
+Stephanie de la Spiroza	#25101a,#26110e
+Thanos (Ultimate)	#191f27,#4d5664
+Strong Guy	#111c19,#dc8579
+Talos	#10252e,#1a2d24
+Sunfire (Age of Apocalypse)	#fbeabf,#4f884f
+Stryfe (Ultimate)	#25101a,#26110e
+Starbolt	#fcfcfb,#fce74b
+Taskmaster	#30201,#545d6a
+Stryfe	#9b4132,#60504
+Tattoo	#25101a,#26110e
+Swarm	#20101,#7f4574
+Storm	#4f8850,#5a9759
+TChalla	#25101a,#26110e
+Stephen Strange	#25101a,#26110e
+Stepford Cuckoos	#edf1fa,#f3e6f4
+Squadron Sinister	#25101a,#26110e
+Stick	#25101a,#26110e
+Stacy X (Ultimate)	#25101a,#26110e
+The Anarchist	#10100,#f6ed04
+Squadron Supreme (Earth-712)	#5c5a71,#873c4c
+Supreme Intelligence	#6ac1ac,#32b194
+Switch	#25101a,#26110e
+Storm (Age of Apocalypse)	#d58c4a,#c76a1b
+Stature	#32729d,#e0603
+Stingray (Walter Newell)	#fafcf1,#b0000
+Super-Skrull	#a43726,#902616
+Star-Lord (Peter Quill)	#9f422f,#912616
+The Hand	#10000,#1f1018
+Storm (Ultimate)	#31729f,#6096bf
+The Phantom	#25101a,#26110e
+Thanos	#4e884f,#f1926
+Ted Forrester	#25101a,#26110e
+Sue Storm	#55c1c9,#39b2ba
+Stark Industries	#25101a,#26110e
+Sway	#73495c,#c97a8c
+Sprite	#25101a,#26110e
+Sym	#25101a,#26110e
+The Call	#25101a,#26110e
+Sumo	#25101a,#26110e
+Sunfire	#39b1b9,#52c1c9
+The Hood	#6b515f,#30101
+Tenebrous	#a7998b,#f2e5cf
+Steel Serpent (Davos)	#fdfdfd,#20202
+Stacy X	#25101a,#26110e
+Squirrel Girl	#fefefe,#755746
+The Enforcers	#25101a,#26110e
+The Liberty Legion	#25101a,#26110e
+Stellaris	#9e8f8a,#a69199
+Susan Delgado	#25101a,#26110e
+The Leader (HAS)	#8ab27d,#dbded0
+The Captain	#25101a,#26110e
+Texas Twister	#f0e7d0,#9aacbe
+Stardust	#25101a,#26110e
+The Howling Commandos	#6c683c,#c8955e
+Titanium Man (Topolov)	#7e4a3b,#e0d0a
+Trauma	#c8a51c,#60403
+The Twelve	#1b110e,#1e0e13
+U.S. Agent	#20000,#4ac5cd
+Tomas	#25101a,#26110e
+Vin Gonzales	#25101a,#26110e
+Thunderbolt Ross	#200e0b,#c58c80
+The Shiver Man	#546068,#8aa3ae
+Thunderball	#25101a,#26110e
+Toad Men	#25101a,#26110e
+Venus Dee Milo	#25101a,#26110e
+Thor (Marvel Heroes)	#173243,#9d8777
+Victor Von Doom	#25101a,#26110e
+Ultimatum	#25101a,#26110e
+Toxin (Eddie Brock)	#39b2ba,#b0403
+Ultragirl (Earth-93060)	#30729e,#c2906c
+Thena	#c09761,#8b5c4d
+Vanisher (Age of Apocalypse)	#25101a,#26110e
+Thor	#386f95,#6d9ab8
+Ultra-Adaptoid	#25101a,#26110e
+Tyrannus	#25101a,#26110e
+Vermin (Edward Whelan)	#8f4532,#70503
+Tippy Toe	#25101a,#26110e
+Triton	#3073a0,#6e633d
+Thor Girl	#482d5f,#ba936f
+Valkyrie (Samantha Parrington)	#c8a41d,#d2a44f
+Victor Mancha	#faeeca,#23190f
+The Santerians	#25101a,#26110e
+Triathlon	#fefefe,#8b8279
+Thor (Ultimate)	#c86b19,#d88b42
+True Believers	#25101a,#26110e
+Typhoid Mary	#f1510,#100d0b
+Valeria Richards	#140f09,#b39b81
+Vertigo (Savage Land Mutate)	#25101a,#26110e
+Unus (Age of Apocalypse)	#30719f,#50712
+Tony Stark	#25101a,#26110e
+Tyger Tiger	#25101a,#26110e
+Tigers Beautiful Daughter	#a5501b,#d79f53
+Thunderbolts	#5dc3cb,#171616
+Vance Astro	#25101a,#26110e
+Thunderbolt (Bill Carver)	#25101a,#26110e
+Ultimo	#8facba,#f0ebdb
+Timeslip	#25101a,#26110e
+Turbo	#50404,#100f15
+Thor (Marvel: Avengers Alliance)	#514845,#1a100c
+Venus (Siren)	#c39985,#4f884f
+Vector	#ec8b4c,#aa4f26
+Valkyrie (Ultimate)	#c99073,#865549
+Venom (Ultimate)	#999797,#16171e
+Unus (Ultimate)	#ffffff,#e9f0f7
+Thing	#b89d69,#d78d15
+Thundra	#8311b,#27130a
+Union Jack (Joseph Chapman)	#9c8a87,#7a706b
+Tombstone	#291321,#110d1b
+Thunderbird (John Proudstar)	#fcf9f6,#230a06
+Ultimate Spider-Man (USM)	#11233e,#41c2f1
+Thor (Goddess of Thunder)	#34729a,#79a3b9
+The Renegades	#25101a,#26110e
+Toro (Thomas Raymond)	#a94d10,#fa470e
+Thunderbird (Neal Shaara)	#d59a59,#8e5738
+Thing (Marvel Heroes)	#e3243,#ab8b67
+Thing (Ultimate)	#2a220f,#7a6431
+Veda	#25101a,#26110e
+Thor (Marvel War of Heroes)	#300712,#141328
+Toad	#ba6720,#df8c3c
+Two-Gun Kid	#7295e2,#4f72c8
+The Watchers	#25101a,#26110e
+Vargas	#f04561,#71441
+U-Foes	#ada79f,#d7cec6
+Union Jack (Brian Falsworth)	#25101a,#26110e
+U-Go Girl	#81a7b5,#c10a27
+The Spike	#25101a,#26110e
+Tiger Shark	#8ea4ae,#30100
+Union Jack (Montgomery Falsworth)	#fcf8f1,#998781
+Vanisher (Ultimate)	#25101a,#26110e
+Thor (MAA)	#386373,#212d38
+Trish Tilby	#25101a,#26110e
+Uatu The Watcher	#c7a41d,#caa259
+Vampiro	#780f26,#8ca1ac
+Toxin	#546974,#b1016
+Tusk	#25101a,#26110e
+Ultron	#3075a2,#1f0a01
+Violations	#25101a,#26110e
+Ulik	#b09773,#80d08
+Unus	#fefdfc,#96837e
+Tomorrow Man	#25101a,#26110e
+Unicorn	#f5f3e2,#a5907d
+Venom (Flash Thompson)	#b0b09,#c6a420
+Ultimates	#faf4e5,#190e0b
+Vengeance (Michael Badilino)	#b2004,#8bbd23
+Titania	#4e874f,#b0301
+Tinkerer	#2e6ea1,#cee3f0
+Vindicator	#a0602,#a8896f
+Vapor	#fdfbf3,#9e9676
+The Stranger	#f1dac6,#afa19a
+Tigra (Greer Nelson)	#492d5f,#df925a
+Venom (Mac Gargan)	#a93321,#912616
+Vanisher (Telford Porter)	#25101a,#26110e
+Unus (House of M)	#25101a,#26110e
+Umar	#25101a,#26110e
+Xorn (Kuan-Yin Xorn)	#30100,#a28f80
+Wild Child	#c9936c,#301d08
+Wonder Man	#fefefe,#564b9a
+X-Factor Investigations	#b29688,#b0402
+Winter Soldier	#4f884f,#70404
+Young X-Men	#25101a,#26110e
+Zemo	#25101a,#26110e
+Wallow	#25101a,#26110e
+X-Babies	#1b1108,#ae8e71
+Wendell Rand	#25101a,#26110e
+Wallop	#bfdaf3,#251f1b
+Warhawk (Mitchell Tanner)	#25101a,#26110e
+Warlock (Janie Chin)	#25101a,#26110e
+Wasp (Ultimate)	#84a3bc,#a5432c
+Wolverine (Ultimate)	#33729d,#402610
+Wendigo	#e0d0b,#90b4a7
+Yellow Claw	#25101a,#26110e
+Vivisector	#25101a,#26110e
+War (Abraham Kieros)	#25101a,#26110e
+X-51	#9c8f80,#f3e5ce
+Wraith	#25101a,#26110e
+Zzzax	#f5ee4b,#f8f5d1
+Wiccan	#c4e0f3,#78b1d0
+Wolverine	#170502,#39b1b9
+Werewolf By Night	#80604,#695d53
+Wolverine (LEGO Marvel Super Heroes)	#d19a66,#f8e1bb
+Wrecker	#25101a,#26110e
+Wendell Vaughn	#faf8e2,#1c3626
+White Queen (Adrienne Frost)	#25101a,#26110e
+Yellowjacket (Rita DeMara)	#396d96,#70503
+Zarda	#25101a,#26110e
+X-Statix	#99523a,#aa9076
+Warlock (Technarchy)	#171308,#d1420
+X-Force	#a33c2c,#902616
+War Machine (Parnell Jacobs)	#221d1f,#5e6b6f
+Zombie (Simon Garth)	#466770,#8f8f86
+Xavin	#c6a06a,#7d633a
+Wolfsbane	#cfd1e6,#a7afc7
+War Machine (Ultimate)	#251b18,#33282d
+X-Men (Ultimate)	#b1a899,#e5ddc5
+X-Factor	#120803,#cb9b71
+Wilson Fisk	#25101a,#26110e
+X-Men	#9b9590,#f0a08
+Wolfpack	#25101a,#26110e
+Zarek	#3a729f,#a0e1f
+Wolf Cub	#25101a,#26110e
+White Tiger (Angela Del Toro)	#25101a,#26110e
+Warbird	#25101a,#26110e
+War Machine (Iron Man 3 - The Official Game)	#2e2427,#70583d
+Warstar	#1c2e28,#c1c1fd
+Warpath	#c76a19,#dd8b42
+Weapon X	#25101a,#26110e
+X-23	#e0d13,#482d5d
+Wrecking Crew	#924231,#51665a
+War Machine (Marvel: Avengers Alliance)	#e1419,#454545
+Zuras	#25101a,#26110e
+X-Cutioner	#25101a,#26110e
+Wither	#20101,#998881
+Whistler	#25101a,#26110e
+Weapon Omega	#ce966b,#2f220c
+Zaladane	#25101a,#26110e
+Whirlwind	#9e9879,#776f50
+Wild Pack	#fbf8f3,#301307
+Wolverine (X-Men: Battle of the Atom)	#140806,#15181c
+Wasp	#4fc3cb,#39b2bb
+Wild Child (Age of Apocalypse)	#8f5233,#ce9557
+Wolfsbane (Age of Apocalypse)	#30719d,#ca9076
+Wong (Ultimate)	#25101a,#26110e
+Warbound	#52c1ca,#3ab1ba
+Vulture (Adrian Toomes)	#716350,#b59c7f
+Viper	#25101a,#26110e
+White Tiger (USM)	#ede9e2,#a9a89e
+Virginia Dare	#25101a,#26110e
+Vulcan (Gabriel Summers)	#2e6e9a,#ce9262
+Zeigeist	#25101a,#26110e
+X.S.E.	#25101a,#26110e
+Zodiak	#25101a,#26110e
+Wong	#d9a268,#151307
+Wind Dancer	#b09a84,#d9cdd3
+William Stryker	#fcfcfa,#8b837f
+Whiplash (Mark Scarlotti)	#25101a,#26110e
+X-Ray (James Darnell)	#ee495b,#855d36
+Vision	#4b2b59,#f7f12a
+Wallflower	#25101a,#26110e
+Wolverine (Marvel War of Heroes)	#a5acac,#201e15
+Vulture (Blackie Drago)	#b7e3f8,#fbe7d4
+Whizzer (Stanley Stewart)	#25101a,#26110e
+Wolver-dok	#25101a,#26110e
+Young Avengers	#61032,#a09a93
+Warren Worthington III	#25101a,#26110e
+Wildside	#25101a,#26110e
+X-Man	#c9a51b,#d19f54
+Zaran	#25101a,#26110e
