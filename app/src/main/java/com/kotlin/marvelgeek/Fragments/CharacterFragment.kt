@@ -53,7 +53,7 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
 
         val view = inflater.inflate(R.layout.fragment_character, container, false)
         var character =  viewModel.charecter.value
-        view.backgroundCharacter.setBackgroundColor(character!!.color)
+        //view.backgroundCharacter.setBackgroundColor(Color.parseColor(character!!.colors?.get(0)))
         (activity as AppCompatActivity).supportActionBar?.setTitle(character!!.name)
 
 

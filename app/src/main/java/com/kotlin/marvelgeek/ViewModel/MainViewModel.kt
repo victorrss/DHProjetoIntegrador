@@ -19,6 +19,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
 import com.kotlin.marvelgeek.Entities.CreatorID
 import com.kotlin.marvelgeek.Entities.EventC
 import com.kotlin.marvelgeek.Entities.SerieC
@@ -43,10 +45,14 @@ class MainViewModel(repository: Repository): ViewModel() {
 
     lateinit var auth: FirebaseAuth
     lateinit var gso: GoogleSignInOptions
+    lateinit var db: FirebaseFirestore
+    lateinit var collectColor: CollectionReference
+    lateinit var collectFavorites: CollectionReference
     val callbackManager = CallbackManager.Factory.create()
     var user: Any? = null
     val RC_SIGN_IN = 0
 
+    val colors: MutableMap<String, ArrayList<String>> = hashMapOf()
     val listCharacter = MutableLiveData<ArrayList<Character>>()
     val listFavorite = MutableLiveData<ArrayList<Personagem>>()
     val listComic = MutableLiveData<ArrayList<ComicC>>()
@@ -57,6 +63,17 @@ class MainViewModel(repository: Repository): ViewModel() {
     val comic = MutableLiveData<ComicC>()
     val event = MutableLiveData<EventC>()
     val serie = MutableLiveData<SerieC>()
+
+    init{
+        initDb()
+        collectColor.get().addOnSuccessListener { result ->
+            for (document in result) {
+                colors[document.id] = arrayListOf(document["primaryColor"].toString(),document["secondaryColor"].toString())
+            }
+        }.addOnFailureListener { exception ->
+                Log.d("init", "Error getting documents: ${exception}")
+        }
+    }
 
 
     // --------------------------- Tela Home ----------------------//
@@ -73,16 +90,24 @@ class MainViewModel(repository: Repository): ViewModel() {
             .build()
     }
 
-    // Sign In Google
-    fun googleSignIn(result :LoginResult){
-
+    // --------------------------- Tela Home ----------------------//
+    // Inicia Databse
+    fun initDb(){
+        db = FirebaseFirestore.getInstance()
+        collectColor = db.collection("colors")
+        collectFavorites = db.collection("favorites")
     }
 
-    // --------------------------- Tela Home ----------------------//
+    // Pega Cor
+    fun getcolor(name: String): ArrayList<String>?{
+        return colors[name]
+    }
+
     // Personagem tela Home
     fun getCharacter(limit: Int, offset: Int): String?{
         var error: String? = null
         val ts = timeStamp()
+        var list = arrayListOf<Character>()
         viewModelScope.launch {
             try {
                 val resultado = repository.getResultCharacters(
@@ -92,9 +117,13 @@ class MainViewModel(repository: Repository): ViewModel() {
                         apiPublicKey,
                         "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
-                listCharacter.value = ArrayList(resultado.data.results.filterNot {it.description.isNullOrEmpty()})
+                list = resultado.data.results
+                list.forEach {
+                    it.colors = getcolor(it.name)
+                }
+                listCharacter.value = list
             }catch (e: Exception){
-                Log.e("getCharacter",e.toString())
+                error = e.toString()
             }
         }
         return error
