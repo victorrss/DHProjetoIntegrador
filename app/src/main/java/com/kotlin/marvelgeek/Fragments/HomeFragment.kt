@@ -49,7 +49,7 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         inflater.inflate(R.menu.searchbar_menu, menu)
 
         val manager = requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchItem = menu?.findItem(R.id.search_icon_menu)
+        val searchItem = menu?.findItem(R.drawable.ic_search)
         val searchView = searchItem?.actionView as androidx.appcompat.widget.SearchView
         searchView.queryHint = getString(R.string.foundCharacter) + "..."
         searchView.setSearchableInfo(manager.getSearchableInfo(requireActivity().componentName))
@@ -120,7 +120,9 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
 
     override fun OnClickItem(position: Int) {
         val character = viewModel.listCharacter.value!![position]
-        viewModel.setCharacter(character)
+        val bundle = Bundle()
+        bundle.putSerializable("character", character)
+        arguments = bundle
         findNavController().navigate(R.id.action_homeFragment2_to_characterFragment)
     }
 }

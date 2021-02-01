@@ -19,14 +19,14 @@
 
             <ImageView
                 android:id="@+id/chaActIvHero"
-                android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_width="381dp"
+                android:layout_height="351dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/hulk_3"
                 app:layout_constraintBottom_toTopOf="@id/chaActLlBio"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:scaleType="fitXY"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:id="@+id/chaActLlBio"
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif-medium"
-                    android:text="Biografia"
+                    android:text="Description"
                     android:textColor="@color/white"
                     android:textSize="23sp" />
 
@@ -126,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif-medium"
-                    android:text="Eventos"
+                    android:text="Events"
                     android:textColor="@color/white"
                     android:textSize="23sp" />
 
@@ -162,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif-medium"
-                    android:text="Séries"
+                    android:text="Series"
                     android:textColor="@color/white"
                     android:textSize="23sp" />
 
@@ -180,6 +180,63 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/item_series" />
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/chaStories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chaActLlSeries">
+
+                <TextView
+                    android:id="@+id/chaLabelStories"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Stories"
+                    android:textColor="@color/white"
+                    android:textSize="23sp" />
+
+                <View
+                    android:id="@+id/dividerStories"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/chaRvStories"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_series" />
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/icFavorite"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="312dp"
+                android:layout_marginEnd="28dp"
+                android:background="@drawable/round_favorite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_favorite"
+                app:layout_constraintBottom_toBottomOf="@+id/icFavorite"
+                app:layout_constraintEnd_toEndOf="@+id/icFavorite"
+                app:layout_constraintStart_toStartOf="@+id/icFavorite"
+                app:layout_constraintTop_toTopOf="@+id/icFavorite" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
@@ -201,9 +258,7 @@
             app:fabAlignmentMode="end"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/abhome_menu"
-            app:navigationIcon="@drawable/ic_favorite" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fbQuiz"
@@ -214,5 +269,29 @@
             app:layout_anchor="@id/abHome"
             app:srcCompat="@drawable/ic_game" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <ImageView
+        android:id="@+id/goChaHome"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_baseline_home_24"
+        app:layout_anchorGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/clAppBar"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="35dp"/>
+
+    <ImageView
+        android:id="@+id/goChaFavo"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_baseline_favorite_24"
+        app:layout_anchorGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/clAppBar"
+        android:layout_marginStart="190dp"
+        android:layout_marginTop="35dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

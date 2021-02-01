@@ -2,36 +2,24 @@ package com.kotlin.marvelgeek.Fragments
 
 import android.app.AlertDialog
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.annotation.RequiresApi
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.marvelgeek.Adapters.ComicAdapter
 import com.kotlin.marvelgeek.Adapters.EventAdapter
 import com.kotlin.marvelgeek.Adapters.SerieAdapter
 import com.kotlin.marvelgeek.Adapters.StorieAdapter
-import com.kotlin.marvelgeek.model.Comic
-import com.kotlin.marvelgeek.model.Event
-import com.kotlin.marvelgeek.model.Serie
-import com.kotlin.marvelgeek.model.Storie
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.Character
-import com.kotlin.marvelgeek.services.repository
+import com.kotlin.marvelgeek.models.ItemComic
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_character.*
 import kotlinx.android.synthetic.main.activity_character.view.*
 import kotlinx.android.synthetic.main.activity_character.view.fbQuiz
 import kotlinx.android.synthetic.main.activity_home.view.*
@@ -39,12 +27,11 @@ import kotlinx.android.synthetic.main.activity_home.view.abHome
 
 class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
     EventAdapter.onClickListenerEvent,
-    SerieAdapter.onClickListenerSerie {
-    //StorieAdapter.onClickListenerStorie,
+    SerieAdapter.onClickListenerSerie,
+    StorieAdapter.onClickListenerStorie{
 
+    lateinit var character: Character
     private val viewModel: MainViewModel by activityViewModels()
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,18 +39,30 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_character, container, false)
-        var character =  viewModel.charecter.value
-        //view.backgroundCharacter.setBackgroundColor(Color.parseColor(character!!.colors?.get(0)))
+
+        if(viewModel.user == null){
+            view.icFavorite.visibility = View.INVISIBLE
+        }
+
+        var mBundle =  Bundle()
+        if(mBundle != null) {
+            mBundle = requireArguments()
+        }
+        character =  mBundle.getSerializable("character") as Character
+
+        if(character.color != null){
+            setColor(view, character.color!!,character.brightness)
+        }
+
         (activity as AppCompatActivity).supportActionBar?.setTitle(character!!.name)
-
-
-
-
         Picasso.get().load("${character!!.thumbnail.path}.${character!!.thumbnail.extension}")
             .fit()
             .into(view.chaActIvHero)
 
-        view.chaActTvBio.text = character.description
+        if (character.description.isNullOrEmpty())
+            view.chaActTvBio.text = "Sorry, there is no description to this Character."
+        else
+            view.chaActTvBio.text = character.description
 
         // Comic--------------------------------------------------------------------------------------------------------------
         var adapterComic = ComicAdapter(this)
@@ -103,11 +102,11 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
 
         // Serie--------------------------------------------------------------------------------------------------------------
         var adapterSerie = SerieAdapter(this)
-        view.chaActRvSeries.adapter = adapterSerie
-        view.chaActRvSeries.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL , false)
+        view.chaRvStories.adapter = adapterSerie
+        view.chaRvStories.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL , false)
         view.chaActRvSeries.setHasFixedSize(true)
-        var errorSeries = viewModel.getSerie(character.id)
-        if (errorSeries != null){
+        var errorStories = viewModel.getStory(character.id)
+        if (errorStories != null){
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Server problem:")
             builder.setIcon(R.drawable.ic_info)
@@ -119,8 +118,39 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
             adapterSerie.addListSerie(it)
         }
 
-        view.abHome.setNavigationOnClickListener {
+        // Serie--------------------------------------------------------------------------------------------------------------
+        var adapterStory = StorieAdapter(this)
+        view.chaActRvSeries.adapter = adapterStory
+        view.chaActRvSeries.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL , false)
+        view.chaActRvSeries.setHasFixedSize(true)
+        var errorSeries = viewModel.getSerie(character.id)
+        if (errorSeries != null){
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Server problem:")
+            builder.setIcon(R.drawable.ic_info)
+            builder.setMessage(errorEvent)
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+        }
+        viewModel.listStory.observe(viewLifecycleOwner){
+            adapterStory.addStoryList(it)
+        }
+
+        view.icFavorite.setOnClickListener {
+            if(view.icFavorite.tag == R.drawable.ic_favorite){
+                viewModel.addFavorite(character)
+                view.icFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
+            }else{
+                viewModel.removeFavoriteCharacter(character)
+            }
+        }
+
+        view.goChaFavo.setOnClickListener {
             findNavController().navigate(R.id.action_characterFragment_to_favoriteFragment)
+        }
+
+        view.goChaHome.setOnClickListener {
+            findNavController().navigate(R.id.action_favoriteFragment_to_action_homeFragment2)
         }
 
         view.fbQuiz.setOnClickListener {
@@ -129,26 +159,43 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
         return view
     }
 
+    private fun setColor(view: View, color: String,brigthness: Float){
+
+        var gray = 0
+
+        view.backgroundCharacter.setBackgroundColor(Color.parseColor(color))
+        gray = if(brigthness < 0.5){
+            R.color.lightGray
+        }else{
+            R.color.darkgray
+        }
+        view.chaActTvLabelBio.setTextColor(Color.parseColor(color))
+        view.chaActTvBio.setTextColor(gray)
+        view.chaActTvLabelComics.setTextColor(gray)
+        view.chaActTvLabelEvents.setTextColor(gray)
+        view.chaActTvLabelSeries.setTextColor(gray)
+    }
+
     override fun onClickComic(position: Int) {
         val comic = viewModel.listComic.value!!.get(position)
-       viewModel.setComic(comic)
+        //viewModel.setComic(comic)
         findNavController().navigate(R.id.action_characterFragment_to_historiaFragment)
     }
 
     override fun onClickEvent(position: Int) {
         val event = viewModel.listEvent.value!!.get(position)
-        viewModel.setEvent(event)
+        //viewModel.setEvent(event)
         findNavController().navigate(R.id.action_characterFragment_to_eventFragment)
     }
 
 
     override fun onClickSerie(position: Int) {
         val serie = viewModel.listSerie.value!!.get(position)
-        viewModel.setSerie(serie)
+        //viewModel.setSerie(serie)
         findNavController().navigate(R.id.action_characterFragment_to_serieFragment)
     }
 
-//    override fun onClickStorie(position: Int) {
-//        //findNavController().navigate(R.id.action_characterFragment_to_serieFragment)
-//    }
+    override fun onClickStorie(position: Int) {
+        //findNavController().navigate(R.id.action_characterFragment_to_storyFragment)
+    }
 }

@@ -6,13 +6,18 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.kotlin.marvelgeek.Entities.StoryC
 import com.kotlin.marvelgeek.model.Storie
 import com.kotlin.marvelgeek.R
+import com.kotlin.marvelgeek.models.Character
+import com.squareup.picasso.Picasso
 
 class StorieAdapter(
-    private val storieList: ArrayList<Storie>,
     val listener: onClickListenerStorie
 ) : RecyclerView.Adapter<StorieAdapter.ViewHolderStorie>() {
+
+    var listStory = ArrayList<StoryC>()
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -23,13 +28,24 @@ class StorieAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolderStorie, position: Int) {
-        var storie: Storie = storieList[position]
+        var story: StoryC = listStory[position]
 
-        holder.storieIvImage.setImageResource(storie.image)
-        holder.storieTvTitle.text = storie.title
+        Picasso.get().load("${story.thumbnail.path}.${story.thumbnail.extension}")
+            .fit()
+            .into(holder.storyIvImage)
+        holder.storyTvTitle.text = story.title
     }
 
-    override fun getItemCount(): Int = storieList.size
+    override fun getItemCount(): Int = listStory.size
+
+    fun addStoryList(list: ArrayList<StoryC>){
+        listStory.addAll(list)
+        notifyAdapter()
+    }
+
+    fun notifyAdapter(){
+        notifyDataSetChanged()
+    }
 
     interface onClickListenerStorie {
         fun onClickStorie(position: Int)
@@ -38,8 +54,8 @@ class StorieAdapter(
     inner class ViewHolderStorie(
         itemView: View
     ) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        var storieIvImage: ImageView = itemView.findViewById(R.id.storieIvImage)
-        var storieTvTitle: TextView = itemView.findViewById(R.id.storieTvTitle)
+        var storyIvImage: ImageView = itemView.findViewById(R.id.storieIvImage)
+        var storyTvTitle: TextView = itemView.findViewById(R.id.storieTvTitle)
 
         init {
             itemView.setOnClickListener(this)

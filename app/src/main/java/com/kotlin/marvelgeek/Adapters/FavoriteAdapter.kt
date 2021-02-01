@@ -1,34 +1,79 @@
 package com.kotlin.marvelgeek.Adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.blue
+import androidx.core.graphics.green
+import androidx.core.graphics.red
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.card.MaterialCardView
 import com.kotlin.marvelgeek.model.Personagem
 import com.kotlin.marvelgeek.R
+import com.kotlin.marvelgeek.R.layout.card_home_personagem
+import com.kotlin.marvelgeek.R.layout.item_character
+import com.kotlin.marvelgeek.models.Character
+import com.squareup.picasso.Picasso
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.card_home_personagem.view.*
+import kotlinx.android.synthetic.main.card_home_personagem.view.ivAvatar
+import kotlinx.android.synthetic.main.card_home_personagem.view.tvDescricao
+import kotlinx.android.synthetic.main.card_home_personagem.view.tvNome
+import kotlinx.android.synthetic.main.item_character.view.*
 import java.util.*
 
 
-class FavoriteAdapter(private val listaFavoritos: ArrayList<Personagem>, val listener: ListenerOnClickFavorito): RecyclerView.Adapter<FavoriteAdapter.FavoritosViewHolder>() {
+class FavoriteAdapter(val listener: ListenerOnClickFavorito): RecyclerView.Adapter<FavoriteAdapter.FavoritosViewHolder>() {
+
+    var listFavorite = ArrayList<Personagem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoritosViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card_home_personagem, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(item_character, parent, false)
         return FavoritosViewHolder(itemView)
     }
 
-    override fun getItemCount() = listaFavoritos.size
+    override fun getItemCount() = listFavorite.size
 
     override fun onBindViewHolder(holder: FavoritosViewHolder, position: Int) {
-        var favorito = listaFavoritos.get(position)
-        holder.nome.text = favorito.nome
-        holder.descricao.text = favorito.descricao
-        holder.imagem.setImageResource(favorito.avatar)
+        val character = listFavorite[position]
+
+        Picasso.get().load(character.thumbnail)
+            .fit()
+            .centerCrop()
+            .noFade()
+            .transform(CropCircleTransformation())
+            .placeholder(R.drawable.progress_bar)
+            .into(holder.imagem)
+
+        if(character.color != null){
+            holder.background.setCardBackgroundColor(Color.parseColor(character.color!!))
+        }
+
+        if(character.brightness < 0.5){
+            holder.nome.setTextColor(ContextCompat.getColor(holder.nome.context, R.color.lightGray))
+            holder.descricao.setTextColor(ContextCompat.getColor(holder.nome.context, R.color.lightGray))
+        }else{
+            holder.nome.setTextColor(ContextCompat.getColor(holder.nome.context, R.color.darkgray))
+            holder.descricao.setTextColor(ContextCompat.getColor(holder.nome.context, R.color.darkgray))
+        }
+
+        if (character.description.isNullOrEmpty())
+            holder.descricao.text = "Sorry, there is no description to this Character."
+        else
+            holder.descricao.text = character.description
+        holder.nome.text = character.name
     }
 
-    fun notification(name: String){
+    fun addListFavorite(list: ArrayList<Personagem>){
+        listFavorite.addAll(list)
+        notifyAdapter()
+    }
+
+    fun notifyAdapter(){
         notifyDataSetChanged()
     }
 
@@ -41,6 +86,7 @@ class FavoriteAdapter(private val listaFavoritos: ArrayList<Personagem>, val lis
         val nome: TextView = itemView.tvNome
         val descricao: TextView = itemView.tvDescricao
         val imagem: ImageView = itemView.ivAvatar
+        val background : MaterialCardView = itemView.cardBackground
 
         init{
             itemView.setOnLongClickListener(this)

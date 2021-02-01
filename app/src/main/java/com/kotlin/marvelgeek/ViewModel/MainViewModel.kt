@@ -2,9 +2,13 @@ package com.kotlin.marvelgeek.ViewModel
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.util.Log
 import android.widget.Toast
+import androidx.core.graphics.blue
+import androidx.core.graphics.green
+import androidx.core.graphics.red
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -24,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.kotlin.marvelgeek.Entities.CreatorID
 import com.kotlin.marvelgeek.Entities.EventC
 import com.kotlin.marvelgeek.Entities.SerieC
+import com.kotlin.marvelgeek.Entities.StoryC
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.model.Comic
 import com.kotlin.marvelgeek.model.Event
@@ -48,9 +53,7 @@ class MainViewModel(repository: Repository): ViewModel() {
     lateinit var db: FirebaseFirestore
     lateinit var collectColor: CollectionReference
     lateinit var collectFavorites: CollectionReference
-    val callbackManager = CallbackManager.Factory.create()
     var user: Any? = null
-    val RC_SIGN_IN = 0
 
     val colors: MutableMap<String, String> = hashMapOf()
     val listCharacter = MutableLiveData<ArrayList<Character>>()
@@ -58,8 +61,8 @@ class MainViewModel(repository: Repository): ViewModel() {
     val listComic = MutableLiveData<ArrayList<ComicC>>()
     val listEvent = MutableLiveData<ArrayList<EventC>>()
     val listSerie = MutableLiveData<ArrayList<SerieC>>()
+    val listStory = MutableLiveData<ArrayList<StoryC>>()
     val author = MutableLiveData<CreatorID>()
-    val charecter = MutableLiveData<Character>()
     val comic = MutableLiveData<ComicC>()
     val event = MutableLiveData<EventC>()
     val serie = MutableLiveData<SerieC>()
@@ -83,21 +86,6 @@ class MainViewModel(repository: Repository): ViewModel() {
         }
     }
 
-
-    // --------------------------- Tela Home ----------------------//
-    // Initialize Firebase
-    fun initAuth(){
-        auth = FirebaseAuth.getInstance()
-    }
-
-    // GSO
-    fun initGSO(){
-        // GOOGLE SIGN-IN --------------------------------------------------------------------------
-        gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestEmail()
-            .build()
-    }
-
     // --------------------------- Tela Home ----------------------//
     // Inicia Databse
     fun initDb(){
@@ -116,6 +104,7 @@ class MainViewModel(repository: Repository): ViewModel() {
         var error: String? = null
         val ts = timeStamp()
         var list = arrayListOf<Character>()
+
         viewModelScope.launch {
             try {
                 val resultado = repository.getResultCharacters(
@@ -137,28 +126,48 @@ class MainViewModel(repository: Repository): ViewModel() {
         return error
     }
 
+    // Personagem tela Home
+    fun getOneCharacter(id: Long): Character{
+        var error: String? = null
+        val ts = timeStamp()
+        var char = arrayListOf<Character>()
 
-
-    fun setCharacter(character: Character) {
-        charecter.value = character
-    }
-    fun setComic(comicC: ComicC) {
-        comic.value = comicC
-    }
-    fun setEvent(eventC: EventC) {
-        event.value = eventC
-    }
-    fun setSerie(serieC: SerieC) {
-        serie.value = serieC
+        viewModelScope.launch {
+            try {
+                val resultado = repository.getResultOneCharacter(
+                    id,
+                    ts,
+                    apiPublicKey,
+                    "${ts}$apiPrivateKey$apiPublicKey".md5()
+                )
+                char = resultado.data.results
+                char[0].color = getcolor(char[0].name.replace("/"," "))
+            }catch (e: Exception){
+                error = e.toString()
+            }
+        }
+        return char[0]
     }
 
     // Personagem tela Favorito (Database)
     fun getFavorite(): String?{
         var error: String? = null
+        var list: ArrayList<Personagem> = arrayListOf()
         viewModelScope.launch {
             try{
-                listFavorite.value = getAllFavorites()
-                //Log.i("getFavorite",listCharacter.value.toString())
+                collectFavorites.get().addOnSuccessListener { result ->
+                    for (document in result) {
+                        list.add(Personagem(document["id"].toString().toLong(),
+                                document["name"].toString() ,
+                                document["description"].toString(),
+                                document["image"].toString(),
+                                document["color"].toString(),
+                                document["hsv"].toString().toFloat()))
+                    }
+                }.addOnFailureListener { exception ->
+                    Log.d("init", "Error getting documents: ${exception}")
+                }
+                listFavorite.value = list
             }catch (e: java.lang.Exception){
                 Log.e("getFavorite",e.toString())
                 error = e.toString()
@@ -167,12 +176,25 @@ class MainViewModel(repository: Repository): ViewModel() {
         return error
     }
 
-    fun removeFavorite(position: Int){
-        listFavorite.value!!.removeAt(position)
-        Log.i("TAG",listFavorite.value.toString())
+    fun removeFavoriteCharacter(character: Character){
+        var list = listFavorite.value
+        collectFavorites.document(user.toString() + "/${character.id}").delete()
+        getFavorite()
     }
 
     // --------------------------- Tela Character ----------------------//
+    // Adicionar favorito ao DB
+    fun addFavorite(character: Character){
+        val characters: MutableMap<String,String> = HashMap()
+        characters["id"] = character.id.toString()
+        characters["name"] = character.name
+        characters["description"] = character.description
+        characters["image"] = character.thumbnail.path + "." + character.thumbnail.extension
+        characters["color"] = character.color.toString()
+        characters["hsv"] = character.brightness.toString()
+        collectFavorites.document(user.toString() + "/${character.id}").set(characters)
+    }
+
     fun getComic(id: Long): String?{
         var error: String? = null
         val ts = timeStamp()
@@ -235,6 +257,26 @@ class MainViewModel(repository: Repository): ViewModel() {
         return error
     }
 
+    fun getStory(id: Long): String?{
+        var error: String? = null
+        val ts = timeStamp()
+        viewModelScope.launch {
+            try {
+                val resultado = repository.getResultStories(
+                    id,
+                    ts,
+                    apiPublicKey,
+                    "${ts}$apiPrivateKey$apiPublicKey".md5()
+                )
+                listStory.value = resultado.data.results
+            }catch (e: Exception){
+                Log.e("getSerie",e.toString())
+                error = e.toString()
+            }
+        }
+        return error
+    }
+
     // --------------------------- Tela Autor ----------------------//
     fun getAutor(id: Long): String?{
         var error: String? = null
@@ -271,35 +313,6 @@ class MainViewModel(repository: Repository): ViewModel() {
         //Log.i("MD5",BigInteger(1, md.digest(toByteArray())).toString(16).padStart(32, '0'))
         return BigInteger(1, md.digest(toByteArray())).toString(16).padStart(32, '0')
     }
-
-    fun createPaletteSync(bitmap: Bitmap): Palette = Palette.from(bitmap).generate()
-
-
-    // Retorna uma lista de favoritos fixa
-    fun getAllFavorites() = arrayListOf(Personagem(
-        1,
-        R.drawable.spiderman,
-        "Homem-Aranha",
-        "Todos as descrições das pessoas são sobre a humanidade do atendimento, a pessoa pega no pulso, examina, olha com carinho. Então eu acho que vai ter outra coisa, que os médicos cubanos trouxeram pro brasil, um alto grau de humanidade."
-    ),
-        Personagem(
-            2,
-            R.drawable.juggernaut,
-            "Juggernaut",
-            "Ai você fala o seguinte: \"- Mas vocês acabaram isso?\" Vou te falar: -\"Não, está em andamento!\" Tem obras que \"vai\" durar pra depois de 2010. Agora, por isso, nós já não desenhamos, não começamos a fazer projeto do que nós \"podêmo fazê\"? 11, 12, 13, 14... Por que é que não?"
-        ),
-        Personagem(
-            3,
-            R.drawable.hulk,
-            "Hulk",
-            "No meu xinélo da humildade eu gostaria muito de ver o Neymar e o Ganso. Por que eu acho que.... 11 entre 10 brasileiros gostariam. Você veja, eu já vi, parei de ver. Voltei a ver, e acho que o Neymar e o Ganso têm essa capacidade de fazer a gente olhar.\n"
-        ),
-        Personagem(
-            1,
-            R.drawable.spiderman,
-            "Homem-Aranha",
-            "Todos as descrições das pessoas são sobre a humanidade do atendimento, a pessoa pega no pulso, examina, olha com carinho. Então eu acho que vai ter outra coisa, que os médicos cubanos trouxeram pro brasil, um alto grau de humanidade."
-        ))
 
     fun showToast(context: Context,msg:String){
         Toast.makeText(context,msg, Toast.LENGTH_LONG).show()

@@ -25,9 +25,6 @@
             android:id="@+id/action_homeFragment2_to_characterFragment"
             app:destination="@id/characterFragment" />
         <action
-            android:id="@+id/action_homeFragment2_self"
-            app:destination="@id/homeFragment2" />
-        <action
             android:id="@+id/action_homeFragment2_to_quizFragment"
             app:destination="@id/quizFragment" />
     </fragment>
@@ -42,6 +39,9 @@
         <action
             android:id="@+id/action_favoriteFragment_to_quizFragment"
             app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_favoriteFragment_to_action_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
     <fragment
         android:id="@+id/characterFragment"
@@ -63,6 +63,9 @@
         <action
             android:id="@+id/action_characterFragment_to_serieFragment"
             app:destination="@id/serieFragment" />
+        <action
+            android:id="@+id/action_characterFragment_to_action_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
     <fragment
         android:id="@+id/historiaFragment"

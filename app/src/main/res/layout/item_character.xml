@@ -10,7 +10,9 @@
     android:focusable="true"
     app:cardBackgroundColor="@color/darkgray"
     app:cardCornerRadius="15dp"
-    app:cardElevation="5dp">
+    app:cardElevation="5dp"
+    app:strokeWidth="3dp"
+    app:strokeColor="@color/marvelRed">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
