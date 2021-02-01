@@ -1,6 +1,6 @@
 package com.kotlin.marvelgeek.models
 
-import android.graphics.Bitmap
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,26 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.Nullable
-import androidx.palette.graphics.Palette
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.*
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.color.MaterialColors.getColor
 import com.kotlin.marvelgeek.R
 import kotlinx.android.synthetic.main.card_home_personagem.view.ivAvatar
 import kotlinx.android.synthetic.main.card_home_personagem.view.tvDescricao
 import kotlinx.android.synthetic.main.card_home_personagem.view.tvNome
 import kotlinx.android.synthetic.main.item_character.view.*
-import java.lang.Exception
-import com.bumptech.glide.Glide
-import com.bumptech.glide.annotation.GlideModule
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.module.AppGlideModule
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
+import kotlin.coroutines.coroutineContext
 
 
 class CharacterAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter<CharacterAdapter.ItemCharacter>() {
@@ -43,22 +36,34 @@ class CharacterAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: ItemCharacter, position: Int) {
-
         val character = listCharacter[position]
-        Picasso.get().load(character.thumbnail.path + character.thumbnail.extension)
+        var hsv: FloatArray = floatArrayOf((0).toFloat(),(0).toFloat(),(0).toFloat())
+        Color.RGBToHSV(Color.parseColor(character.color!!).red,Color.parseColor(character.color!!).green,Color.parseColor(character.color!!).blue,hsv)
+
+        Picasso.get().load(character.thumbnail.path + "." + character.thumbnail.extension)
             .fit()
             .centerCrop()
+            .noFade()
             .transform(CropCircleTransformation())
+            .placeholder(R.drawable.progress_bar)
             .into(holder.imagem)
 
-        if(character.colors != null){
-            holder.background.setCardBackgroundColor(Color.parseColor(character.colors!![0]))
-            holder.nome.setTextColor(Color.parseColor(character.colors!![1]))
-            holder.descricao.setTextColor(Color.parseColor(character.colors!![1]))
-            Log.i("ADAPTER",character.colors.toString())
+        if(character.color != null)
+            holder.background.setCardBackgroundColor(Color.parseColor(character.color!!))
+
+        if(hsv[2] < 0.5){
+            holder.nome.setTextColor(ContextCompat.getColor(holder.nome.context, R.color.lightGray))
+            holder.descricao.setTextColor(ContextCompat.getColor(holder.nome.context, R.color.lightGray))
+        }else{
+            holder.nome.setTextColor(ContextCompat.getColor(holder.nome.context, R.color.darkgray))
+            holder.descricao.setTextColor(ContextCompat.getColor(holder.nome.context, R.color.darkgray))
         }
+
+        if (character.description.isNullOrEmpty())
+            holder.descricao.text = "Sorry, there is no description to this Character."
+        else
+            holder.descricao.text = character.description
         holder.nome.text = character.name
-        holder.descricao.text = character.description
     }
 
     override fun getItemCount() = listCharacter.size

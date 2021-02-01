@@ -52,7 +52,7 @@ class MainViewModel(repository: Repository): ViewModel() {
     var user: Any? = null
     val RC_SIGN_IN = 0
 
-    val colors: MutableMap<String, ArrayList<String>> = hashMapOf()
+    val colors: MutableMap<String, String> = hashMapOf()
     val listCharacter = MutableLiveData<ArrayList<Character>>()
     val listFavorite = MutableLiveData<ArrayList<Personagem>>()
     val listComic = MutableLiveData<ArrayList<ComicC>>()
@@ -65,10 +65,18 @@ class MainViewModel(repository: Repository): ViewModel() {
     val serie = MutableLiveData<SerieC>()
 
     init{
+        var primary: String = ""
+        var secondary: String = ""
+
         initDb()
+
         collectColor.get().addOnSuccessListener { result ->
             for (document in result) {
-                colors[document.id] = arrayListOf(document["primaryColor"].toString(),document["secondaryColor"].toString())
+                primary = if(document["primaryColor"].toString().length != 7)
+                    "#0${document["primaryColor"].toString().split("#")[1]}"
+                else
+                    document["primaryColor"].toString()
+                colors[document.id] = primary
             }
         }.addOnFailureListener { exception ->
                 Log.d("init", "Error getting documents: ${exception}")
@@ -99,7 +107,7 @@ class MainViewModel(repository: Repository): ViewModel() {
     }
 
     // Pega Cor
-    fun getcolor(name: String): ArrayList<String>?{
+    fun getcolor(name: String): String?{
         return colors[name]
     }
 
@@ -119,7 +127,7 @@ class MainViewModel(repository: Repository): ViewModel() {
                 )
                 list = resultado.data.results
                 list.forEach {
-                    it.colors = getcolor(it.name)
+                    it.color = getcolor(it.name.replace("/"," "))
                 }
                 listCharacter.value = list
             }catch (e: Exception){

@@ -19,7 +19,7 @@ data class Character(val id: Long,
                      val stories: StoryCharacter,
                      val events: EventCharacter,
                      val series: SerieCharacter,
-                     var colors: ArrayList<String>?): Serializable
+                     var color: String?): Serializable
 
 data class URL(val type: String,
                val url: String): Serializable

@@ -7,10 +7,9 @@
     <color name="opacityblack">#ff000000</color>
     <color name="darkgray">#FF292929</color>
     <color name="gray">#7A7575</color>
+    <color name="lightGray">#FFAAAAAA</color>
     <color name="white">#FFFFFFFF</color>
     <color name="mtrl_fab_icon_text_color_selector">#FFFFFFFF</color>
     <color name="facebookColor">#B33E5994</color>
     <color name="googleColor">#B3D84438</color>
-
-
 </resources>
