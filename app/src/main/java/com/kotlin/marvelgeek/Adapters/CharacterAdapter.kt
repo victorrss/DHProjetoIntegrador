@@ -3,6 +3,7 @@ package com.kotlin.marvelgeek.models
 import android.graphics.Color
 import android.graphics.text.LineBreaker.JUSTIFICATION_MODE_INTER_WORD
 import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,15 +39,18 @@ class CharacterAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: ItemCharacter, position: Int) {
         val character = listCharacter[position]
+
         var hsv: FloatArray = floatArrayOf((0).toFloat(),(0).toFloat(),(0).toFloat())
 
-        Picasso.get().load(character.thumbnail.path + "." + character.thumbnail.extension)
+        Picasso.get().load("${character.thumbnail.path}.${character.thumbnail.extension}")
             .fit()
             .centerCrop()
             .noFade()
             .transform(CropCircleTransformation())
             .placeholder(R.drawable.progress_bar)
             .into(holder.imagem)
+
+        Log.i("Character","${character.thumbnail.path}.${character.thumbnail.extension}")
 
         if(character.color != null){
             holder.background.setCardBackgroundColor(Color.parseColor(character.color!!))

@@ -18,8 +18,10 @@ import com.facebook.FacebookSdk.getApplicationContext
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.CharacterAdapter
+import kotlinx.android.synthetic.main.activity_character.view.*
 
 import kotlinx.android.synthetic.main.activity_home.view.*
+import kotlinx.android.synthetic.main.activity_home.view.fbQuiz
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 
@@ -31,8 +33,7 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     private lateinit var adapter: CharacterAdapter
 
     override fun onAttach(context: Context) {
-
-        viewModel.getCharacter(100, 2)
+        error = viewModel.getCharacter(100, 0)
         super.onAttach(context)
     }
 
@@ -49,7 +50,7 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         inflater.inflate(R.menu.searchbar_menu, menu)
 
         val manager = requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchItem = menu?.findItem(R.drawable.ic_search)
+        val searchItem = menu?.findItem(R.id.ic_menu_search)
         val searchView = searchItem?.actionView as androidx.appcompat.widget.SearchView
         searchView.queryHint = getString(R.string.foundCharacter) + "..."
         searchView.setSearchableInfo(manager.getSearchableInfo(requireActivity().componentName))
@@ -90,14 +91,14 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         if (error != null){
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Server problem:")
-           // builder.setIcon(R.drawable.ic_info)
+            builder.setIcon(R.drawable.ic_info)
             builder.setMessage(error)
             val dialog: AlertDialog = builder.create()
             dialog.show()
         }
 
-        view.abHome.setNavigationOnClickListener{
-            //findNavController().navigate(R.id.action_homeFragment_to_favoriteFragment)
+        view.fromHomeToFavo.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment2_to_favoriteFragment)
         }
 
         view.fbQuiz.setOnClickListener {
@@ -114,7 +115,7 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         super.onViewCreated(view, savedInstanceState)
         adapter = CharacterAdapter(this)
         view.rvHome.adapter = adapter
-        view.rvHome.setLayoutManager(LinearLayoutManager(activity))
+        view.rvHome.layoutManager = LinearLayoutManager(activity)
         view.rvHome.setHasFixedSize(true)
     }
 
