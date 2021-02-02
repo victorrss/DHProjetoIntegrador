@@ -37,7 +37,6 @@ class ComicAdapter(val listener: onClickListenerComic) : RecyclerView.Adapter<Co
 
     fun addListComic(list: ArrayList<ComicC>){
         listComic = list
-        Log.i("Adapter",listComic.toString())
         notifyDataSetChanged()
     }
 

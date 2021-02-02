@@ -5,6 +5,7 @@ import android.app.SearchManager
 import android.content.Context
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -124,6 +125,6 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         val bundle = Bundle()
         bundle.putSerializable("character", character)
         arguments = bundle
-        findNavController().navigate(R.id.action_homeFragment2_to_characterFragment)
+        findNavController().navigate(R.id.action_homeFragment2_to_characterFragment,bundle)
     }
 }

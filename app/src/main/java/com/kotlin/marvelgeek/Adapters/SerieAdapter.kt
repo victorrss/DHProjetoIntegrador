@@ -37,7 +37,6 @@ class SerieAdapter(val listener: onClickListenerSerie) : RecyclerView.Adapter<Se
 
     fun addListSerie(list: ArrayList<SerieC>){
         listSerie = list
-        Log.i("Adapter",listSerie.toString())
         notifyDataSetChanged()
     }
 

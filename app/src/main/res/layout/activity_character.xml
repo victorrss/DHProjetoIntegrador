@@ -5,8 +5,7 @@
     android:id="@+id/backgroundCharacter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    tools:context=".ui.CharacterActivity">
+    android:background="@color/black">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,10 +18,11 @@
 
             <ImageView
                 android:id="@+id/chaActIvHero"
-                android:layout_width="381dp"
-                android:layout_height="351dp"
+                android:layout_width="376dp"
+                android:layout_height="346dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/hulk_3"
+                android:padding="2dp"
+                android:background="@drawable/border"
                 app:layout_constraintBottom_toTopOf="@id/chaActLlBio"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -75,6 +75,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/chaActLlBio">
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider" />
+
                 <TextView
                     android:id="@+id/chaActTvLabelComics"
                     android:layout_width="match_parent"
@@ -120,6 +125,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/chaActLlStories">
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider" />
+
                 <TextView
                     android:id="@+id/chaActTvLabelEvents"
                     android:layout_width="match_parent"
@@ -156,6 +166,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/chaActLlEvents">
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider" />
+
                 <TextView
                     android:id="@+id/chaActTvLabelSeries"
                     android:layout_width="match_parent"
@@ -180,42 +195,6 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/item_series" />
             </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/chaStories"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/chaActLlSeries">
-
-                <TextView
-                    android:id="@+id/chaLabelStories"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Stories"
-                    android:textColor="@color/white"
-                    android:textSize="23sp" />
-
-                <View
-                    android:id="@+id/dividerStories"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="?android:attr/listDivider" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/chaRvStories"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_series" />
-
-            </LinearLayout>
-
 
             <ImageView
                 android:id="@+id/icFavorite"

@@ -3,6 +3,7 @@ package com.kotlin.marvelgeek.Fragments
 import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -10,25 +11,17 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kotlin.marvelgeek.Adapters.ComicAdapter
-import com.kotlin.marvelgeek.Adapters.EventAdapter
-import com.kotlin.marvelgeek.Adapters.SerieAdapter
-import com.kotlin.marvelgeek.Adapters.StorieAdapter
+import com.kotlin.marvelgeek.Adapters.*
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.Character
-import com.kotlin.marvelgeek.models.ItemComic
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_character.*
 import kotlinx.android.synthetic.main.activity_character.view.*
 import kotlinx.android.synthetic.main.activity_character.view.fbQuiz
-import kotlinx.android.synthetic.main.activity_home.view.*
-import kotlinx.android.synthetic.main.activity_home.view.abHome
 
 class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
     EventAdapter.onClickListenerEvent,
-    SerieAdapter.onClickListenerSerie,
-    StorieAdapter.onClickListenerStorie{
+    SerieAdapter.onClickListenerSerie{
 
     lateinit var character: Character
     private val viewModel: MainViewModel by activityViewModels()
@@ -40,22 +33,18 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
 
         val view = inflater.inflate(R.layout.fragment_character, container, false)
 
-        if(viewModel.user == null){
-            view.icFavorite.visibility = View.INVISIBLE
-        }
-
         var mBundle =  Bundle()
         if(mBundle != null) {
             mBundle = requireArguments()
+            character =  mBundle.getSerializable("character") as Character
         }
-        character =  mBundle.getSerializable("character") as Character
 
         if(character.color != null){
             setColor(view, character.color!!,character.brightness)
         }
 
-        (activity as AppCompatActivity).supportActionBar?.setTitle(character!!.name)
-        Picasso.get().load("${character!!.thumbnail.path}.${character!!.thumbnail.extension}")
+        (activity as AppCompatActivity).supportActionBar?.title = character.name
+        Picasso.get().load("${character.thumbnail.path}.${character.thumbnail.extension}")
             .fit()
             .into(view.chaActIvHero)
 
@@ -102,11 +91,11 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
 
         // Serie--------------------------------------------------------------------------------------------------------------
         var adapterSerie = SerieAdapter(this)
-        view.chaRvStories.adapter = adapterSerie
-        view.chaRvStories.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL , false)
+        view.chaActRvSeries.adapter = adapterSerie
+        view.chaActRvSeries.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL , false)
         view.chaActRvSeries.setHasFixedSize(true)
-        var errorStories = viewModel.getStory(character.id)
-        if (errorStories != null){
+        var errorSerie = viewModel.getSerie(character.id)
+        if (errorSerie != null){
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Server problem:")
             builder.setIcon(R.drawable.ic_info)
@@ -118,39 +107,25 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
             adapterSerie.addListSerie(it)
         }
 
-        // Serie--------------------------------------------------------------------------------------------------------------
-        var adapterStory = StorieAdapter(this)
-        view.chaActRvSeries.adapter = adapterStory
-        view.chaActRvSeries.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL , false)
-        view.chaActRvSeries.setHasFixedSize(true)
-        var errorSeries = viewModel.getSerie(character.id)
-        if (errorSeries != null){
-            val builder = AlertDialog.Builder(context)
-            builder.setTitle("Server problem:")
-            builder.setIcon(R.drawable.ic_info)
-            builder.setMessage(errorEvent)
-            val dialog: AlertDialog = builder.create()
-            dialog.show()
-        }
-        viewModel.listStory.observe(viewLifecycleOwner){
-            adapterStory.addStoryList(it)
+        view.icFavorite.setOnClickListener {
+            if(viewModel.user != null) {
+                if (view.icFavorite.tag == R.drawable.ic_favorite) {
+                    viewModel.addFavorite(character)
+                    view.icFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
+                } else {
+                    viewModel.removeFavoriteCharacter(character)
+                }
+            }else{
+                viewModel.showToast(view.context,"Para favoritar, entre com uma conta.")
+            }
         }
 
-        view.icFavorite.setOnClickListener {
-            if(view.icFavorite.tag == R.drawable.ic_favorite){
-                viewModel.addFavorite(character)
-                view.icFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
-            }else{
-                viewModel.removeFavoriteCharacter(character)
-            }
+        view.goChaHome.setOnClickListener {
+            findNavController().navigate(R.id.action_characterFragment_to_action_homeFragment2)
         }
 
         view.goChaFavo.setOnClickListener {
             findNavController().navigate(R.id.action_characterFragment_to_favoriteFragment)
-        }
-
-        view.goChaHome.setOnClickListener {
-            findNavController().navigate(R.id.action_favoriteFragment_to_action_homeFragment2)
         }
 
         view.fbQuiz.setOnClickListener {
@@ -193,9 +168,5 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
         val serie = viewModel.listSerie.value!!.get(position)
         //viewModel.setSerie(serie)
         findNavController().navigate(R.id.action_characterFragment_to_serieFragment)
-    }
-
-    override fun onClickStorie(position: Int) {
-        //findNavController().navigate(R.id.action_characterFragment_to_storyFragment)
     }
 }

@@ -50,15 +50,7 @@ class CharacterAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter
             .noFade()
             .transform(CropCircleTransformation())
             .placeholder(R.drawable.progress_bar)
-            .error(R.drawable.immortal_hulk)
-            .into(holder.imagem, object: Callback {
-                override fun onSuccess() {
-                    Log.i("Sucesso","Sucesso")
-                }
-                override fun onError(e : Exception) {
-                    Log.i("Erro",e.toString())
-                }
-            })
+            .into(holder.imagem)
 
         if(character.color != null){
             holder.background.setCardBackgroundColor(Color.parseColor(character.color!!))

@@ -47,7 +47,7 @@
         android:id="@+id/characterFragment"
         android:name="com.kotlin.marvelgeek.Fragments.CharacterFragment"
         android:label="fragment_character"
-        tools:layout="@layout/fragment_character" >
+        tools:layout="@layout/fragment_character">
         <action
             android:id="@+id/action_characterFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />

@@ -1,47 +1,25 @@
 package com.kotlin.marvelgeek.ViewModel
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.util.Log
 import android.widget.Toast
-import androidx.core.graphics.blue
-import androidx.core.graphics.green
-import androidx.core.graphics.red
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import androidx.navigation.fragment.findNavController
-import androidx.palette.graphics.Palette
-import com.bumptech.glide.Glide
-import com.facebook.CallbackManager
-import com.facebook.login.LoginResult
-import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.kotlin.marvelgeek.Entities.CreatorID
 import com.kotlin.marvelgeek.Entities.EventC
 import com.kotlin.marvelgeek.Entities.SerieC
-import com.kotlin.marvelgeek.Entities.StoryC
-import com.kotlin.marvelgeek.R
-import com.kotlin.marvelgeek.model.Comic
-import com.kotlin.marvelgeek.model.Event
 import com.kotlin.marvelgeek.model.Personagem
-import com.kotlin.marvelgeek.model.Serie
 import com.kotlin.marvelgeek.models.Character
 import com.kotlin.marvelgeek.models.ComicC
 import com.kotlin.marvelgeek.models.apiPrivateKey
 import com.kotlin.marvelgeek.models.apiPublicKey
 import com.kotlin.marvelgeek.services.Repository
 import com.kotlin.marvelgeek.services.repository
-import com.kotlin.marvelgeek.ui.MainActivity
-import com.squareup.picasso.Picasso
 import kotlinx.coroutines.launch
 import java.math.BigInteger
 import java.security.MessageDigest
@@ -61,7 +39,6 @@ class MainViewModel(repository: Repository): ViewModel() {
     val listComic = MutableLiveData<ArrayList<ComicC>>()
     val listEvent = MutableLiveData<ArrayList<EventC>>()
     val listSerie = MutableLiveData<ArrayList<SerieC>>()
-    val listStory = MutableLiveData<ArrayList<StoryC>>()
     val author = MutableLiveData<CreatorID>()
     val comic = MutableLiveData<ComicC>()
     val event = MutableLiveData<EventC>()
@@ -69,7 +46,6 @@ class MainViewModel(repository: Repository): ViewModel() {
 
     init{
         var primary: String = ""
-        var secondary: String = ""
 
         initDb()
 
@@ -249,26 +225,6 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 listSerie.value = resultado.data.results
-            }catch (e: Exception){
-                Log.e("getSerie",e.toString())
-                error = e.toString()
-            }
-        }
-        return error
-    }
-
-    fun getStory(id: Long): String?{
-        var error: String? = null
-        val ts = timeStamp()
-        viewModelScope.launch {
-            try {
-                val resultado = repository.getResultStories(
-                    id,
-                    ts,
-                    apiPublicKey,
-                    "${ts}$apiPrivateKey$apiPublicKey".md5()
-                )
-                listStory.value = resultado.data.results
             }catch (e: Exception){
                 Log.e("getSerie",e.toString())
                 error = e.toString()

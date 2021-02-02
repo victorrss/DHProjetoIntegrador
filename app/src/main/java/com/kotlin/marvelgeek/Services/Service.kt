@@ -3,7 +3,6 @@ package com.kotlin.marvelgeek.services
 import com.kotlin.marvelgeek.Entities.ResCreator
 import com.kotlin.marvelgeek.Entities.ResEvent
 import com.kotlin.marvelgeek.Entities.ResSerie
-import com.kotlin.marvelgeek.Entities.ResStory
 import com.kotlin.marvelgeek.models.ResCharacter
 import com.kotlin.marvelgeek.models.ResComic
 import retrofit2.Retrofit
@@ -54,14 +53,6 @@ interface Repository {
         @Query("apikey") p3: String,
         @Query("hash") p4: String
     ): ResSerie
-
-    @GET("characters/{id}/stories")
-    suspend fun getResultStories(
-        @Path("id") p1: Long,
-        @Query("ts") p2: String,
-        @Query("apikey") p3: String,
-        @Query("hash") p4: String
-    ): ResStory
 
     @GET("creators/{id}")
     suspend fun getResultCreator(

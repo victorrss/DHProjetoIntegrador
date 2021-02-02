@@ -39,7 +39,6 @@ class EventAdapter(val listener: onClickListenerEvent) : RecyclerView.Adapter<Ev
 
     fun addListEvent(list: ArrayList<EventC>){
         listEvent = list
-        Log.i("Adapter",listEvent.toString())
         notifyDataSetChanged()
     }
 
