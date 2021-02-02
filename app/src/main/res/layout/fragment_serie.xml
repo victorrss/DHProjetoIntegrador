@@ -17,7 +17,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/eventActIv"
+                android:id="@+id/serieActIv"
                 android:layout_width="376dp"
                 android:layout_height="346dp"
                 android:scaleType="fitXY"
@@ -28,13 +28,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
-                android:id="@+id/eventActLlBio"
+                android:id="@+id/serieActLlBio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/eventActIv">
+                app:layout_constraintTop_toBottomOf="@id/serieActIv">
 
                 <TextView
                     android:id="@+id/eventActTvLabelBio"
@@ -53,7 +53,7 @@
                     android:background="?android:attr/listDivider" />
 
                 <TextView
-                    android:id="@+id/eventActTvBio"
+                    android:id="@+id/serieActTvBio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -64,13 +64,13 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/eventActLlCharacter"
+                android:id="@+id/serieActLlCharacter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/eventActLlBio">
+                app:layout_constraintTop_toBottomOf="@id/serieActLlBio">
 
                 <View
                     android:layout_width="match_parent"
@@ -78,7 +78,7 @@
                     android:background="?android:attr/listDivider" />
 
                 <TextView
-                    android:id="@+id/eventActTvLabelCharacter"
+                    android:id="@+id/serieActTvLabelCharacter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -94,7 +94,7 @@
                     android:background="?android:attr/listDivider" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/eventActRvCharacter"
+                    android:id="@+id/serieRvCharacter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -109,10 +109,10 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/eventActLlCharacter" />
+                app:layout_constraintTop_toBottomOf="@id/serieActLlCharacter" />
 
             <LinearLayout
-                android:id="@+id/eventActLlComics"
+                android:id="@+id/serieActLlComics"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -126,7 +126,7 @@
                     android:background="?android:attr/listDivider" />
 
                 <TextView
-                    android:id="@+id/eventActTvLabelComics"
+                    android:id="@+id/serieActTvLabelComics"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -142,7 +142,7 @@
                     android:background="?android:attr/listDivider" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/eventActRvComic"
+                    android:id="@+id/serieActRvComic"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -151,14 +151,14 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/eventActLlSerie"
+                android:id="@+id/serieActLlEvent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="80dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eventActLlComics">
+                app:layout_constraintTop_toBottomOf="@+id/serieActLlComics">
 
                 <View
                     android:layout_width="match_parent"
@@ -166,12 +166,12 @@
                     android:background="?android:attr/listDivider" />
 
                 <TextView
-                    android:id="@+id/eventActTvLabelSerie"
+                    android:id="@+id/serieActTvLabelSerie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif-medium"
-                    android:text="Series"
+                    android:text="Events"
                     android:textColor="@color/white"
                     android:textSize="23sp" />
 
@@ -182,7 +182,7 @@
                     android:background="?android:attr/listDivider" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/eventActRvSeries"
+                    android:id="@+id/serieActRvEvents"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -191,14 +191,14 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/eventActLlCreator"
+                android:id="@+id/serieActLlCreator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="80dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eventActLlSerie">
+                app:layout_constraintTop_toBottomOf="@+id/serieActLlEvent">
 
                 <View
                     android:layout_width="match_parent"
@@ -206,7 +206,7 @@
                     android:background="?android:attr/listDivider" />
 
                 <TextView
-                    android:id="@+id/eventActTvLabelCreator"
+                    android:id="@+id/serieActTvLabelCreator"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -222,7 +222,7 @@
                     android:background="?android:attr/listDivider" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/eventActRvCreators"
+                    android:id="@+id/serieActRvCreators"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -255,7 +255,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fbQuizE"
+            android:id="@+id/fbQuizS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/darkRed"
@@ -265,7 +265,7 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <ImageView
-        android:id="@+id/fromEventToHome"
+        android:id="@+id/fromSerieToHome"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/ic_baseline_home_24"
@@ -277,7 +277,7 @@
         android:layout_marginTop="35dp"/>
 
     <ImageView
-        android:id="@+id/fromEventToFavorite"
+        android:id="@+id/fromSerieToFavorite"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="35dp"

@@ -54,8 +54,6 @@ class EventFragment : Fragment() {
         else
             view.eventActTvBio.text = event!!.description
 
-        Log.i("Tag",event!!.id.toString())
-
         // Character--------------------------------------------------------------------------------------------------------------
         var adapterCharacterNew = CharacterAdapterNew()
         view.eventActRvCharacter.adapter = adapterCharacterNew
@@ -109,7 +107,7 @@ class EventFragment : Fragment() {
             val dialog: AlertDialog = builder.create()
             dialog.show()
         }
-        viewModel.listSerieComics.observe(viewLifecycleOwner) {
+        viewModel.listSerieEvent.observe(viewLifecycleOwner) {
             adapterSerieNew.addListSerie(it)
         }
 

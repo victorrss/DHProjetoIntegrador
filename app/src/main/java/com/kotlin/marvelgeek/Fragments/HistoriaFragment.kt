@@ -54,8 +54,6 @@ class HistoriaFragment : Fragment(){
         else
             view.comicActTvBio.text = comic!!.description
 
-        Log.i("Tag",comic!!.id.toString())
-
         // Character--------------------------------------------------------------------------------------------------------------
         var adapterCharacterNew = CharacterAdapterNew()
         view.comicActRvCharacter.adapter = adapterCharacterNew

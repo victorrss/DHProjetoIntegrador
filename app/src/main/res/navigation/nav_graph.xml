@@ -122,5 +122,17 @@
     <fragment
         android:id="@+id/serieFragment"
         android:name="com.kotlin.marvelgeek.Fragments.SerieFragment"
-        android:label="SerieFragment" />
+        android:label="SerieFragment">
+    <action
+        android:id="@+id/action_serieFragment_to_quizFragment"
+        app:destination="@id/quizFragment" />
+
+    <action
+        android:id="@+id/action_serieFragment_to_homeFragment2"
+        app:destination="@id/homeFragment2" />
+
+    <action
+        android:id="@+id/action_serieFragment_to_favoriteFragment"
+        app:destination="@id/favoriteFragment" />
+    </fragment>
 </navigation>

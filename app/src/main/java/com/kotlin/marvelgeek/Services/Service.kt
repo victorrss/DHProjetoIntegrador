@@ -115,6 +115,40 @@ interface Repository {
         @Query("apikey") p3: String,
         @Query("hash") p4: String
     ): ResCreator
+
+    //--------------------------------------------------------------
+
+    @GET("series/{id}/characters")
+    suspend fun getResultCharacterSerie(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResCharacter
+
+    @GET("series/{id}/comics")
+    suspend fun getResultComicSerie(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResComic
+
+    @GET("series/{id}/events")
+    suspend fun getResultEventSerie(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResEvent
+
+    @GET("series/{id}/creators")
+    suspend fun getResultCreatorSerie(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResCreator
 }
 
 val urlApiMarvel = "https://gateway.marvel.com/v1/public/"
