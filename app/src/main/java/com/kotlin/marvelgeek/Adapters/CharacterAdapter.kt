@@ -15,8 +15,10 @@ import androidx.core.graphics.blue
 import androidx.core.graphics.green
 import androidx.core.graphics.red
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.android.material.card.MaterialCardView
 import com.kotlin.marvelgeek.R
+import com.squareup.picasso.Callback
 import kotlinx.android.synthetic.main.card_home_personagem.view.ivAvatar
 import kotlinx.android.synthetic.main.card_home_personagem.view.tvDescricao
 import kotlinx.android.synthetic.main.card_home_personagem.view.tvNome
@@ -42,15 +44,21 @@ class CharacterAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter
 
         var hsv: FloatArray = floatArrayOf((0).toFloat(),(0).toFloat(),(0).toFloat())
 
-        Picasso.get().load("${character.thumbnail.path}.${character.thumbnail.extension}")
+        Picasso.Builder(holder.imagem.context).build().load("${character.thumbnail.path}.${character.thumbnail.extension}")
             .fit()
             .centerCrop()
             .noFade()
             .transform(CropCircleTransformation())
             .placeholder(R.drawable.progress_bar)
-            .into(holder.imagem)
-
-        Log.i("Character","${character.thumbnail.path}.${character.thumbnail.extension}")
+            .error(R.drawable.immortal_hulk)
+            .into(holder.imagem, object: Callback {
+                override fun onSuccess() {
+                    Log.i("Sucesso","Sucesso")
+                }
+                override fun onError(e : Exception) {
+                    Log.i("Erro",e.toString())
+                }
+            })
 
         if(character.color != null){
             holder.background.setCardBackgroundColor(Color.parseColor(character.color!!))
@@ -95,7 +103,7 @@ class CharacterAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter
         View.OnClickListener {
         val nome: TextView = itemView.tvNome
         val descricao: TextView = itemView.tvDescricao
-        val imagem: ImageView = itemView.ivAvatar
+        val imagem: ImageView = itemView.ivCharacter
         val background : MaterialCardView = itemView.cardBackground
 
         init {
