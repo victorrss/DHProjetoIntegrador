@@ -120,7 +120,7 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
         }
 
         view.icFavorite.setOnClickListener {
-           //if(viewModel.user != null) {
+           if(viewModel.user != null) {
                 if (view.icFavorite.drawable.constantState == resources.getDrawable(R.drawable.ic_favorite).constantState) {
                     Log.i("Favorito","Adicionando")
                     viewModel.addFavorite(character!!)
@@ -132,9 +132,9 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
                     viewModel.showToast(view.context,"${character!!.name} removido dos favoritos.")
                     view.icFavorite.setImageResource(R.drawable.ic_favorite)
                 }
-            //}else{
-            //    viewModel.showToast(view.context,"Para favoritar, entre com uma conta.")
-            //}
+           }else{
+               viewModel.showToast(view.context,"Para favoritar, entre com uma conta.")
+           }
         }
 
         view.goChaHome.setOnClickListener {

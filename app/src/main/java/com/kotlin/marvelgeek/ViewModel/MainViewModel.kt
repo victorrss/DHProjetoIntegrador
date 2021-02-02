@@ -77,7 +77,6 @@ class MainViewModel(repository: Repository): ViewModel() {
     // Inicia Databse
     fun initDb(){
         db = FirebaseFirestore.getInstance()
-        collectFavorites = db.collection("userName")
         collectColor = db.collection("colors")
     }
 
@@ -160,6 +159,7 @@ class MainViewModel(repository: Repository): ViewModel() {
     }
 
     fun removeFavoriteCharacter(id: Long){
+        collectFavorites = db.collection(user.toString())
         collectFavorites.document(id.toString()).delete()
         getFavorite()
     }
@@ -167,6 +167,7 @@ class MainViewModel(repository: Repository): ViewModel() {
     // --------------------------- Tela Character ----------------------//
     // Adicionar favorito ao DB
     fun addFavorite(character: Character){
+        collectFavorites = db.collection(user.toString())
         val characters: MutableMap<String,String> = HashMap()
         characters["id"] = character.id.toString()
         characters["name"] = character.name
