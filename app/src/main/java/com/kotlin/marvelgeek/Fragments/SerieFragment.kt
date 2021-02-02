@@ -27,21 +27,21 @@ class SerieFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_serie, container, false)
 
-        val serie =  viewModel.serie.value!!
-        (activity as AppCompatActivity).supportActionBar?.setTitle("Marvel Geek")
-
-        if (serie.modified != null){
-            val date: Date = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(serie.modified)
-            val dateFormat = SimpleDateFormat("MMMM dd, yyyy", Locale.US)
-            val stringDate = dateFormat.format(date)
-            view.tvSerieAtualizacao.append(stringDate)
-        }
-
-        Picasso.get().load("${serie.thumbnail.path}.${serie.thumbnail.extension}")
-            .fit()
-            .into(view.imSerie)
-        view.tvTituloSerie.text = serie.title
-        view.tvDescricaoSerie.text = serie.description
+//        val serie =  viewModel.serie.value!!
+//        (activity as AppCompatActivity).supportActionBar?.setTitle("Marvel Geek")
+//
+//        if (serie.modified != null){
+//            val date: Date = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(serie.modified)
+//            val dateFormat = SimpleDateFormat("MMMM dd, yyyy", Locale.US)
+//            val stringDate = dateFormat.format(date)
+//            view.tvSerieAtualizacao.append(stringDate)
+//        }
+//
+//        Picasso.get().load("${serie.thumbnail.path}.${serie.thumbnail.extension}")
+//            .fit()
+//            .into(view.imSerie)
+//        view.tvTituloSerie.text = serie.title
+//        view.tvDescricaoSerie.text = serie.description
 
         return view
     }

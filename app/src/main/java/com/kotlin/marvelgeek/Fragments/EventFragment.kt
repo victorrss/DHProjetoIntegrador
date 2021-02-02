@@ -27,25 +27,25 @@ class EventFragment : Fragment() {
 
 
         (activity as AppCompatActivity).supportActionBar?.setTitle("Marvel Geek")
-        val event =  viewModel.event.value!!
+        //val event =  viewModel.event.value!!
 
-        Picasso.get().load("${event.thumbnail.path}.${event.thumbnail.extension}")
-            .fit()
-            .into(view.ivEvent)
-        if (event.modified != null){
-            val date: Date = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(event.modified)
-            val dateFormat = SimpleDateFormat("MMMM dd, yyyy", Locale.US)
-            val stringDate = dateFormat.format(date)
-            view.tvEventAtualizacao.append(stringDate)
-        }
-
-        event.characters.items.forEach {
-            view.tvListaHerois.append("-" + it.name + "\n")
-        }
-
-        event.creators.items.forEach{
-            view.tvListaCriadores.append("-" + it.name + "\n")
-        }
+//        Picasso.get().load("${event.thumbnail.path}.${event.thumbnail.extension}")
+//            .fit()
+//            .into(view.ivEvent)
+//        if (event.modified != null){
+//            val date: Date = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(event.modified)
+//            val dateFormat = SimpleDateFormat("MMMM dd, yyyy", Locale.US)
+//            val stringDate = dateFormat.format(date)
+//            view.tvEventAtualizacao.append(stringDate)
+//        }
+//
+//        event.characters.items.forEach {
+//            view.tvListaHerois.append("-" + it.name + "\n")
+//        }
+//
+//        event.creators.items.forEach{
+//            view.tvListaCriadores.append("-" + it.name + "\n")
+//        }
 
         return view
     }

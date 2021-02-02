@@ -54,8 +54,24 @@ interface Repository {
         @Query("hash") p4: String
     ): ResSerie
 
-    @GET("creators/{id}")
-    suspend fun getResultCreator(
+    @GET("comics/{id}/characters")
+    suspend fun getResultCharacterComics(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResCharacter
+
+    @GET("comics/{id}/events")
+    suspend fun getResultEventsComic(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResEvent
+
+    @GET("comics/{id}/creators")
+    suspend fun getResultCreatorComic(
         @Path("id") p1: Long,
         @Query("ts") p2: String,
         @Query("apikey") p3: String,
