@@ -1,96 +1,291 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backgroundCharacter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.EventActivity"
-    android:background="@color/opacityblack">
+    android:background="@color/black">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:padding="15dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@drawable/round"
-            android:layout_margin="20dp">
+            android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/ivEvent"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:src="@drawable/ic_activity" />
+                android:id="@+id/eventActIv"
+                android:layout_width="376dp"
+                android:layout_height="346dp"
+                android:scaleType="fitXY"
+                android:padding="2dp"
+                android:background="@drawable/border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tvAuthorName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/eventName"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
+            <LinearLayout
+                android:id="@+id/eventActLlBio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="30dp"
-                android:gravity="left"
-                android:text="@string/eventListaHerois"
-                android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/eventActIv">
 
-            <TextView
-                android:id="@+id/tvListaHerois"
+                <TextView
+                    android:id="@+id/eventActTvLabelBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Description"
+                    android:textColor="@color/white"
+                    android:textSize="23sp" />
+
+                <View
+                    android:id="@+id/dividerBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:id="@+id/eventActTvBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Caught in a gamma bomb explosion while trying to save the life of a teenager, Dr. Bruce Banner was transformed into the incredibly powerful creature called the Hulk. An all too often misunderstood hero, the angrier the Hulk gets, the stronger the Hulk gets."
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/eventActLlCharacter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
-                android:gravity="left"
-                android:inputType="textMultiLine"
-                android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/eventActLlBio">
 
-            <TextView
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:id="@+id/eventActTvLabelCharacter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Characters"
+                    android:textColor="@color/white"
+                    android:textSize="23sp" />
+
+                <View
+                    android:id="@+id/dividerCharacter"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/eventActRvCharacter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_comics" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/eventActLlStories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:gravity="left"
-                android:text="@string/eventListaCriadores"
-                android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/eventActLlCharacter" />
 
-            <TextView
-                android:id="@+id/tvListaCriadores"
+            <LinearLayout
+                android:id="@+id/eventActLlComics"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
-                android:gravity="left"
-                android:inputType="textMultiLine"
-                android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/eventActLlStories">
 
-            <TextView
-                android:id="@+id/tvEventAtualizacao"
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:id="@+id/eventActTvLabelComics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Comics"
+                    android:textColor="@color/white"
+                    android:textSize="23sp" />
+
+                <View
+                    android:id="@+id/dividerEvents"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/eventActRvComic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_events" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/eventActLlSerie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="20dp"
-                android:gravity="left"
-                android:inputType="textMultiLine"
-                android:text="@string/authorAtualization"
-                android:textColor="@color/white"
-                android:textSize="15dp" />
+                android:layout_marginBottom="80dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventActLlComics">
 
-        </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider" />
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/eventActTvLabelSerie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Series"
+                    android:textColor="@color/white"
+                    android:textSize="23sp" />
 
-</ScrollView>
+                <View
+                    android:id="@+id/dividerSerie"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/eventActRvSeries"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_series" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/eventActLlCreator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="80dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventActLlSerie">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:id="@+id/eventActTvLabelCreator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Creators"
+                    android:textColor="@color/white"
+                    android:textSize="23sp" />
+
+                <View
+                    android:id="@+id/dividerCreator"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/eventActRvCreators"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_autor"
+                    android:layout_marginBottom="80dp"/>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/clAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/abHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/marvelRed"
+            android:clickable="true"
+            app:fabAlignmentMode="end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fbQuizE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/darkRed"
+            android:clickable="true"
+            app:layout_anchor="@id/abHome"
+            app:srcCompat="@drawable/ic_game" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <ImageView
+        android:id="@+id/fromEventToHome"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_baseline_home_24"
+        app:layout_anchorGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/clAppBar"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="35dp"/>
+
+    <ImageView
+        android:id="@+id/fromEventToFavorite"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/ic_baseline_favorite_24"
+        app:layout_anchorGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/clAppBar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

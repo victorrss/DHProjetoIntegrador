@@ -87,7 +87,19 @@
     <fragment
         android:id="@+id/eventFragment"
         android:name="com.kotlin.marvelgeek.Fragments.EventFragment"
-        android:label="EventFragment" />
+        android:label="EventFragment" >
+    <action
+        android:id="@+id/action_eventFragment_to_quizFragment"
+        app:destination="@id/quizFragment" />
+
+    <action
+        android:id="@+id/action_eventFragment_to_homeFragment2"
+        app:destination="@id/homeFragment2" />
+
+    <action
+        android:id="@+id/action_eventFragment_to_favoriteFragment"
+        app:destination="@id/favoriteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/quizFragment"
         android:name="com.kotlin.marvelgeek.Fragments.QuizFragment"

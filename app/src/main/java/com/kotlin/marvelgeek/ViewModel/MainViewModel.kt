@@ -26,8 +26,6 @@ import java.security.MessageDigest
 
 class MainViewModel(repository: Repository): ViewModel() {
 
-    lateinit var auth: FirebaseAuth
-    lateinit var gso: GoogleSignInOptions
     lateinit var db: FirebaseFirestore
     lateinit var collectColor: CollectionReference
     lateinit var collectFavorites: CollectionReference
@@ -44,7 +42,12 @@ class MainViewModel(repository: Repository): ViewModel() {
     val listCharacterComics = MutableLiveData<ArrayList<Character>>()
     val listCreatorComics = MutableLiveData<ArrayList<CreatorID>>()
     val listEventComics = MutableLiveData<ArrayList<EventC>>()
+
+    // -> Tela Event
+    val listCharactersEvent = MutableLiveData<ArrayList<Character>>()
+    val listComicsEvent = MutableLiveData<ArrayList<ComicC>>()
     val listSerieComics = MutableLiveData<ArrayList<SerieC>>()
+    val listCreatorsEvent = MutableLiveData<ArrayList<CreatorID>>()
 
     init{
         var primary: String = ""
@@ -285,6 +288,86 @@ class MainViewModel(repository: Repository): ViewModel() {
                 )
                 listCreatorComics.value = resultado.data.results
                 Log.i("TAG",resultado.data.results.toString())
+            }catch (e: Exception){
+                error = e.toString()
+                Log.e("TAG",e.toString())
+            }
+        }
+        return error
+    }
+
+    // ***********************************************************************************************************
+    // --------------------------- Tela Comic ----------------------//
+    fun getCharacterEvent(id: Long): String?{
+        var error: String? = null
+        val ts = timeStamp()
+        viewModelScope.launch {
+            try {
+                val resultado = repository.getResultCharacterEvent(
+                    id,
+                    ts,
+                    apiPublicKey,
+                    "${ts}$apiPrivateKey$apiPublicKey".md5()
+                )
+                listCharactersEvent.value = resultado.data.results
+            }catch (e: Exception){
+                error = e.toString()
+                Log.e("TAG",e.toString())
+            }
+        }
+        return error
+    }
+
+    fun getComicEvent(id: Long): String?{
+        var error: String? = null
+        val ts = timeStamp()
+        viewModelScope.launch {
+            try {
+                val resultado = repository.getResultComicEvent(
+                    id,
+                    ts,
+                    apiPublicKey,
+                    "${ts}$apiPrivateKey$apiPublicKey".md5()
+                )
+                listComicsEvent.value = resultado.data.results
+            }catch (e: Exception){
+                error = e.toString()
+            }
+        }
+        return error
+    }
+
+    fun getSerieEvent(id: Long): String?{
+        var error: String? = null
+        val ts = timeStamp()
+        viewModelScope.launch {
+            try {
+                val resultado = repository.getResultSerieEvent(
+                    id,
+                    ts,
+                    apiPublicKey,
+                    "${ts}$apiPrivateKey$apiPublicKey".md5()
+                )
+                listSerieComics.value = resultado.data.results
+            }catch (e: Exception){
+                error = e.toString()
+            }
+        }
+        return error
+    }
+
+    fun getCreatorEvent(id: Long): String?{
+        var error: String? = null
+        val ts = timeStamp()
+        viewModelScope.launch {
+            try {
+                val resultado = repository.getResultCreatorEvent(
+                    id,
+                    ts,
+                    apiPublicKey,
+                    "${ts}$apiPrivateKey$apiPublicKey".md5()
+                )
+                listCreatorsEvent.value = resultado.data.results
             }catch (e: Exception){
                 error = e.toString()
                 Log.e("TAG",e.toString())

@@ -18,12 +18,11 @@ import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.ComicC
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_historia.view.*
-import kotlinx.android.synthetic.main.item_character.view.*
 
 
 class HistoriaFragment : Fragment(){
 
-    var comic: ComicC? = null
+    private var comic: ComicC? = null
     private val viewModel: MainViewModel by activityViewModels()
     private var savedState: Bundle? = null
     private var createdStateInDestroyView = false
@@ -123,7 +122,7 @@ class HistoriaFragment : Fragment(){
             findNavController().navigate(R.id.action_historiaFragment_to_favoriteFragment)
         }
 
-        view.fbQuiz.setOnClickListener {
+        view.fbQuizC.setOnClickListener {
             findNavController().navigate(R.id.action_historiaFragment_to_quizFragment)
         }
         return view

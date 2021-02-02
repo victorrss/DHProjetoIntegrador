@@ -16,7 +16,7 @@ import com.facebook.FacebookSdk.getApplicationContext
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.CharacterAdapter
-import kotlinx.android.synthetic.main.activity_home.view.*
+import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     var error: String? = null

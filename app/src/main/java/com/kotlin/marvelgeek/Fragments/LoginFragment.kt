@@ -26,10 +26,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.kotlin.marvelgeek.R
-import com.kotlin.marvelgeek.ViewModel.MainViewModel
-import com.kotlin.marvelgeek.ui.TestActivity
-import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_login.view.*
+import kotlinx.android.synthetic.main.fragment_login.view.*
 
 
 class LoginFragment : Fragment() {

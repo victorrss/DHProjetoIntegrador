@@ -5,18 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
-import com.kotlin.marvelgeek.Entities.SerieC
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
-import com.kotlin.marvelgeek.models.ComicC
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_series.view.*
-import kotlinx.android.synthetic.main.fragment_event.view.*
-import kotlinx.android.synthetic.main.layout_historia.view.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 class SerieFragment : Fragment() {
     private val viewModel: MainViewModel by activityViewModels()
