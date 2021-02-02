@@ -3,9 +3,7 @@ package com.kotlin.marvelgeek.Fragments
 import android.app.AlertDialog
 import android.app.SearchManager
 import android.content.Context
-import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -14,17 +12,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.facebook.FacebookSdk
 import com.facebook.FacebookSdk.getApplicationContext
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.CharacterAdapter
-import kotlinx.android.synthetic.main.activity_character.view.*
-
 import kotlinx.android.synthetic.main.activity_home.view.*
-import kotlinx.android.synthetic.main.activity_home.view.fbQuiz
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 
 class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     var error: String? = null
@@ -79,10 +71,12 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         if(viewModel.user == null)
             viewModel.showToast(getApplicationContext(),"Welcome: Visitor")
         else
             viewModel.showToast(getApplicationContext(),"Welcome: ${viewModel.user}")
+
         (activity as AppCompatActivity).supportActionBar?.setTitle(R.string.app_name)
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
