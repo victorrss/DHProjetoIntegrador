@@ -2,7 +2,9 @@ package com.kotlin.marvelgeek.Fragments
 
 import android.app.AlertDialog
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +19,7 @@ import com.kotlin.marvelgeek.Adapters.EventAdapter
 import com.kotlin.marvelgeek.Adapters.SerieAdapter
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
+import com.kotlin.marvelgeek.model.Personagem
 import com.kotlin.marvelgeek.models.Character
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_character.view.*
@@ -117,17 +120,38 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
             adapterSerie.addListSerie(it)
         }
 
+        viewModel.getFavorite()
+        viewModel.listFavorite.observe(viewLifecycleOwner){
+            if(!it.isNullOrEmpty()){
+                if (it.contains(
+                        Personagem(
+                        character!!.id,
+                        character!!.name,
+                        character!!.description,
+                        "${character!!.thumbnail.path}.${character!!.thumbnail.extension}",
+                        character!!.color,
+                        character!!.brightness)
+                    ))
+                    view.icFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
+            }
+        }
+
         view.icFavorite.setOnClickListener {
-            if(viewModel.user != null) {
-                if (view.icFavorite.tag == R.drawable.ic_favorite) {
+           //if(viewModel.user != null) {
+                if (view.icFavorite.drawable.constantState == resources.getDrawable(R.drawable.ic_favorite).constantState) {
+                    Log.i("Favorito","Adicionando")
                     viewModel.addFavorite(character!!)
+                    viewModel.showToast(view.context,"${character!!.name} adicionado aos favoritos.")
                     view.icFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
                 } else {
+                    Log.i("Favorito","Removendo")
                     viewModel.removeFavoriteCharacter(character!!)
+                    viewModel.showToast(view.context,"${character!!.name} removido dos favoritos.")
+                    view.icFavorite.setImageResource(R.drawable.ic_favorite)
                 }
-            }else{
-                viewModel.showToast(view.context,"Para favoritar, entre com uma conta.")
-            }
+            //}else{
+            //    viewModel.showToast(view.context,"Para favoritar, entre com uma conta.")
+            //}
         }
 
         view.goChaHome.setOnClickListener {

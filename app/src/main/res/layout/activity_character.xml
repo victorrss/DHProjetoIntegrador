@@ -197,7 +197,7 @@
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/icFavorite"
+                android:id="@+id/icFavorite1"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="312dp"
@@ -207,13 +207,14 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/icFavorite"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_favorite"
-                app:layout_constraintBottom_toBottomOf="@+id/icFavorite"
-                app:layout_constraintEnd_toEndOf="@+id/icFavorite"
-                app:layout_constraintStart_toStartOf="@+id/icFavorite"
-                app:layout_constraintTop_toTopOf="@+id/icFavorite" />
+                app:layout_constraintBottom_toBottomOf="@+id/icFavorite1"
+                app:layout_constraintEnd_toEndOf="@+id/icFavorite1"
+                app:layout_constraintStart_toStartOf="@+id/icFavorite1"
+                app:layout_constraintTop_toTopOf="@+id/icFavorite1" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -265,12 +266,12 @@
         android:id="@+id/goChaFavo"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginTop="35dp"
         android:src="@drawable/ic_baseline_favorite_24"
         app:layout_anchorGravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/clAppBar"
-        android:layout_marginStart="190dp"
-        android:layout_marginTop="35dp"/>
+        app:layout_constraintTop_toTopOf="@+id/clAppBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

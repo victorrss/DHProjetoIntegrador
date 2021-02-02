@@ -39,6 +39,7 @@ class MainViewModel(repository: Repository): ViewModel() {
     val listComic = MutableLiveData<ArrayList<ComicC>>()
     val listEvent = MutableLiveData<ArrayList<EventC>>()
     val listSerie = MutableLiveData<ArrayList<SerieC>>()
+    val favoritos = MutableLiveData<Personagem>()
     val author = MutableLiveData<CreatorID>()
     val comic = MutableLiveData<ComicC>()
     val event = MutableLiveData<EventC>()
@@ -66,8 +67,8 @@ class MainViewModel(repository: Repository): ViewModel() {
     // Inicia Databse
     fun initDb(){
         db = FirebaseFirestore.getInstance()
+        collectFavorites = db.collection("userName")
         collectColor = db.collection("colors")
-        collectFavorites = db.collection("favorites")
     }
 
     // Pega Cor
@@ -126,35 +127,32 @@ class MainViewModel(repository: Repository): ViewModel() {
     }
 
     // Personagem tela Favorito (Database)
-    fun getFavorite(): String?{
-        var error: String? = null
+    fun getFavorite(){
         var list: ArrayList<Personagem> = arrayListOf()
-        viewModelScope.launch {
-            try{
-                collectFavorites.get().addOnSuccessListener { result ->
+        collectFavorites.get().addOnSuccessListener { result ->
                     for (document in result) {
-                        list.add(Personagem(document["id"].toString().toLong(),
-                                document["name"].toString() ,
+                        list.add(
+                            Personagem(
+                                document["id"].toString().toLong(),
+                                document["name"].toString(),
                                 document["description"].toString(),
                                 document["image"].toString(),
                                 document["color"].toString(),
-                                document["hsv"].toString().toFloat()))
+                                document["hsv"].toString().toFloat()
+                            )
+                        )
                     }
-                }.addOnFailureListener { exception ->
-                    Log.d("init", "Error getting documents: ${exception}")
-                }
                 listFavorite.value = list
-            }catch (e: java.lang.Exception){
-                Log.e("getFavorite",e.toString())
-                error = e.toString()
-            }
-        }
-        return error
+                }.addOnFailureListener { exception ->
+                    Log.d("Firestore", "Error getting documents: $exception")
+                }
+
     }
 
     fun removeFavoriteCharacter(character: Character){
         var list = listFavorite.value
-        collectFavorites.document(user.toString() + "/${character.id}").delete()
+        //collectFavorites.document(user.toString() + "/${character.id}").delete()
+        collectFavorites.document(character.id.toString()).delete()
         getFavorite()
     }
 
@@ -168,7 +166,9 @@ class MainViewModel(repository: Repository): ViewModel() {
         characters["image"] = character.thumbnail.path + "." + character.thumbnail.extension
         characters["color"] = character.color.toString()
         characters["hsv"] = character.brightness.toString()
-        collectFavorites.document(user.toString() + "/${character.id}").set(characters)
+        collectFavorites.document(character.id.toString()).set(characters)
+        getFavorite()
+        //collectFavorites.document(user.toString() + "/${character.id}").set(characters)
     }
 
     fun getComic(id: Long): String?{
