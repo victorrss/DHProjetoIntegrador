@@ -25,4 +25,5 @@
     <string name="logInVisitor">Visitor Login</string>
     <string name="loginFacebook">Facebook Login</string>
     <string name="loginGoogle">Google Login</string>
+    <string name="favorite">Favorites</string>
 </resources>

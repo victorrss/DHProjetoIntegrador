@@ -39,7 +39,8 @@ class MainViewModel(repository: Repository): ViewModel() {
     val listComic = MutableLiveData<ArrayList<ComicC>>()
     val listEvent = MutableLiveData<ArrayList<EventC>>()
     val listSerie = MutableLiveData<ArrayList<SerieC>>()
-    val favoritos = MutableLiveData<Personagem>()
+    val characterFavorite = MutableLiveData<Character>()
+
     val author = MutableLiveData<CreatorID>()
     val comic = MutableLiveData<ComicC>()
     val event = MutableLiveData<EventC>()
@@ -149,10 +150,8 @@ class MainViewModel(repository: Repository): ViewModel() {
 
     }
 
-    fun removeFavoriteCharacter(character: Character){
-        var list = listFavorite.value
-        //collectFavorites.document(user.toString() + "/${character.id}").delete()
-        collectFavorites.document(character.id.toString()).delete()
+    fun removeFavoriteCharacter(id: Long){
+        collectFavorites.document(id.toString()).delete()
         getFavorite()
     }
 

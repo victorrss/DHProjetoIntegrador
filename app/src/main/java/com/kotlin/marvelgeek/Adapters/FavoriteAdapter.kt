@@ -7,20 +7,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.blue
-import androidx.core.graphics.green
-import androidx.core.graphics.red
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 import com.kotlin.marvelgeek.model.Personagem
 import com.kotlin.marvelgeek.R
-import com.kotlin.marvelgeek.R.layout.card_home_personagem
 import com.kotlin.marvelgeek.R.layout.item_character
-import com.kotlin.marvelgeek.models.Character
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
-import kotlinx.android.synthetic.main.card_home_personagem.view.*
-import kotlinx.android.synthetic.main.card_home_personagem.view.ivAvatar
 import kotlinx.android.synthetic.main.card_home_personagem.view.tvDescricao
 import kotlinx.android.synthetic.main.card_home_personagem.view.tvNome
 import kotlinx.android.synthetic.main.item_character.view.*
@@ -69,7 +62,7 @@ class FavoriteAdapter(val listener: ListenerOnClickFavorito): RecyclerView.Adapt
     }
 
     fun addListFavorite(list: ArrayList<Personagem>){
-        listFavorite.addAll(list)
+        listFavorite = list
         notifyAdapter()
     }
 
@@ -85,7 +78,7 @@ class FavoriteAdapter(val listener: ListenerOnClickFavorito): RecyclerView.Adapt
     inner class FavoritosViewHolder(itemView: View):RecyclerView.ViewHolder(itemView), View.OnLongClickListener, View.OnClickListener{
         val nome: TextView = itemView.tvNome
         val descricao: TextView = itemView.tvDescricao
-        val imagem: ImageView = itemView.ivAvatar
+        val imagem: ImageView = itemView.ivCharacter
         val background : MaterialCardView = itemView.cardBackground
 
         init{

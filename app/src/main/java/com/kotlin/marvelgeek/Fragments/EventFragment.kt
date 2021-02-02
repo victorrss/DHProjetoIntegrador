@@ -7,13 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
-import com.kotlin.marvelgeek.Entities.EventC
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
-import com.kotlin.marvelgeek.models.ComicC
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_character.view.*
-import kotlinx.android.synthetic.main.activity_series.view.*
 import kotlinx.android.synthetic.main.fragment_event.view.*
 import java.text.SimpleDateFormat
 import java.util.*
