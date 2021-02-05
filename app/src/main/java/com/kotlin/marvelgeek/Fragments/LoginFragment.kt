@@ -56,7 +56,7 @@ class LoginFragment : Fragment() {
 
         // GOOGLE SIGN-IN --------------------------------------------------------------------------
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestIdToken("841956610806-jno4fdndacjam8klf76fqsf8i2eq47su.apps.googleusercontent.com")
             .requestProfile()
             .requestEmail()
             .build()
@@ -80,6 +80,7 @@ class LoginFragment : Fragment() {
                 callbackManager,
                 object : FacebookCallback<LoginResult> {
                     override fun onSuccess(result: LoginResult?) {
+                        Log.d("Debugando", "facebook:onSuccess");
                         handleSignInResultFacebook(result!!.accessToken)
                     }
 
@@ -129,7 +130,7 @@ class LoginFragment : Fragment() {
                 }.addOnFailureListener {
                     Log.w("Debugando", "signInWithCredential:failure", completedTask.exception)
                     Toast.makeText(
-                        activity, "Authentication failed. + ${completedTask.exception}",
+                        activity, "Authentication failed. + ${completedTask.exception?.cause}",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
