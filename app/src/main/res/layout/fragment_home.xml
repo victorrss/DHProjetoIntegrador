@@ -63,7 +63,7 @@
         android:id="@+id/exitApp"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="110dp"
+        android:layout_marginStart="105dp"
         android:layout_marginTop="35dp"
         android:src="@drawable/ic_sign_out"
         app:layout_anchorGravity="center"

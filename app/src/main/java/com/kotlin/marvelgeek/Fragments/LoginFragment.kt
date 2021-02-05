@@ -71,8 +71,7 @@ class LoginFragment : Fragment() {
         view.btnLoginFacebook.setOnClickListener {
             LoginManager.getInstance().logInWithReadPermissions(
                 this, listOf(
-                    "email",
-                    "public_profile"
+                    "email"
                 )
             )
             LoginManager.getInstance().registerCallback(

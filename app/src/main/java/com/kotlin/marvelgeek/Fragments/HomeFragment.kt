@@ -107,6 +107,7 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
 
         view.exitApp.setOnClickListener {
             auth.signOut()
+            findNavController().navigate(R.id.action_homeFragment2_to_loginFragment)
         }
 
         return view
