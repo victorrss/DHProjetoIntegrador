@@ -37,6 +37,5 @@ class TestActivity : AppCompatActivity() {
                 }
             }
         }
-        Log.i("TAG","Finalizado")
     }
 }

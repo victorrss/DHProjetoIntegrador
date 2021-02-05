@@ -134,7 +134,7 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
                     view.icFavorite.setImageResource(R.drawable.ic_favorite)
                 }
            }else{
-               viewModel.showToast(view.context,"To make this character a favorite, sign-in with an account.")
+               viewModel.showToast(view.context,"To make this character as a favorite, sign-in with an account.")
            }
         }
 
