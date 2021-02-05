@@ -32,7 +32,10 @@ class MainActivity : AppCompatActivity() {
             lines.forEach {
                 line = it.split('\t')
                 colors = line[1].split(",")
-                viewModel.colors[line[0]] = colors[0]
+                if (colors[0].length != 7)
+                    viewModel.colors[line[0]] = "#0${colors[0].split("#")[1]}"
+               else
+                    viewModel.colors[line[0]] = colors[0]
             }
         }
     }
