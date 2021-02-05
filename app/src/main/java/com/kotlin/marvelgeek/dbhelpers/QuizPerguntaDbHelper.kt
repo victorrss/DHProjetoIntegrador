@@ -105,7 +105,7 @@ class QuizDbHelper(context: Context?) :
         )
         quizzes.add(
             Quiz(
-                0, "Which first villain was the  of the marvel universe?",
+                0, "Which was first villain of the marvel universe?",
                 arrayListOf(
                     Resposta(0, "Red skull", true),
                     Resposta(0, "Ultron"),
@@ -117,12 +117,12 @@ class QuizDbHelper(context: Context?) :
         quizzes.add(
             Quiz(
                 0,
-                "Which film was the greatest ticket in marvel?",
+                "Which was  film the greatest ticket in marvel?",
                 arrayListOf(
                     Resposta(0, "Ironman 3"),
                     Resposta(0, "Venom"),
                     Resposta(0, "Avengers: Age of Ultron"),
-                    Resposta(0, "Avengers: Infinity War", true)
+                    Resposta(0, "Avengers: Infinity War,", true)
                 )
             )
         )
