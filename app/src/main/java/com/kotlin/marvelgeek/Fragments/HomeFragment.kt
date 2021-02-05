@@ -6,6 +6,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -69,6 +70,8 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     }
 
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -110,7 +113,6 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
             auth.signOut()
             findNavController().navigate(R.id.action_homeFragment2_to_loginFragment)
         }
-
         return view
     }
 

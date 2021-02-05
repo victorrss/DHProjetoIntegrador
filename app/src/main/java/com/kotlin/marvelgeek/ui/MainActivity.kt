@@ -1,5 +1,6 @@
 package com.kotlin.marvelgeek.ui
 
+import android.content.res.AssetManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -21,6 +22,19 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         viewModel
+
+        val am: AssetManager = applicationContext.assets
+        val inputStream = am.open("Characters.txt")
+        var line = listOf<String>()
+        var colors = listOf<String>()
+
+        inputStream.bufferedReader().useLines { lines ->
+            lines.forEach {
+                line = it.split('\t')
+                colors = line[1].split(",")
+                viewModel.colors[line[0]] = colors[0]
+            }
+        }
     }
 
     override fun onBackPressed() {

@@ -52,6 +52,8 @@ class CharacterAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter
             .placeholder(R.drawable.progress_bar)
             .into(holder.imagem)
 
+        Log.i("COLOR",character.color.toString())
+
         if(character.color != null){
             holder.background.setCardBackgroundColor(Color.parseColor(character.color!!))
             Color.RGBToHSV(Color.parseColor(character.color).red,

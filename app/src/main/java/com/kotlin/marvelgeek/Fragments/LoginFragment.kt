@@ -63,7 +63,7 @@ class LoginFragment : Fragment() {
             .requestEmail()
             .build()
 
-        val mGoogleSignInClient = activity?.let { GoogleSignIn.getClient(it, gso) };
+        val mGoogleSignInClient = activity?.let { GoogleSignIn.getClient(it, gso) }
 
         view.btnLoginGoogle.setOnClickListener {
             val signInIntent: Intent = mGoogleSignInClient!!.signInIntent
@@ -113,6 +113,7 @@ class LoginFragment : Fragment() {
         // GOOGLE
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            Log.i("Task",data.toString())
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)!!

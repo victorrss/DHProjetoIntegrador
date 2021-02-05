@@ -1,6 +1,7 @@
 package com.kotlin.marvelgeek.ViewModel
 
 import android.content.Context
+import android.content.res.AssetManager
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
@@ -56,21 +57,21 @@ class MainViewModel(repository: Repository): ViewModel() {
     val listCreatorsSerie = MutableLiveData<ArrayList<CreatorID>>()
 
     init{
-        var primary: String = ""
-
+//        var primary: String = ""
+//
         initDb()
-
-        collectColor.get().addOnSuccessListener { result ->
-            for (document in result) {
-                primary = if(document["primaryColor"].toString().length != 7)
-                    "#0${document["primaryColor"].toString().split("#")[1]}"
-                else
-                    document["primaryColor"].toString()
-                colors[document.id] = primary
-            }
-        }.addOnFailureListener { exception ->
-                Log.d("init", "Error getting documents: ${exception}")
-        }
+//
+//        collectColor.get().addOnSuccessListener { result ->
+//            for (document in result) {
+//                primary = if(document["primaryColor"].toString().length != 7)
+//                    "#0${document["primaryColor"].toString().split("#")[1]}"
+//                else
+//                    document["primaryColor"].toString()
+//                colors[document.id] = primary
+//            }
+//        }.addOnFailureListener { exception ->
+//                Log.d("init", "Error getting documents: ${exception}")
+//        }
     }
 
     // --------------------------- Tela Home ----------------------//
