@@ -74,7 +74,7 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     ): View? {
 
         if(viewModel.user == null)
-            viewModel.showToast(getApplicationContext(),"Welcome: Visitor")
+            viewModel.showToast(getApplicationContext(),"Welcome: Guest")
         else
             viewModel.showToast(getApplicationContext(),"Welcome: ${viewModel.user}")
 
