@@ -112,7 +112,16 @@ class LoginFragment : Fragment() {
         // GOOGLE
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            handleSignInResultGoogle(task)
+            try {
+                // Google Sign In was successful, authenticate with Firebase
+                val account = task.getResult(ApiException::class.java)!!
+                Log.d("Debugando", "firebaseAuthWithGoogle:" + account.id)
+                handleSignInResultGoogle(task)
+            } catch (e: ApiException) {
+                // Google Sign In failed, update UI appropriately
+                Log.w("Debugando", "Google sign in failed", e)
+                // ...
+            }
         }
     }
 
