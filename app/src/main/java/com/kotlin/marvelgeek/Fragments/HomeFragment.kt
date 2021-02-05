@@ -13,6 +13,7 @@ import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.facebook.FacebookSdk.getApplicationContext
+import com.google.firebase.auth.FirebaseAuth
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.CharacterAdapter
@@ -21,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_home.view.*
 class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     var error: String? = null
     private val viewModel: MainViewModel by activityViewModels()
-
+    private lateinit var auth: FirebaseAuth
 
     private lateinit var adapter: CharacterAdapter
 
@@ -35,6 +36,7 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
 
+        auth.currentUser
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -102,6 +104,10 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
 
         view.fbQuiz.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment2_to_quizFragment)
+        }
+
+        view.exitApp.setOnClickListener {
+            auth.signOut()
         }
 
         return view
