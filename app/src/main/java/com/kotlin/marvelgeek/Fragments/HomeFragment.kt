@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.activity.addCallback
@@ -57,7 +58,15 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
                 searchView.clearFocus()
                 searchView.setQuery("", false)
                 searchItem.collapseActionView()
-                Toast.makeText(activity, "Query: ${query}", Toast.LENGTH_LONG).show()
+
+                //Toast.makeText(activity, "Query: ${query}", Toast.LENGTH_LONG).show()
+                viewModel.getOneCharacter(query.toString(),getApplicationContext())
+                viewModel.search.observe(viewLifecycleOwner){
+                    val bundle = Bundle()
+                    bundle.putSerializable("character", it)
+                    arguments = bundle
+                    findNavController().navigate(R.id.action_homeFragment2_to_searchFragment,bundle)
+                }
                 return true
             }
 
@@ -68,9 +77,6 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
 
         super.onCreateOptionsMenu(menu, inflater)
     }
-
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

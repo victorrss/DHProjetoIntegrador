@@ -24,9 +24,9 @@ interface Repository {
 
     //-------------------------------------------------------------
 
-    @GET("characters/{id}")
+    @GET("characters")
     suspend fun getResultOneCharacter(
-        @Path("id") p1: Long,
+        @Query("name") p1: String,
         @Query("ts") p2: String,
         @Query("apikey") p3: String,
         @Query("hash") p4: String

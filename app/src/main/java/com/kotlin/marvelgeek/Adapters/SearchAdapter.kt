@@ -1,25 +1,19 @@
-package com.kotlin.marvelgeek.models
+package com.kotlin.marvelgeek.Adapters
 
+import com.kotlin.marvelgeek.models.Character
 import android.graphics.Color
-import android.graphics.text.LineBreaker.JUSTIFICATION_MODE_INTER_WORD
-import android.os.Build
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.blue
 import androidx.core.graphics.green
 import androidx.core.graphics.red
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.google.android.material.card.MaterialCardView
 import com.kotlin.marvelgeek.R
-import com.squareup.picasso.Callback
-import kotlinx.android.synthetic.main.card_home_personagem.view.ivAvatar
 import kotlinx.android.synthetic.main.card_home_personagem.view.tvDescricao
 import kotlinx.android.synthetic.main.card_home_personagem.view.tvNome
 import kotlinx.android.synthetic.main.item_character.view.*
@@ -27,7 +21,7 @@ import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 
 
-class CharacterAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter<CharacterAdapter.ItemCharacter>() {
+class SearchAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter<SearchAdapter.ItemCharacter>() {
 
     var listCharacter = ArrayList<Character>()
 
@@ -80,9 +74,9 @@ class CharacterAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter
 
     override fun getItemCount() = listCharacter.size
 
-    fun addListCharacter(list: ArrayList<Character>){
-            listCharacter.addAll(list)
-            notifyAdapter()
+    fun addListCharacter(list: Character){
+        listCharacter.add(list)
+        notifyAdapter()
     }
 
     fun notifyAdapter(){
@@ -111,3 +105,4 @@ class CharacterAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter
         }
     }
 }
+

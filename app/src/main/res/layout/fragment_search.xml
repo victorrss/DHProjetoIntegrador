@@ -7,7 +7,7 @@
     android:background="@color/black">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvHome"
+        android:id="@+id/rvSearch"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:paddingBottom="50dp"
@@ -50,7 +50,7 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/fromSearchToHome"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="30dp"
@@ -62,27 +62,15 @@
         app:layout_constraintTop_toTopOf="@+id/clAppBar" />
 
     <ImageView
-        android:id="@+id/exitApp"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="35dp"
-        android:src="@drawable/ic_sign_out"
-        app:layout_anchorGravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/fromHomeToFavo"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/clAppBar" />
-
-    <ImageView
-        android:id="@+id/fromHomeToFavo"
+        android:id="@+id/fromSearchToFavo"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="35dp"
         android:src="@drawable/ic_baseline_favorite_24"
         app:layout_anchorGravity="center"
-        android:layout_marginEnd="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/clAppBar"
         app:layout_constraintTop_toTopOf="@+id/clAppBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

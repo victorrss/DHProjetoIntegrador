@@ -33,6 +33,7 @@ class MainViewModel(repository: Repository): ViewModel() {
     var user: Any? = null
 
     val colors: MutableMap<String, String> = hashMapOf()
+    val search = MutableLiveData<Character>()
     val listCharacter = MutableLiveData<ArrayList<Character>>()
     val listFavorite = MutableLiveData<ArrayList<Personagem>>()
     val listComic = MutableLiveData<ArrayList<ComicC>>()
@@ -114,26 +115,31 @@ class MainViewModel(repository: Repository): ViewModel() {
     }
 
     // Personagem tela Home
-    fun getOneCharacter(id: Long): Character{
+    fun getOneCharacter(name: String, context: Context): String?{
         var error: String? = null
         val ts = timeStamp()
-        var char = arrayListOf<Character>()
+        lateinit var char: Character
 
         viewModelScope.launch {
             try {
                 val resultado = repository.getResultOneCharacter(
-                    id,
+                    name,
                     ts,
                     apiPublicKey,
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
-                char = resultado.data.results
-                char[0].color = getcolor(char[0].name.replace("/"," "))
+                char = resultado.data.results[0]
+                if(char != null) {
+                    char.color = colors[char.name]
+                    search.value = char
+                }else{
+                    showToast(context,"No Character available")
+                }
             }catch (e: Exception){
                 error = e.toString()
             }
         }
-        return char[0]
+        return error
     }
 
     // Personagem tela Favorito (Database)
