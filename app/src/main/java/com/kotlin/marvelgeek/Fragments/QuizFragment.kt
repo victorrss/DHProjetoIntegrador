@@ -49,7 +49,7 @@ class QuizFragment : Fragment() {
                 index++
                 atualizaView(view)
             } else
-                Snackbar.make(view, "Escolha uma resposta", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(view, "Choose an answer", Snackbar.LENGTH_LONG).show()
         }
 
         // CLICK DO BOTÃO VOLTAR
@@ -67,7 +67,7 @@ class QuizFragment : Fragment() {
                 arguments = bundle
                 findNavController().navigate(R.id.action_quizFragment_to_quizResultFragment, bundle)
             } else
-                Snackbar.make(view, "Escolha uma resposta", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(view, "Choose an answer", Snackbar.LENGTH_LONG).show()
         }
 
         // CLICK NAS RESPOSTAS
@@ -89,17 +89,17 @@ class QuizFragment : Fragment() {
                 val alertDialog: AlertDialog? = activity?.let {
                     val builder = AlertDialog.Builder(it)
                     builder.apply {
-                        setPositiveButton("Voltar",
+                        setPositiveButton("Back",
                             DialogInterface.OnClickListener { dialog, id ->
                                 val navOption = NavOptions.Builder().setPopUpTo(R.id.homeFragment2, false).build()
                                 findNavController().navigate(R.id.homeFragment2, null, navOption)
                             })
-                        setNegativeButton("Ficar",
+                        setNegativeButton("Stay",
                             DialogInterface.OnClickListener { dialog, id ->
                                 // User cancelled the dialog
                             })
-                        setMessage("Todo seu progresso será perdido.")
-                        setTitle("Deseja realmente voltar?")
+                        setMessage("All your progress will be lost!")
+                        setTitle("Do you really want to come back?")
                     }
                     builder.create()
                 }
@@ -127,7 +127,7 @@ class QuizFragment : Fragment() {
         }
 
         // SETA PERGUNTA SELECIONADA
-        view.quiFraTvLabelQuestion.text = "Pergunta ${index + 1}"
+        view.quiFraTvLabelQuestion.text = "Question ${index + 1}"
         view.quiFraTvQuestion.text = quiz[index].pergunta
         view.quiFraRgOption1.text = quiz[index].respostas[0].texto
         view.quiFraRgOption2.text = quiz[index].respostas[1].texto

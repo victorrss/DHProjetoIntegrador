@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:text="Pergunta"
+            android:text="Question"
             android:textColor="@color/white"
             android:textSize="23sp" />
 
@@ -129,7 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
-                android:text="VOLTAR" />
+                android:text="Back" />
 
             <Button
                 android:id="@+id/quiFraBtnNext"
@@ -137,14 +137,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
-                android:text="PRÓXIMO" />
+                android:text="Next" />
 
             <Button
                 android:id="@+id/quiFraBtnFinish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:text="Finalizar" />
+                android:text="Done" />
 
         </LinearLayout>
         <LinearLayout

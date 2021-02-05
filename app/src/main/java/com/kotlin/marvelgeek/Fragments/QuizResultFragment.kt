@@ -63,12 +63,12 @@ class QuizResultFragment : Fragment() {
 
         view.ratingBar.rating = acertos.toFloat()
         view.quiFraTvQuestion.text = when (acertos) {
-            0 -> "Dá para melhorar. "
-            1, 2 -> "Bom. "
-            3, 4 -> "Muito bom. "
-            5 -> "Excelente. "
+            0 -> "You can improve. "
+            1, 2 -> "Good. "
+            3, 4 -> "Very good. "
+            5 -> "Great!. "
             else -> ""
-        } + "Você acertou ${acertos} de 5 questões sobre o Universo Marvel!"
+        } + "You got ${acertos} out of 5 questions about the Marvel Universe!"
 
         // BOTÃO COMPARTILHAR
         view.btnShare.setOnClickListener { share(view, requireActivity()) }
@@ -115,7 +115,7 @@ class QuizResultFragment : Fragment() {
         val intent = ShareCompat.IntentBuilder.from(activity)
             .setType("image/jpg")
             .setStream(uri)
-            .setChooserTitle("Escolha o aplicativo")
+            .setChooserTitle("Choose the application")
             .createChooserIntent()
             .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

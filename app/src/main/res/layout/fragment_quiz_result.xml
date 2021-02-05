@@ -83,7 +83,7 @@
             android:layout_height="60dp"
             android:backgroundTint="@color/marvelRed"
             android:drawableLeft="@drawable/ic_baseline_share_24"
-            android:text="Compartilhar"
+            android:text="Share"
             android:textColor="@color/white" />
         <!--
                 <Button
@@ -139,7 +139,7 @@
             android:id="@+id/quiResFraBtnNewGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NOVO JOGO" />
+            android:text="New Game" />
     </LinearLayout>
     <!--
     <androidx.coordinatorlayout.widget.CoordinatorLayout
