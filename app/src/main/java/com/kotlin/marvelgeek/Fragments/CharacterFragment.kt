@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.observe
@@ -157,18 +158,17 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
     private fun setColor(view: View, color: String,brigthness: Float){
 
         var gray = 0
-
         view.backgroundCharacter.setBackgroundColor(Color.parseColor(color))
         gray = if(brigthness < 0.5){
             R.color.lightGray
         }else{
             R.color.darkgray
         }
-        view.chaActTvLabelBio.setTextColor(Color.parseColor(color))
-        view.chaActTvBio.setTextColor(gray)
-        view.chaActTvLabelComics.setTextColor(gray)
-        view.chaActTvLabelEvents.setTextColor(gray)
-        view.chaActTvLabelSeries.setTextColor(gray)
+        view.chaActTvLabelBio.setTextColor(ContextCompat.getColor(view.context, gray))
+        view.chaActTvBio.setTextColor(ContextCompat.getColor(view.context, gray))
+        view.chaActTvLabelComics.setTextColor(ContextCompat.getColor(view.context, gray))
+        view.chaActTvLabelEvents.setTextColor(ContextCompat.getColor(view.context, gray))
+        view.chaActTvLabelSeries.setTextColor(ContextCompat.getColor(view.context, gray))
     }
 
     override fun onClickComic(position: Int) {
