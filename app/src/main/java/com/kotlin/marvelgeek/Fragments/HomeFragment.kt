@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.CharacterAdapter
+import com.kotlin.marvelgeek.ui.MainActivity
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {

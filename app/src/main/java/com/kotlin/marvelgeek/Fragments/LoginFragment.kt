@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.*
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
+import com.kotlin.marvelgeek.ui.MainActivity
 import kotlinx.android.synthetic.main.fragment_login.view.*
 
 class LoginFragment : Fragment() {
