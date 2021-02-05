@@ -23,7 +23,6 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     var error: String? = null
     private val viewModel: MainViewModel by activityViewModels()
     private lateinit var auth: FirebaseAuth
-
     private lateinit var adapter: CharacterAdapter
 
     override fun onAttach(context: Context) {
@@ -36,7 +35,7 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
 
-        auth.currentUser
+        auth = FirebaseAuth.getInstance()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
