@@ -71,43 +71,43 @@ class QuizDbHelper(context: Context?) :
         quizzes.add(
             Quiz(
                 0,
-                "Qual dos seguintes filmes é o mais odiado pelos fãs da Marvel?",
+                "Which of the following movies is most hated by Marvel fans?",
                 arrayListOf(
-                    Resposta(0, "O Incrível Hulk", true),
-                    Resposta(0, "Homem de Ferro 3"),
-                    Resposta(0, "Capitão América: O Primeiro Vingador"),
-                    Resposta(0, "Thor: O Mundo Sombrio")
+                    Resposta(0, "The incredible Hulk", true),
+                    Resposta(0, "Iroman 3"),
+                    Resposta(0, "Captain America: The First Avenger"),
+                    Resposta(0, "Thor: The Dark World")
                 )
             )
         )
         quizzes.add(
             Quiz(
                 0,
-                "COMPLETE: A Marvel conseguiu um acordo com a *** para produzir os filmes do ***",
+                "COMPLETE: Marvel got a deal with ******** to produce ********* movies",
                 arrayListOf(
-                    Resposta(0, "Fox - Gavião Arqueiro"),
+                    Resposta(0, "Fox - Hawkeye"),
                     Resposta(0, "Sony Pictures - Venom"),
                     Resposta(0, "Fox - X-Men"),
-                    Resposta(0, "Sony Pictures - Homem-Aranha", true)
+                    Resposta(0, "Sony Pictures - Spiderman", true)
                 )
             )
         )
         quizzes.add(
             Quiz(
-                0, "QUAL FOI A PRIMEIRA JOIA DO INFINITO",
+                0, "Which was the first jewel of infinite?",
                 arrayListOf(
-                    Resposta(0, "Tempo"),
-                    Resposta(0, "Realidade"),
-                    Resposta(0, "Espaço", true),
-                    Resposta(0, "Poder")
+                    Resposta(0, "Time"),
+                    Resposta(0, "Reality"),
+                    Resposta(0, "Space", true),
+                    Resposta(0, "Power")
                 )
             )
         )
         quizzes.add(
             Quiz(
-                0, "QUAL FOI O PRIMEIRO VILÃO DO UNIVERSO MARVEL",
+                0, "Which first villain was the  of the marvel universe?",
                 arrayListOf(
-                    Resposta(0, "Caveira Vermelha", true),
+                    Resposta(0, "Red skull", true),
                     Resposta(0, "Ultron"),
                     Resposta(0, "Abutre"),
                     Resposta(0, "Loki")
@@ -117,12 +117,12 @@ class QuizDbHelper(context: Context?) :
         quizzes.add(
             Quiz(
                 0,
-                "QUAL FOI O FILME COM MAIOR BILHETERIA DA MARVEL",
+                "Which film was the greatest ticket in marvel?",
                 arrayListOf(
-                    Resposta(0, "HOMEM DE FERRO 3"),
-                    Resposta(0, "VENOM"),
-                    Resposta(0, "VINGADORES: ERA DE ULTRON"),
-                    Resposta(0, "VINGADORES: GUERRA INFINITA", true)
+                    Resposta(0, "Ironman 3"),
+                    Resposta(0, "Venom"),
+                    Resposta(0, "Avengers: Age of Ultron"),
+                    Resposta(0, "Avengers: Infinity War", true)
                 )
             )
         )
