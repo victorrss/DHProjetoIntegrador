@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.facebook.*
 import com.facebook.login.LoginManager
@@ -21,14 +22,15 @@ import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.*
 import com.kotlin.marvelgeek.R
+import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import kotlinx.android.synthetic.main.activity_host.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
-
 
 class LoginFragment : Fragment() {
     private val RC_SIGN_IN = 0
     private lateinit var auth: FirebaseAuth
     private val callbackManager = CallbackManager.Factory.create()
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onStart() {
         (activity as AppCompatActivity).supportActionBar?.hide()
@@ -45,7 +47,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        FacebookSdk.sdkInitialize(context)
+        FacebookSdk.sdkInitialize(context)
 
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_login, container, false)
@@ -122,7 +124,7 @@ class LoginFragment : Fragment() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Log.d("Debugando", "signInWithCredential:success")
-                        val user: FirebaseUser? = auth.currentUser
+                        viewModel.user = auth.currentUser!!.email
                         findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
                     }
                 }.addOnFailureListener {
@@ -147,6 +149,7 @@ class LoginFragment : Fragment() {
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     Log.i("TAG", "Login com sucesso")
+                    viewModel.user = auth.currentUser!!.email
                     findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
                 } else {
                     Log.i("TAG", "Login falho")
