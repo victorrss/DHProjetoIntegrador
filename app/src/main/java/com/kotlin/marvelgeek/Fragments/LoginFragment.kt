@@ -26,6 +26,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.kotlin.marvelgeek.R
+import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_login.view.*
 
 
@@ -33,6 +34,7 @@ class LoginFragment : Fragment() {
     private val RC_SIGN_IN = 0
     private lateinit var auth: FirebaseAuth
     private val callbackManager = CallbackManager.Factory.create()
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onStart() {
         (activity as AppCompatActivity).supportActionBar?.hide()
@@ -83,6 +85,7 @@ class LoginFragment : Fragment() {
                                 .addOnCompleteListener {
                                     if (it.isSuccessful) {
                                         Log.i("TAG", "Login com sucesso")
+                                        viewModel.user = auth.currentUser!!.email
                                         findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
                                     } else {
                                         Log.i("TAG", "Login falho")

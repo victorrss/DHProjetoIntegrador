@@ -135,7 +135,11 @@ class EventFragment : Fragment() {
         }
 
         view.fromEventToFavorite.setOnClickListener {
-            findNavController().navigate(R.id.action_eventFragment_to_favoriteFragment)
+            if(viewModel.user != null){
+                findNavController().navigate(R.id.action_eventFragment_to_favoriteFragment)
+            }else{
+                viewModel.showToast(it.context,"Para ter acesso aos favoritos, entre com uma conta.")
+            }
         }
 
         view.fbQuizE.setOnClickListener {

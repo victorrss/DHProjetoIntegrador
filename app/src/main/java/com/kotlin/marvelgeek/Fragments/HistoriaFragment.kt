@@ -117,7 +117,11 @@ class HistoriaFragment : Fragment(){
         }
 
         view.fromComicToFavorite.setOnClickListener {
-            findNavController().navigate(R.id.action_historiaFragment_to_favoriteFragment)
+            if(viewModel.user != null){
+                findNavController().navigate(R.id.action_historiaFragment_to_favoriteFragment)
+            }else{
+                viewModel.showToast(it.context,"Para ter acesso aos favoritos, entre com uma conta.")
+            }
         }
 
         view.fbQuizC.setOnClickListener {

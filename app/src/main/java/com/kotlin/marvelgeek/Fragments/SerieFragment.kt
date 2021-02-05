@@ -140,7 +140,11 @@ class SerieFragment : Fragment() {
         }
 
         view.fromSerieToFavorite.setOnClickListener {
-            findNavController().navigate(R.id.action_serieFragment_to_favoriteFragment)
+            if(viewModel.user != null){
+                findNavController().navigate(R.id.action_serieFragment_to_favoriteFragment)
+            }else{
+                viewModel.showToast(it.context,"Para ter acesso aos favoritos, entre com uma conta.")
+            }
         }
 
         view.fbQuizS.setOnClickListener {

@@ -140,9 +140,12 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
         view.goChaHome.setOnClickListener {
             findNavController().navigate(R.id.action_characterFragment_to_action_homeFragment2)
         }
-
         view.goChaFavo.setOnClickListener {
-            findNavController().navigate(R.id.action_characterFragment_to_favoriteFragment)
+            if(viewModel.user != null){
+                findNavController().navigate(R.id.action_characterFragment_to_favoriteFragment)
+            }else{
+                viewModel.showToast(it.context,"Para ter acesso aos favoritos, entre com uma conta.")
+            }
         }
 
         view.fbQuiz.setOnClickListener {
@@ -221,19 +224,23 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getFavorite()
-        viewModel.listFavorite.observe(viewLifecycleOwner){
-            if(!it.isNullOrEmpty()){
-                if (it.contains(
-                        Personagem(
-                            character!!.id,
-                            character!!.name,
-                            character!!.description,
-                            "${character!!.thumbnail.path}.${character!!.thumbnail.extension}",
-                            character!!.color,
-                            character!!.brightness)
-                    ))
-                    view.icFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
+        if(viewModel.user != null) {
+            viewModel.getFavorite()
+            viewModel.listFavorite.observe(viewLifecycleOwner) {
+                if (!it.isNullOrEmpty()) {
+                    if (it.contains(
+                            Personagem(
+                                character!!.id,
+                                character!!.name,
+                                character!!.description,
+                                "${character!!.thumbnail.path}.${character!!.thumbnail.extension}",
+                                character!!.color,
+                                character!!.brightness
+                            )
+                        )
+                    )
+                        view.icFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
+                }
             }
         }
     }

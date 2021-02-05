@@ -93,7 +93,11 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         }
 
         view.fromHomeToFavo.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment2_to_favoriteFragment)
+            if(viewModel.user != null){
+                findNavController().navigate(R.id.action_homeFragment2_to_favoriteFragment)
+            }else{
+                viewModel.showToast(it.context,"Para ter acesso aos favoritos, entre com uma conta.")
+            }
         }
 
         view.fbQuiz.setOnClickListener {
