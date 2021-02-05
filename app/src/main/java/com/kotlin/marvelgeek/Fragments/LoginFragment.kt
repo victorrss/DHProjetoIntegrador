@@ -33,10 +33,11 @@ class LoginFragment : Fragment() {
     override fun onStart() {
         (activity as AppCompatActivity).supportActionBar?.hide()
         super.onStart()
-
+        viewModel.user = null
         val user = auth.currentUser
 
         if (user != null) {
+            Log.i("Email", user.email.toString())
             viewModel.user = user.email
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
         }
