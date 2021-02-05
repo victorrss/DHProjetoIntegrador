@@ -97,7 +97,7 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
             if(viewModel.user != null){
                 findNavController().navigate(R.id.action_homeFragment2_to_favoriteFragment)
             }else{
-                viewModel.showToast(it.context,"Para ter acesso aos favoritos, entre com uma conta.")
+                viewModel.showToast(it.context,"To access Favorites, sign-in with an account.")
             }
         }
 

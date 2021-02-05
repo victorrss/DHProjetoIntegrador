@@ -122,18 +122,18 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
         view.icFavorite.setOnClickListener {
            if(viewModel.user != null) {
                 if (view.icFavorite.drawable.constantState == resources.getDrawable(R.drawable.ic_favorite).constantState) {
-                    Log.i("Favorito","Adicionando")
+                    Log.i("F","Adicionando")
                     viewModel.addFavorite(character!!)
-                    viewModel.showToast(view.context,"${character!!.name} adicionado aos favoritos.")
+                    viewModel.showToast(view.context,"${character!!.name} adds to favorites.")
                     view.icFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
                 } else {
                     Log.i("Favorito","Removendo")
                     viewModel.removeFavoriteCharacter(character!!.id)
-                    viewModel.showToast(view.context,"${character!!.name} removido dos favoritos.")
+                    viewModel.showToast(view.context,"${character!!.name} removed from favorites.")
                     view.icFavorite.setImageResource(R.drawable.ic_favorite)
                 }
            }else{
-               viewModel.showToast(view.context,"Para favoritar, entre com uma conta.")
+               viewModel.showToast(view.context,"To make this character a favorite, sign-in with an account.")
            }
         }
 
@@ -144,7 +144,7 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
             if(viewModel.user != null){
                 findNavController().navigate(R.id.action_characterFragment_to_favoriteFragment)
             }else{
-                viewModel.showToast(it.context,"Para ter acesso aos favoritos, entre com uma conta.")
+                viewModel.showToast(it.context,"To access Favorites, sign-in with an account.")
             }
         }
 
@@ -225,6 +225,7 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if(viewModel.user != null) {
+            viewModel.initDbFavorite()
             viewModel.getFavorite()
             viewModel.listFavorite.observe(viewLifecycleOwner) {
                 if (!it.isNullOrEmpty()) {

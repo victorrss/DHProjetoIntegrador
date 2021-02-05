@@ -138,6 +138,7 @@ class MainViewModel(repository: Repository): ViewModel() {
     // Personagem tela Favorito (Database)
     fun getFavorite(){
         var list: ArrayList<Personagem> = arrayListOf()
+        collectFavorites = db.collection(user.toString())
         collectFavorites.get().addOnSuccessListener { result ->
                     for (document in result) {
                         list.add(
@@ -178,6 +179,10 @@ class MainViewModel(repository: Repository): ViewModel() {
         collectFavorites.document(character.id.toString()).set(characters)
         getFavorite()
         //collectFavorites.document(user.toString() + "/${character.id}").set(characters)
+    }
+
+    fun initDbFavorite(){
+        collectFavorites = db.collection(user.toString())
     }
 
     fun getComic(id: Long): String?{

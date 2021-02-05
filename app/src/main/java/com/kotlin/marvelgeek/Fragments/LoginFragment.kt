@@ -37,6 +37,7 @@ class LoginFragment : Fragment() {
         val user = auth.currentUser
 
         if (user != null) {
+            viewModel.user = user.email
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
         }
     }
@@ -71,7 +72,8 @@ class LoginFragment : Fragment() {
         view.btnLoginFacebook.setOnClickListener {
             LoginManager.getInstance().logInWithReadPermissions(
                 this, listOf(
-                    "email"
+                    "email",
+                    "public_profile"
                 )
             )
             LoginManager.getInstance().registerCallback(
