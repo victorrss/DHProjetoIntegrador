@@ -45,8 +45,6 @@ class SearchFragment : Fragment(), SearchAdapter.OnClickItemListener {
             character = mBundle.getSerializable("character") as Character
         }
 
-        Log.i("SearchFrag",character.toString())
-
         (activity as AppCompatActivity).supportActionBar?.setTitle("Result")
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_search, container, false)
@@ -55,6 +53,7 @@ class SearchFragment : Fragment(), SearchAdapter.OnClickItemListener {
         view.rvSearch.adapter = adapter
         view.rvSearch.layoutManager = LinearLayoutManager(activity)
         view.rvSearch.setHasFixedSize(true)
+        viewModel.clearSearch()
 
         adapter.addListCharacter(character)
 

@@ -6,38 +6,40 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.Toast
-import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.facebook.FacebookSdk.getApplicationContext
 import com.google.firebase.auth.FirebaseAuth
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
+import com.kotlin.marvelgeek.models.Character
 import com.kotlin.marvelgeek.models.CharacterAdapter
-import com.kotlin.marvelgeek.ui.MainActivity
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.coroutines.CoroutineScope
+
 
 class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     var error: String? = null
     private val viewModel: MainViewModel by activityViewModels()
     private lateinit var auth: FirebaseAuth
-    private lateinit var adapter: CharacterAdapter
+    var adapter = CharacterAdapter(this)
 
-    override fun onAttach(context: Context) {
-        error = viewModel.getCharacter(100, 0)
-        super.onAttach(context)
-    }
+    private var offset: Int = 0
+    private val visibleThreshold: Int = 5
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (activity as AppCompatActivity).supportActionBar?.show()
         setHasOptionsMenu(true)
+        offset = 0
+        if(adapter.listCharacter.isNotEmpty())
+            adapter.listCharacter.clear()
         super.onCreate(savedInstanceState)
-
         auth = FirebaseAuth.getInstance()
     }
 
@@ -58,11 +60,10 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
                 searchView.clearFocus()
                 searchView.setQuery("", false)
                 searchItem.collapseActionView()
-
-                //Toast.makeText(activity, "Query: ${query}", Toast.LENGTH_LONG).show()
                 viewModel.getOneCharacter(query.toString(),getApplicationContext())
                 viewModel.search.observe(viewLifecycleOwner){
                     val bundle = Bundle()
+                    Log.i("Search",it.toString())
                     bundle.putSerializable("character", it)
                     arguments = bundle
                     findNavController().navigate(R.id.action_homeFragment2_to_searchFragment,bundle)
@@ -82,6 +83,11 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        if (!adapter.listCharacter.isNullOrEmpty())
+            offset = adapter.listCharacter.size
+        Log.i("OFFSET", offset.toString())
+        error = viewModel.getCharacter(visibleThreshold, offset)
 
         if(viewModel.user == null)
             viewModel.showToast(getApplicationContext(),"Welcome: Guest")
@@ -103,6 +109,22 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
             dialog.show()
         }
 
+        viewModel.listCharacter.observe(viewLifecycleOwner){
+            adapter.addListCharacter(it)
+        }
+        view.rvHome.adapter = adapter
+        view.rvHome.layoutManager = LinearLayoutManager(activity)
+        view.rvHome.setHasFixedSize(true)
+        view.rvHome.addOnScrollListener(object: RecyclerView.OnScrollListener(){
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                if ((view.rvHome.layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition() == adapter.listCharacter.size - 1) {
+                    offset = adapter.listCharacter.size
+                    viewModel.getCharacter(visibleThreshold,offset)
+                }
+            }
+        })
+
         view.fromHomeToFavo.setOnClickListener{
             if(viewModel.user != null){
                 findNavController().navigate(R.id.action_homeFragment2_to_favoriteFragment)
@@ -122,22 +144,17 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.listCharacter.observe(viewLifecycleOwner){
-            adapter.addListCharacter(it)
-        }
-        super.onViewCreated(view, savedInstanceState)
-        adapter = CharacterAdapter(this)
-        view.rvHome.adapter = adapter
-        view.rvHome.layoutManager = LinearLayoutManager(activity)
-        view.rvHome.setHasFixedSize(true)
-    }
-
     override fun OnClickItem(position: Int) {
-        val character = viewModel.listCharacter.value!![position]
+        viewModel.listCharacter.value?.clear()
+        val character = adapter.listCharacter[position]
         val bundle = Bundle()
         bundle.putSerializable("character", character)
         arguments = bundle
         findNavController().navigate(R.id.action_homeFragment2_to_characterFragment,bundle)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.listCharacter.value?.clear()
     }
 }

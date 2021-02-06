@@ -36,6 +36,7 @@ class SearchAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter<Se
     override fun onBindViewHolder(holder: ItemCharacter, position: Int) {
         val character = listCharacter[position]
 
+
         var hsv: FloatArray = floatArrayOf((0).toFloat(),(0).toFloat(),(0).toFloat())
 
         Picasso.Builder(holder.imagem.context).build().load("${character.thumbnail.path}.${character.thumbnail.extension}")
@@ -75,6 +76,7 @@ class SearchAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter<Se
     override fun getItemCount() = listCharacter.size
 
     fun addListCharacter(list: Character){
+        listCharacter.clear()
         listCharacter.add(list)
         notifyAdapter()
     }

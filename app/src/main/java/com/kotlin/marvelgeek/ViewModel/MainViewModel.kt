@@ -33,7 +33,7 @@ class MainViewModel(repository: Repository): ViewModel() {
     var user: Any? = null
 
     val colors: MutableMap<String, String> = hashMapOf()
-    val search = MutableLiveData<Character>()
+    var search = MutableLiveData<Character>()
     val listCharacter = MutableLiveData<ArrayList<Character>>()
     val listFavorite = MutableLiveData<ArrayList<Personagem>>()
     val listComic = MutableLiveData<ArrayList<ComicC>>()
@@ -114,6 +114,10 @@ class MainViewModel(repository: Repository): ViewModel() {
         return error
     }
 
+    fun clearSearch(){
+        search = MutableLiveData<Character>()
+    }
+
     // Personagem tela Home
     fun getOneCharacter(name: String, context: Context): String?{
         var error: String? = null
@@ -132,6 +136,7 @@ class MainViewModel(repository: Repository): ViewModel() {
                 if(char != null) {
                     char.color = colors[char.name]
                     search.value = char
+                    Log.i("ViewModel",char.toString())
                 }else{
                     showToast(context,"No Character available")
                 }
