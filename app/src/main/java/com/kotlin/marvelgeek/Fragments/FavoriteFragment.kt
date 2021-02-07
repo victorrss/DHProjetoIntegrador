@@ -50,6 +50,7 @@ class FavoriteFragment : Fragment(),
         }
 
         view.fromFavoToHome.setOnClickListener {
+            viewModel.listCharacter.value?.clear()
             findNavController().navigate(R.id.action_favoriteFragment_to_action_homeFragment2)
         }
 

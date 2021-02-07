@@ -27,6 +27,7 @@ class SearchFragment : Fragment(), SearchAdapter.OnClickItemListener {
 
     private val viewModel: MainViewModel by activityViewModels()
     private lateinit var character: Character
+    val adapter = SearchAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (activity as AppCompatActivity).supportActionBar?.show()
@@ -49,7 +50,6 @@ class SearchFragment : Fragment(), SearchAdapter.OnClickItemListener {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
-        val adapter = SearchAdapter(this)
         view.rvSearch.adapter = adapter
         view.rvSearch.layoutManager = LinearLayoutManager(activity)
         view.rvSearch.setHasFixedSize(true)
@@ -77,7 +77,8 @@ class SearchFragment : Fragment(), SearchAdapter.OnClickItemListener {
     }
 
     override fun OnClickItem(position: Int) {
-        val character = viewModel.search.value
+        val character = adapter.listCharacter[0]
+        Log.i("Search",adapter.listCharacter[0].toString())
         val bundle = Bundle()
         bundle.putSerializable("character", character)
         arguments = bundle

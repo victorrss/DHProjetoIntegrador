@@ -113,6 +113,7 @@ class HistoriaFragment : Fragment(){
         }
 
         view.fromComicToHome.setOnClickListener {
+            viewModel.listCharacter.value?.clear()
             findNavController().navigate(R.id.action_historiaFragment_to_homeFragment2)
         }
 

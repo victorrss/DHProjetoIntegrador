@@ -136,6 +136,7 @@ class SerieFragment : Fragment() {
         }
 
         view.fromSerieToHome.setOnClickListener {
+            viewModel.listCharacter.value?.clear()
             findNavController().navigate(R.id.action_serieFragment_to_homeFragment2)
         }
 

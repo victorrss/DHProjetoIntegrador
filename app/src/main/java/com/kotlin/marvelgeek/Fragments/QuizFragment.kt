@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.kotlin.marvelgeek.R
+import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.dbhelpers.QuizDbHelper
 import com.kotlin.marvelgeek.model.Quiz
 import kotlinx.android.synthetic.main.fragment_quiz.view.*
@@ -21,6 +23,7 @@ import java.io.Serializable
 class QuizFragment : Fragment() {
     lateinit var quiz: ArrayList<Quiz>
     var index = 0
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +52,7 @@ class QuizFragment : Fragment() {
                 index++
                 atualizaView(view)
             } else
-                Snackbar.make(view, "Escolha uma resposta", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(view, "Select an answer", Snackbar.LENGTH_LONG).show()
         }
 
         // CLICK DO BOTÃO VOLTAR
@@ -67,7 +70,7 @@ class QuizFragment : Fragment() {
                 arguments = bundle
                 findNavController().navigate(R.id.action_quizFragment_to_quizResultFragment, bundle)
             } else
-                Snackbar.make(view, "Escolha uma resposta", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(view, "Select an answer", Snackbar.LENGTH_LONG).show()
         }
 
         // CLICK NAS RESPOSTAS
@@ -89,17 +92,19 @@ class QuizFragment : Fragment() {
                 val alertDialog: AlertDialog? = activity?.let {
                     val builder = AlertDialog.Builder(it)
                     builder.apply {
-                        setPositiveButton("Voltar",
+                        setPositiveButton("Back",
                             DialogInterface.OnClickListener { dialog, id ->
-                                val navOption = NavOptions.Builder().setPopUpTo(R.id.homeFragment2, false).build()
-                                findNavController().navigate(R.id.homeFragment2, null, navOption)
+                                //val navOption = NavOptions.Builder().setPopUpTo(R.id.homeFragment2, false).build()
+                                ///findNavController().navigate(R.id.homeFragment2, null, navOption)
+                                viewModel.listCharacter.value?.clear()
+                                findNavController().popBackStack()
                             })
-                        setNegativeButton("Ficar",
+                        setNegativeButton("Cancel",
                             DialogInterface.OnClickListener { dialog, id ->
                                 // User cancelled the dialog
                             })
-                        setMessage("Todo seu progresso será perdido.")
-                        setTitle("Deseja realmente voltar?")
+                        setMessage("Your progress will be lost.")
+                        setTitle("Do you want to come back??")
                     }
                     builder.create()
                 }
@@ -127,7 +132,7 @@ class QuizFragment : Fragment() {
         }
 
         // SETA PERGUNTA SELECIONADA
-        view.quiFraTvLabelQuestion.text = "Pergunta ${index + 1}"
+        view.quiFraTvLabelQuestion.text = "Question ${index + 1}"
         view.quiFraTvQuestion.text = quiz[index].pergunta
         view.quiFraRgOption1.text = quiz[index].respostas[0].texto
         view.quiFraRgOption2.text = quiz[index].respostas[1].texto

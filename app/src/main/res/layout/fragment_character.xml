@@ -18,8 +18,9 @@
 
             <ImageView
                 android:id="@+id/chaActIvHero"
-                android:layout_width="376dp"
-                android:layout_height="346dp"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:layout_marginTop="10dp"
                 android:scaleType="fitXY"
                 android:padding="2dp"
                 android:background="@drawable/border"
@@ -30,6 +31,7 @@
 
             <LinearLayout
                 android:id="@+id/chaActLlBio"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"

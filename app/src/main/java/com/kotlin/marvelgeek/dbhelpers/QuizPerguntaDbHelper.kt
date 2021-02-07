@@ -127,6 +127,201 @@ class QuizDbHelper(context: Context?) :
             )
         )
 
+        quizzes.add(
+            Quiz(
+                0,
+                "What was the First Movie released by Marvel?",
+                arrayListOf(
+                    Resposta(0, "Captain Marvel"),
+                    Resposta(0, "Iron man",true),
+                    Resposta(0, "Captain America: The First Avenger"),
+                    Resposta(0, "The Avengers")
+                )
+            )
+        )
+
+        quizzes.add(
+            Quiz(
+                0,
+                "When was the first Iron Man movie released?",
+                arrayListOf(
+                    Resposta(0, "2007"),
+                    Resposta(0, "2008",true),
+                    Resposta(0, "2010"),
+                    Resposta(0, "2009")
+                )
+            )
+        )
+
+        quizzes.add(
+            Quiz(
+                0,
+                "Which of these characters is not part of the Marvel universe?",
+                arrayListOf(
+                    Resposta(0, "Captain America"),
+                    Resposta(0, "Abmomination"),
+                    Resposta(0, "Black Widow"),
+                    Resposta(0, "Zatannam",true)
+                )
+            )
+        )
+
+        quizzes.add(
+            Quiz(
+                0,
+                "Which of these is not a codename used by Clint Barton?",
+                arrayListOf(
+                    Resposta(0, "Hawkeye"),
+                    Resposta(0, "Golias"),
+                    Resposta(0, "Ronin"),
+                    Resposta(0, "Trick Shot",true)
+                )
+            )
+        )
+
+        quizzes.add(
+            Quiz(
+                0,
+                "The Venom symbiote is a member of an alien race called ...",
+                arrayListOf(
+                    Resposta(0, "Brood"),
+                    Resposta(0, "Shi'ar"),
+                    Resposta(0, "Klyntar",true),
+                    Resposta(0, "Badoon")
+                )
+            )
+        )
+
+        quizzes.add(
+            Quiz(
+                0,
+                "What part of Peter Quill's body was cybernetic?",
+                arrayListOf(
+                    Resposta(0, "Eye",true),
+                    Resposta(0, "Leg"),
+                    Resposta(0, "Hand"),
+                    Resposta(0, "Brain")
+                )
+            )
+        )
+
+        quizzes.add(
+            Quiz(
+                0,
+                "The names of Peter Parker's parents are ...",
+                arrayListOf(
+                    Resposta(0, "Richard and Mary Parker",true),
+                    Resposta(0, "Thomas and Martha Parker"),
+                    Resposta(0, "Matthew and Lindsay Parker"),
+                    Resposta(0, "Ben and May Parker")
+                )
+            )
+        )
+
+        quizzes.add(
+            Quiz(
+                0,
+                "Before becoming a herald of Galactus, the Silver Surfer was known as ...",
+                arrayListOf(
+                    Resposta(0, "Norin Radd",true),
+                    Resposta(0, "En Sabar Nur"),
+                    Resposta(0, "Taa"),
+                    Resposta(0, "Peter Parker")
+                )
+            )
+        )
+
+        quizzes.add(
+            Quiz(
+                0,
+                "Who invented the name of the 'Avengers'?",
+                arrayListOf(
+                    Resposta(0, "Iron Man"),
+                    Resposta(0, "Wasp",true),
+                    Resposta(0, "Captain America"),
+                    Resposta(0, "Ant-Man")
+                )
+            )
+        )
+
+        quizzes.add(
+            Quiz(
+                0,
+                "Who did Bruce Banner save when he was hit by the gamma radiation that made him the Hulk?",
+                arrayListOf(
+                    Resposta(0, "Betty Boss"),
+                    Resposta(0, "Amadeus Cho"),
+                    Resposta(0, "Rick Jones",true),
+                    Resposta(0, "Richard Parker")
+                )
+            )
+        )
+
+        quizzes.add(
+            Quiz(
+                0,
+                "Which of these is an original member of the Guardians of the Galaxy?",
+                arrayListOf(
+                    Resposta(0, "Vance Astro",true),
+                    Resposta(0, "Groot"),
+                    Resposta(0, "Darkhown"),
+                    Resposta(0, "Moondragon")
+                )
+            )
+        )
+
+        quizzes.add(
+            Quiz(
+                0,
+                "Sam Wilson's pet hawk is called ...",
+                arrayListOf(
+                    Resposta(0, "Washington"),
+                    Resposta(0, "Redwind",true),
+                    Resposta(0, "America"),
+                    Resposta(0, "Darkwing")
+                )
+            )
+        )
+
+        quizzes.add(
+            Quiz(
+                0,
+                "Who is Thanos' brother?",
+                arrayListOf(
+                    Resposta(0, "Annihilus"),
+                    Resposta(0, "Starfox",true),
+                    Resposta(0, "Thane"),
+                    Resposta(0, "Titan")
+                )
+            )
+        )
+
+        quizzes.add(
+            Quiz(
+                0,
+                "Before becoming worthy of Mjolnir, Thor Odinson wielded an ax called ...",
+                arrayListOf(
+                    Resposta(0, "Surtur"),
+                    Resposta(0, "Asgard"),
+                    Resposta(0, "Jarnbjorn",true),
+                    Resposta(0, "Bjorkun")
+                )
+            )
+        )
+
+        quizzes.add(
+            Quiz(
+                0,
+                "Where the Black Widow received her training",
+                arrayListOf(
+                    Resposta(0, "Russian Room"),
+                    Resposta(0, "Hydra"),
+                    Resposta(0, "SHIELD"),
+                    Resposta(0, "Red Room")
+                )
+            )
+        )
+
         db.beginTransaction()
         try {
             quizzes.forEach { quiz ->

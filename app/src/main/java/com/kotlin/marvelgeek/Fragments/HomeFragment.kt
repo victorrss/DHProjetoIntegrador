@@ -41,6 +41,10 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
             adapter.listCharacter.clear()
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
+        if(viewModel.user == null)
+            viewModel.showToast(getApplicationContext(),"Welcome: Guest")
+        else
+            viewModel.showToast(getApplicationContext(),"Welcome: ${viewModel.user}")
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -86,18 +90,12 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
 
         if (!adapter.listCharacter.isNullOrEmpty())
             offset = adapter.listCharacter.size
-        Log.i("OFFSET", offset.toString())
+        //Log.i("OFFSET", offset.toString())
         error = viewModel.getCharacter(visibleThreshold, offset)
-
-        if(viewModel.user == null)
-            viewModel.showToast(getApplicationContext(),"Welcome: Guest")
-        else
-            viewModel.showToast(getApplicationContext(),"Welcome: ${viewModel.user}")
 
         (activity as AppCompatActivity).supportActionBar?.setTitle(R.string.app_name)
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-
 
         //Atualizando os valores da lista
         if (error != null){

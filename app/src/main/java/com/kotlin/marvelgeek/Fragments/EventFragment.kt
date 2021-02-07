@@ -131,6 +131,7 @@ class EventFragment : Fragment() {
         }
 
         view.fromEventToHome.setOnClickListener {
+            viewModel.listCharacter.value?.clear()
             findNavController().navigate(R.id.action_eventFragment_to_homeFragment2)
         }
 

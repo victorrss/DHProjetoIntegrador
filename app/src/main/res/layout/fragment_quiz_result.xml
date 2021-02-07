@@ -22,7 +22,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="150dp"
-            android:src="@drawable/logo_marvelgeek_transparente" />
+            android:src="@drawable/marvel_geek_no_bg" />
     </LinearLayout>
 
     <LinearLayout
