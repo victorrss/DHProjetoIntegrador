@@ -29,7 +29,7 @@ class QuizFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        (activity as AppCompatActivity).supportActionBar?.setTitle(R.string.app_name)
+        (activity as AppCompatActivity).supportActionBar?.setTitle("Quiz")
 
         var view = inflater.inflate(R.layout.fragment_quiz, container, false)
 

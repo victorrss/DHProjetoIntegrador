@@ -42,7 +42,7 @@ class QuizResultFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        (activity as AppCompatActivity).supportActionBar?.setTitle("Marvel Geek")
+        (activity as AppCompatActivity).supportActionBar?.setTitle("Quiz")
 
         var view = inflater.inflate(R.layout.fragment_quiz_result, container, false)
         var mBundle = Bundle()
@@ -67,12 +67,12 @@ class QuizResultFragment : Fragment() {
 
         view.ratingBar.rating = acertos.toFloat()
         view.quiFraTvQuestion.text = when (acertos) {
-            0 -> "Dá para melhorar. "
-            1, 2 -> "Bom. "
-            3, 4 -> "Muito bom. "
-            5 -> "Excelente. "
+            0 -> "You can improve your score. "
+            1, 2 -> "Good. "
+            3, 4 -> "Very good. "
+            5 -> "Great. "
             else -> ""
-        } + "Você acertou ${acertos} de 5 questões sobre o Universo Marvel!"
+        } + "You got ${acertos} of 5 questions about Marvel Universe"
 
         // BOTÃO COMPARTILHAR
         view.btnShare.setOnClickListener { share(view, requireActivity()) }
