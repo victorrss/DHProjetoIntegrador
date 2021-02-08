@@ -32,6 +32,14 @@ interface Repository {
         @Query("hash") p4: String
     ): ResCharacter
 
+    @GET("characters/{id}")
+    suspend fun getResultOneCharacterById(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResCharacter
+
     @GET("characters/{id}/comics")
     suspend fun getResultComics(
         @Path("id") p1: Long,

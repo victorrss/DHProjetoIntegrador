@@ -135,12 +135,12 @@ class LoginFragment : Fragment() {
             auth.signInWithCredential(credential)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Log.d("Debugando", "signInWithCredential:success")
+                        //Log.d("Debugando", "signInWithCredential:success")
                         viewModel.user = auth.currentUser!!.email
                         findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
                     }
                 }.addOnFailureListener {
-                    Log.w("Debugando", "signInWithCredential:failure", completedTask.exception)
+                    //Log.w("Debugando", "signInWithCredential:failure", completedTask.exception)
                     Toast.makeText(
                         activity, "Authentication failed. + ${completedTask.exception?.cause}",
                         Toast.LENGTH_SHORT
@@ -160,14 +160,14 @@ class LoginFragment : Fragment() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Log.i("TAG", "Login com sucesso")
+                    //Log.i("TAG", "Login com sucesso")
                     viewModel.user = auth.currentUser!!.email
                     findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
                 } else {
-                    Log.i("TAG", "Login falho")
+                    //Log.i("TAG", "Login falho")
                 }
             }.addOnFailureListener {
-                Log.w("Debugando", "signInWithCredential:failure", it.cause)
+                //Log.w("Debugando", "signInWithCredential:failure", it.cause)
                 Toast.makeText(
                     activity, "Authentication failed. + ${it.cause}",
                     Toast.LENGTH_SHORT

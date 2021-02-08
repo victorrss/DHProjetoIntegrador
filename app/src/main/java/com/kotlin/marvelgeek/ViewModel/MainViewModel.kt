@@ -2,8 +2,12 @@ package com.kotlin.marvelgeek.ViewModel
 
 import android.content.Context
 import android.content.res.AssetManager
+import android.graphics.Color
 import android.util.Log
 import android.widget.Toast
+import androidx.core.graphics.blue
+import androidx.core.graphics.green
+import androidx.core.graphics.red
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -34,6 +38,7 @@ class MainViewModel(repository: Repository): ViewModel() {
 
     val colors: MutableMap<String, String> = hashMapOf()
     var search = MutableLiveData<Character>()
+    var character = MutableLiveData<Character>()
     val listCharacter = MutableLiveData<ArrayList<Character>>()
     val listFavorite = MutableLiveData<ArrayList<Personagem>>()
     val listComic = MutableLiveData<ArrayList<ComicC>>()
@@ -134,7 +139,7 @@ class MainViewModel(repository: Repository): ViewModel() {
                 )
                 char = resultado.data.results[0]
                 if(char != null) {
-                    char.color = colors[char.name]
+                    char.color = colors[getcolor(char.name.replace("/"," "))]
                     search.value = char
                     Log.i("ViewModel",char.toString())
                 }else{
@@ -145,6 +150,35 @@ class MainViewModel(repository: Repository): ViewModel() {
             }
         }
         return error
+    }
+
+    // Personagem tela Home
+    fun getOneCharacterById(id:Long){
+        var error: String? = null
+        val ts = timeStamp()
+        lateinit var char: Character
+        var hsv: FloatArray = floatArrayOf((0).toFloat(),(0).toFloat(),(0).toFloat())
+
+        viewModelScope.launch {
+            try {
+                val resultado = repository.getResultOneCharacterById(
+                    id,
+                    ts,
+                    apiPublicKey,
+                    "${ts}$apiPrivateKey$apiPublicKey".md5()
+                )
+                char = resultado.data.results[0]
+                char.color = colors[char.name]
+                Color.RGBToHSV(
+                    Color.parseColor(char.color).red,
+                    Color.parseColor(char.color).green,
+                    Color.parseColor(char.color).blue, hsv)
+                char.brightness = hsv[2]
+                character.value = char
+            }catch (e: Exception){
+                error = e.toString()
+            }
+        }
     }
 
     // Personagem tela Favorito (Database)

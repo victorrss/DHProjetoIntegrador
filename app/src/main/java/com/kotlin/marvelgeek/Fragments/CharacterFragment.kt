@@ -41,15 +41,12 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_character, container, false)
-
-        if (savedState != null) {
+        var mBundle = Bundle()
+        mBundle = requireArguments()
+        character = mBundle.getSerializable("character") as Character?
+        Log.i("Position2",character.toString())
+        if (character == null) {
             character = savedState!!.getSerializable(SAVED_BUNDLE_TAG) as Character?
-        }else {
-            var mBundle = Bundle()
-            if (mBundle != null) {
-                mBundle = requireArguments()
-                character = mBundle.getSerializable("character") as Character
-            }
         }
 
         if(character!!.color != null){
@@ -123,12 +120,12 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
         view.icFavorite.setOnClickListener {
            if(viewModel.user != null) {
                 if (view.icFavorite.drawable.constantState == resources.getDrawable(R.drawable.ic_favorite).constantState) {
-                    Log.i("F","Adicionando")
+                    //Log.i("F","Adicionando")
                     viewModel.addFavorite(character!!)
-                    viewModel.showToast(view.context,"${character!!.name} adds to favorites.")
+                    viewModel.showToast(view.context,"${character!!.name} added to favorites.")
                     view.icFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
                 } else {
-                    Log.i("Favorito","Removendo")
+                    //Log.i("Favorito","Removendo")
                     viewModel.removeFavoriteCharacter(character!!.id)
                     viewModel.showToast(view.context,"${character!!.name} removed from favorites.")
                     view.icFavorite.setImageResource(R.drawable.ic_favorite)
@@ -229,6 +226,15 @@ class CharacterFragment : Fragment(), ComicAdapter.onClickListenerComic,
             viewModel.getFavorite()
             viewModel.listFavorite.observe(viewLifecycleOwner) {
                 if (!it.isNullOrEmpty()) {
+                    Log.i("Verifica",it.toString())
+                    Log.i("Verifica",Personagem(
+                        character!!.id,
+                        character!!.name,
+                        character!!.description,
+                        "${character!!.thumbnail.path}.${character!!.thumbnail.extension}",
+                        character!!.color,
+                        character!!.brightness
+                    ).toString())
                     if (it.contains(
                             Personagem(
                                 character!!.id,
