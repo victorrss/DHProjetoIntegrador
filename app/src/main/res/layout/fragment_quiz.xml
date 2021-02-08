@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
             android:text="Pergunta"
-            android:textColor="@color/lightGray"
+            android:textColor="@color/marvelRed"
             android:textSize="23sp" />
 
         <View
