@@ -128,6 +128,7 @@ class MainViewModel(repository: Repository): ViewModel() {
         var error: String? = null
         val ts = timeStamp()
         lateinit var char: Character
+        var hsv: FloatArray = floatArrayOf((0).toFloat(),(0).toFloat(),(0).toFloat())
 
         viewModelScope.launch {
             try {
@@ -139,9 +140,14 @@ class MainViewModel(repository: Repository): ViewModel() {
                 )
                 char = resultado.data.results[0]
                 if(char != null) {
-                    char.color = colors[getcolor(char.name.replace("/"," "))]
+                    char.color = getcolor(char.name.replace("/"," "))
+                    Color.RGBToHSV(
+                        Color.parseColor(char.color).red,
+                        Color.parseColor(char.color).green,
+                        Color.parseColor(char.color).blue, hsv)
+                    char.brightness = hsv[2]
                     search.value = char
-                    Log.i("ViewModel",char.toString())
+                    Log.i("ViewModel",char.color.toString())
                 }else{
                     showToast(context,"No Character available")
                 }
@@ -168,7 +174,7 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 char = resultado.data.results[0]
-                char.color = colors[char.name]
+                char.color = getcolor(char.name.replace("/"," "))
                 Color.RGBToHSV(
                     Color.parseColor(char.color).red,
                     Color.parseColor(char.color).green,

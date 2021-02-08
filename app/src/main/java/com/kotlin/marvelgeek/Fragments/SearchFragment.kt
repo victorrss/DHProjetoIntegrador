@@ -46,6 +46,8 @@ class SearchFragment : Fragment(), SearchAdapter.OnClickItemListener {
             character = mBundle.getSerializable("character") as Character
         }
 
+
+
         (activity as AppCompatActivity).supportActionBar?.setTitle("Result")
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_search, container, false)
