@@ -1,14 +1,19 @@
 package com.kotlin.marvelgeek.ui
 
 import android.content.res.AssetManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork
 import com.google.firebase.auth.FirebaseAuth
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.ViewModel.MyViewModelFactory
 import com.kotlin.marvelgeek.services.repository
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -19,6 +24,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_host)
+
+        ReactiveNetwork
+            .observeInternetConnectivity()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { isConnectedToInternet: Boolean? ->
+                if (isConnectedToInternet == false)
+                    Toast.makeText(this, "You are offline.", Toast.LENGTH_LONG).show()
+            }
 
         auth = FirebaseAuth.getInstance()
         viewModel
@@ -34,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 colors = line[1].split(",")
                 if (colors[0].length != 7)
                     viewModel.colors[line[0]] = "#0${colors[0].split("#")[1]}"
-               else
+                else
                     viewModel.colors[line[0]] = colors[0]
             }
         }
