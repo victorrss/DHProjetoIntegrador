@@ -1,6 +1,5 @@
 package com.kotlin.marvelgeek.Adapters
 
-import com.kotlin.marvelgeek.models.Character
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -14,14 +13,16 @@ import androidx.core.graphics.red
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 import com.kotlin.marvelgeek.R
+import com.kotlin.marvelgeek.models.Character
+import com.squareup.picasso.Picasso
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.card_home_personagem.view.tvDescricao
 import kotlinx.android.synthetic.main.card_home_personagem.view.tvNome
 import kotlinx.android.synthetic.main.item_character.view.*
-import com.squareup.picasso.Picasso
-import jp.wasabeef.picasso.transformations.CropCircleTransformation
 
 
-class SearchAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter<SearchAdapter.ItemCharacter>() {
+class SearchAdapter(val listener: OnClickItemListener) :
+    RecyclerView.Adapter<SearchAdapter.ItemCharacter>() {
 
     var listCharacter = ArrayList<Character>()
 
@@ -37,9 +38,10 @@ class SearchAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter<Se
         val character = listCharacter[position]
 
 
-        var hsv: FloatArray = floatArrayOf((0).toFloat(),(0).toFloat(),(0).toFloat())
+        var hsv: FloatArray = floatArrayOf((0).toFloat(), (0).toFloat(), (0).toFloat())
 
-        Picasso.Builder(holder.imagem.context).build().load("${character.thumbnail.path}.${character.thumbnail.extension}")
+        Picasso.Builder(holder.imagem.context).build()
+            .load("${character.thumbnail.path}.${character.thumbnail.extension}")
             .fit()
             .centerCrop()
             .noFade()
@@ -49,21 +51,33 @@ class SearchAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter<Se
 
         //Log.i("COLOR",character.color.toString())
 
-        if(character.color != null){
+        if (character.color != null && character.color != "null") {
             holder.background.setCardBackgroundColor(Color.parseColor(character.color!!))
-            Color.RGBToHSV(Color.parseColor(character.color).red,
+            Color.RGBToHSV(
+                Color.parseColor(character.color).red,
                 Color.parseColor(character.color).green,
-                Color.parseColor(character.color).blue, hsv)
+                Color.parseColor(character.color).blue, hsv
+            )
             character.brightness = hsv[2]
         }
 
 
-        if(character.brightness < 0.5){
+        if (character.brightness < 0.5) {
             holder.nome.setTextColor(ContextCompat.getColor(holder.nome.context, R.color.lightGray))
-            holder.descricao.setTextColor(ContextCompat.getColor(holder.nome.context, R.color.lightGray))
-        }else{
+            holder.descricao.setTextColor(
+                ContextCompat.getColor(
+                    holder.nome.context,
+                    R.color.lightGray
+                )
+            )
+        } else {
             holder.nome.setTextColor(ContextCompat.getColor(holder.nome.context, R.color.darkgray))
-            holder.descricao.setTextColor(ContextCompat.getColor(holder.nome.context, R.color.darkgray))
+            holder.descricao.setTextColor(
+                ContextCompat.getColor(
+                    holder.nome.context,
+                    R.color.darkgray
+                )
+            )
         }
 
         if (character.description.isNullOrEmpty())
@@ -75,13 +89,13 @@ class SearchAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter<Se
 
     override fun getItemCount() = listCharacter.size
 
-    fun addListCharacter(list: Character){
+    fun addListCharacter(list: Character) {
         listCharacter.clear()
         listCharacter.add(list)
         notifyAdapter()
     }
 
-    fun notifyAdapter(){
+    fun notifyAdapter() {
         notifyDataSetChanged()
     }
 
@@ -94,7 +108,7 @@ class SearchAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter<Se
         val nome: TextView = itemView.tvNome
         val descricao: TextView = itemView.tvDescricao
         val imagem: ImageView = itemView.ivCharacter
-        val background : MaterialCardView = itemView.cardBackground
+        val background: MaterialCardView = itemView.cardBackground
 
         init {
             itemView.setOnClickListener(this)

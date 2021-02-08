@@ -48,7 +48,7 @@ class CharacterAdapter(val listener: OnClickItemListener) : RecyclerView.Adapter
 
         //Log.i("COLOR",character.color.toString())
 
-        if(character.color != null){
+        if (character.color != null && character.color != "null") {
             holder.background.setCardBackgroundColor(Color.parseColor(character.color!!))
             Color.RGBToHSV(Color.parseColor(character.color).red,
                 Color.parseColor(character.color).green,
