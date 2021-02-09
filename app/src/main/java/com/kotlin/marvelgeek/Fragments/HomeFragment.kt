@@ -31,6 +31,14 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     private var offset: Int = 0
     private val visibleThreshold: Int = 5
 
+    override fun onAttach(context: Context) {
+        if (viewModel.user == null)
+            viewModel.showToast(getApplicationContext(), "Welcome: Guest")
+        else
+            viewModel.showToast(getApplicationContext(), "Welcome: ${viewModel.user}")
+        super.onAttach(context)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         (activity as AppCompatActivity).supportActionBar?.show()
         setHasOptionsMenu(true)
@@ -39,10 +47,6 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
             adapter.listCharacter.clear()
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
-        if (viewModel.user == null)
-            viewModel.showToast(getApplicationContext(), "Welcome: Guest")
-        else
-            viewModel.showToast(getApplicationContext(), "Welcome: ${viewModel.user}")
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -62,12 +66,12 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
                 searchView.clearFocus()
                 searchView.setQuery("", false)
                 searchItem.collapseActionView()
-                Log.i("Search QUERY", query.toString())
+                //Log.i("Search QUERY", query.toString())
                 viewModel.search = MutableLiveData()
                 viewModel.getSearchCharacter(query.toString(), getApplicationContext())
                 viewModel.search.observe(viewLifecycleOwner) {
                     val bundle = Bundle()
-                    Log.i("Search", it.toString())
+                    //Log.i("Search", it.toString())
                     bundle.putSerializable("characters", it)
                     arguments = bundle
                     findNavController().navigate(
@@ -91,8 +95,9 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         savedInstanceState: Bundle?
     ): View? {
 
-        if (!adapter.listCharacter.isNullOrEmpty())
+        if (!adapter.listCharacter.isNullOrEmpty()) {
             offset = adapter.listCharacter.size
+        }
         //Log.i("OFFSET", offset.toString())
         error = viewModel.getCharacter(visibleThreshold, offset)
 
@@ -154,8 +159,13 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         findNavController().navigate(R.id.action_homeFragment2_to_characterFragment, bundle)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onPause() {
+        super.onPause()
+        viewModel.listCharacter.value?.clear()
+    }
+
+    override fun onStop() {
+        super.onStop()
         viewModel.listCharacter.value?.clear()
     }
 }

@@ -276,7 +276,7 @@ class QuizDbHelper(context: Context?) :
                 "Sam Wilson's pet hawk is called ...",
                 arrayListOf(
                     Resposta(0, "Washington"),
-                    Resposta(0, "Redwind",true),
+                    Resposta(0, "Redwing",true),
                     Resposta(0, "America"),
                     Resposta(0, "Darkwing")
                 )
