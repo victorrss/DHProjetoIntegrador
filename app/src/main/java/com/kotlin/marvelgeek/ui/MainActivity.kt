@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                 if (colors[0].length != 7)
                     viewModel.colors[line[0]] = "#0${colors[0].split("#")[1]}"
                 else
-                    viewModel.colors[line[0]] = colors[0]
+                    viewModel.colors[line[0].replace("/", " ")] = colors[0]
             }
         }
     }
