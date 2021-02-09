@@ -89,9 +89,9 @@ class SearchAdapter(val listener: OnClickItemListener) :
 
     override fun getItemCount() = listCharacter.size
 
-    fun addListCharacter(list: Character) {
+    fun addListCharacter(list: ArrayList<Character>) {
         listCharacter.clear()
-        listCharacter.add(list)
+        listCharacter.addAll(list)
         notifyAdapter()
     }
 

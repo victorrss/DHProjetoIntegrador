@@ -1,24 +1,19 @@
 package com.kotlin.marvelgeek.Fragments
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.facebook.FacebookSdk
-import com.google.firebase.auth.FirebaseAuth
 import com.kotlin.marvelgeek.Adapters.SearchAdapter
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.Character
-import com.kotlin.marvelgeek.models.CharacterAdapter
-import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.android.synthetic.main.fragment_home.view.fbQuiz
 import kotlinx.android.synthetic.main.fragment_search.view.*
 
@@ -26,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_search.view.*
 class SearchFragment : Fragment(), SearchAdapter.OnClickItemListener {
 
     private val viewModel: MainViewModel by activityViewModels()
-    private lateinit var character: Character
+    private lateinit var characters: ArrayList<Character>
     val adapter = SearchAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,10 +38,12 @@ class SearchFragment : Fragment(), SearchAdapter.OnClickItemListener {
         var mBundle = Bundle()
         if (mBundle != null) {
             mBundle = requireArguments()
-            character = mBundle.getSerializable("character") as Character
+            try {
+                characters = mBundle.getSerializable("characters")!! as ArrayList<Character>
+            } catch (e: Exception) {
+                Log.e("SearchFragment", e.toString())
+            }
         }
-
-
 
         (activity as AppCompatActivity).supportActionBar?.setTitle("Result")
         // Inflate the layout for this fragment
@@ -57,14 +54,14 @@ class SearchFragment : Fragment(), SearchAdapter.OnClickItemListener {
         view.rvSearch.setHasFixedSize(true)
         viewModel.clearSearch()
 
-        adapter.addListCharacter(character)
+        adapter.addListCharacter(characters)
 
 
-        view.fromSearchToFavo.setOnClickListener{
-            if(viewModel.user != null){
+        view.fromSearchToFavo.setOnClickListener {
+            if (viewModel.user != null) {
                 findNavController().navigate(R.id.action_searchFragment_to_favoriteFragment)
-            }else{
-                viewModel.showToast(it.context,"To access Favorites, sign-in with an account.")
+            } else {
+                viewModel.showToast(it.context, "To access Favorites, sign-in with an account.")
             }
         }
 
@@ -79,11 +76,11 @@ class SearchFragment : Fragment(), SearchAdapter.OnClickItemListener {
     }
 
     override fun OnClickItem(position: Int) {
-        val character = adapter.listCharacter[0]
-        Log.i("Search",adapter.listCharacter[0].toString())
+        val character = adapter.listCharacter[position]
+        Log.i("Search", adapter.listCharacter[position].toString())
         val bundle = Bundle()
         bundle.putSerializable("character", character)
         arguments = bundle
-        findNavController().navigate(R.id.action_searchFragment_to_characterFragment,bundle)
+        findNavController().navigate(R.id.action_searchFragment_to_characterFragment, bundle)
     }
 }

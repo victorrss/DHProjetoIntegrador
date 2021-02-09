@@ -1,7 +1,6 @@
 package com.kotlin.marvelgeek.ViewModel
 
 import android.content.Context
-import android.content.res.AssetManager
 import android.graphics.Color
 import android.util.Log
 import android.widget.Toast
@@ -11,8 +10,6 @@ import androidx.core.graphics.red
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.kotlin.marvelgeek.Entities.CreatorID
@@ -29,7 +26,7 @@ import kotlinx.coroutines.launch
 import java.math.BigInteger
 import java.security.MessageDigest
 
-class MainViewModel(repository: Repository): ViewModel() {
+class MainViewModel(repository: Repository) : ViewModel() {
 
     lateinit var db: FirebaseFirestore
     lateinit var collectColor: CollectionReference
@@ -37,7 +34,8 @@ class MainViewModel(repository: Repository): ViewModel() {
     var user: Any? = null
 
     val colors: MutableMap<String, String> = hashMapOf()
-    var search = MutableLiveData<Character>()
+    var searchOne = MutableLiveData<Character>()
+    var search = MutableLiveData<ArrayList<Character>>()
     var character = MutableLiveData<Character>()
     val listCharacter = MutableLiveData<ArrayList<Character>>()
     val listFavorite = MutableLiveData<ArrayList<Personagem>>()
@@ -62,7 +60,7 @@ class MainViewModel(repository: Repository): ViewModel() {
     val listEventsSerie = MutableLiveData<ArrayList<EventC>>()
     val listCreatorsSerie = MutableLiveData<ArrayList<CreatorID>>()
 
-    init{
+    init {
 //        var primary: String = ""
 //
         initDb()
@@ -82,18 +80,18 @@ class MainViewModel(repository: Repository): ViewModel() {
 
     // --------------------------- Tela Home ----------------------//
     // Inicia Databse
-    fun initDb(){
+    fun initDb() {
         db = FirebaseFirestore.getInstance()
         collectColor = db.collection("colors")
     }
 
     // Pega Cor
-    fun getcolor(name: String): String?{
+    fun getcolor(name: String): String? {
         return colors[name]
     }
 
     // Personagem tela Home
-    fun getCharacter(limit: Int, offset: Int): String?{
+    fun getCharacter(limit: Int, offset: Int): String? {
         var error: String? = null
         val ts = timeStamp()
         var list = arrayListOf<Character>()
@@ -101,57 +99,103 @@ class MainViewModel(repository: Repository): ViewModel() {
         viewModelScope.launch {
             try {
                 val resultado = repository.getResultCharacters(
-                        limit,
-                        offset,
-                        ts,
-                        apiPublicKey,
-                        "${ts}$apiPrivateKey$apiPublicKey".md5()
+                    limit,
+                    offset,
+                    ts,
+                    apiPublicKey,
+                    "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 list = resultado.data.results
                 list.forEach {
-                    it.color = getcolor(it.name.replace("/"," "))
+                    it.color = getcolor(it.name.replace("/", " "))
                 }
                 listCharacter.value = list
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 error = e.toString()
             }
         }
         return error
     }
 
-    fun clearSearch(){
-        search = MutableLiveData<Character>()
+    fun clearSearch() {
+        search = MutableLiveData<ArrayList<Character>>()
     }
 
     // Personagem tela Home
-    fun getOneCharacter(name: String, context: Context): String?{
+    fun getSearchCharacter(name: String, context: Context): String? {
         var error: String? = null
         val ts = timeStamp()
-        lateinit var char: Character
-        var hsv: FloatArray = floatArrayOf((0).toFloat(),(0).toFloat(),(0).toFloat())
+        lateinit var chars: ArrayList<Character>
+        var hsv: FloatArray = floatArrayOf((0).toFloat(), (0).toFloat(), (0).toFloat())
 
         viewModelScope.launch {
             try {
-                val resultado = repository.getResultOneCharacter(
+                val resultado = repository.getResultListCharacter(
+                    name,
+                    ts,
+                    apiPublicKey,
+                    "${ts}$apiPrivateKey$apiPublicKey".md5()
+                )
+                chars = resultado.data.results
+                if (chars.size == 0)
+                    showToast(context, "No Character available")
+                chars.forEach {
+                    try {
+                        if (it != null) {
+                            it.color = getcolor(it.name.replace("/", " "))
+                            Color.RGBToHSV(
+                                Color.parseColor(it.color).red,
+                                Color.parseColor(it.color).green,
+                                Color.parseColor(it.color).blue, hsv
+                            )
+                            it.brightness = hsv[2]
+                        }
+                    } catch (e: Exception) {
+                        Log.e("MainViewModel", e.toString())
+                    }
+                }
+                search.value = chars
+            } catch (e: Exception) {
+                error = e.toString()
+                Log.e("MainViewModel", e.toString())
+            }
+        }
+        return error
+    }
+
+    fun getOneCharacter(name: String, context: Context): String? {
+        var error: String? = null
+        val ts = timeStamp()
+        lateinit var char: Character
+        var hsv: FloatArray = floatArrayOf((0).toFloat(), (0).toFloat(), (0).toFloat())
+
+        viewModelScope.launch {
+            try {
+                val resultado = repository.getResultListCharacter(
                     name,
                     ts,
                     apiPublicKey,
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 char = resultado.data.results[0]
-                if(char != null) {
-                    char.color = getcolor(char.name.replace("/"," "))
-                    Color.RGBToHSV(
-                        Color.parseColor(char.color).red,
-                        Color.parseColor(char.color).green,
-                        Color.parseColor(char.color).blue, hsv)
-                    char.brightness = hsv[2]
-                    search.value = char
-                    Log.i("ViewModel",char.color.toString())
-                }else{
-                    showToast(context,"No Character available")
+                if (char != null) {
+                    try {
+                        char.color = getcolor(char.name.replace("/", " "))
+                        Color.RGBToHSV(
+                            Color.parseColor(char.color).red,
+                            Color.parseColor(char.color).green,
+                            Color.parseColor(char.color).blue, hsv
+                        )
+                        char.brightness = hsv[2]
+                        Log.i("ViewModel", char.color.toString())
+                    } catch (e: Exception) {
+                        Log.e("MainViewModel", "getOneCharacter ${e.toString()}")
+                    }
+                    searchOne.value = char
+                } else {
+                    showToast(context, "No Character available")
                 }
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 error = e.toString()
             }
         }
@@ -159,11 +203,11 @@ class MainViewModel(repository: Repository): ViewModel() {
     }
 
     // Personagem tela Home
-    fun getOneCharacterById(id:Long){
+    fun getOneCharacterById(id: Long) {
         var error: String? = null
         val ts = timeStamp()
         lateinit var char: Character
-        var hsv: FloatArray = floatArrayOf((0).toFloat(),(0).toFloat(),(0).toFloat())
+        var hsv: FloatArray = floatArrayOf((0).toFloat(), (0).toFloat(), (0).toFloat())
 
         viewModelScope.launch {
             try {
@@ -174,44 +218,45 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 char = resultado.data.results[0]
-                char.color = getcolor(char.name.replace("/"," "))
+                char.color = getcolor(char.name.replace("/", " "))
                 Color.RGBToHSV(
                     Color.parseColor(char.color).red,
                     Color.parseColor(char.color).green,
-                    Color.parseColor(char.color).blue, hsv)
+                    Color.parseColor(char.color).blue, hsv
+                )
                 char.brightness = hsv[2]
                 character.value = char
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 error = e.toString()
             }
         }
     }
 
     // Personagem tela Favorito (Database)
-    fun getFavorite(){
+    fun getFavorite() {
         var list: ArrayList<Personagem> = arrayListOf()
         collectFavorites = db.collection(user.toString())
         collectFavorites.get().addOnSuccessListener { result ->
-                    for (document in result) {
-                        list.add(
-                            Personagem(
-                                document["id"].toString().toLong(),
-                                document["name"].toString(),
-                                document["description"].toString(),
-                                document["image"].toString(),
-                                document["color"].toString(),
-                                document["hsv"].toString().toFloat()
-                            )
-                        )
-                    }
-                listFavorite.value = list
-                }.addOnFailureListener { exception ->
-                    Log.d("Firestore", "Error getting documents: $exception")
-                }
+            for (document in result) {
+                list.add(
+                    Personagem(
+                        document["id"].toString().toLong(),
+                        document["name"].toString(),
+                        document["description"].toString(),
+                        document["image"].toString(),
+                        document["color"].toString(),
+                        document["hsv"].toString().toFloat()
+                    )
+                )
+            }
+            listFavorite.value = list
+        }.addOnFailureListener { exception ->
+            Log.d("Firestore", "Error getting documents: $exception")
+        }
 
     }
 
-    fun removeFavoriteCharacter(id: Long){
+    fun removeFavoriteCharacter(id: Long) {
         collectFavorites = db.collection(user.toString())
         collectFavorites.document(id.toString()).delete()
         getFavorite()
@@ -219,9 +264,9 @@ class MainViewModel(repository: Repository): ViewModel() {
 
     // --------------------------- Tela Character ----------------------//
     // Adicionar favorito ao DB
-    fun addFavorite(character: Character){
+    fun addFavorite(character: Character) {
         collectFavorites = db.collection(user.toString())
-        val characters: MutableMap<String,String> = HashMap()
+        val characters: MutableMap<String, String> = HashMap()
         characters["id"] = character.id.toString()
         characters["name"] = character.name
         characters["description"] = character.description
@@ -233,11 +278,11 @@ class MainViewModel(repository: Repository): ViewModel() {
         //collectFavorites.document(user.toString() + "/${character.id}").set(characters)
     }
 
-    fun initDbFavorite(){
+    fun initDbFavorite() {
         collectFavorites = db.collection(user.toString())
     }
 
-    fun getComic(id: Long): String?{
+    fun getComic(id: Long): String? {
         var error: String? = null
         val ts = timeStamp()
         viewModelScope.launch {
@@ -250,7 +295,7 @@ class MainViewModel(repository: Repository): ViewModel() {
                 )
                 listComic.value = resultado.data.results
                 //Log.i("View Model",listComic.value.toString())
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 //Log.e("getComic",e.toString())
                 error = e.toString()
             }
@@ -258,7 +303,7 @@ class MainViewModel(repository: Repository): ViewModel() {
         return error
     }
 
-    fun getEvent(id: Long): String?{
+    fun getEvent(id: Long): String? {
         var error: String? = null
         val ts = timeStamp()
         viewModelScope.launch {
@@ -271,7 +316,7 @@ class MainViewModel(repository: Repository): ViewModel() {
                 )
                 listEvent.value = resultado.data.results
                 //Log.i("View Model",listComic.value.toString())
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 //Log.e("getEvent",e.toString())
                 error = e.toString()
             }
@@ -279,7 +324,7 @@ class MainViewModel(repository: Repository): ViewModel() {
         return error
     }
 
-    fun getSerie(id: Long): String?{
+    fun getSerie(id: Long): String? {
         var error: String? = null
         val ts = timeStamp()
         viewModelScope.launch {
@@ -291,16 +336,17 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 listSerie.value = resultado.data.results
-            }catch (e: Exception){
-                Log.e("getSerie",e.toString())
+            } catch (e: Exception) {
+                Log.e("getSerie", e.toString())
                 error = e.toString()
             }
         }
         return error
     }
+
     // ***********************************************************************************************************
     // --------------------------- Tela Comic ----------------------//
-    fun getCharacterComic(id: Long): String?{
+    fun getCharacterComic(id: Long): String? {
         var error: String? = null
         val ts = timeStamp()
         viewModelScope.launch {
@@ -312,15 +358,15 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 listCharacterComics.value = resultado.data.results
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 error = e.toString()
-                Log.e("TAG",e.toString())
+                Log.e("TAG", e.toString())
             }
         }
         return error
     }
 
-    fun getEventComic(id: Long): String?{
+    fun getEventComic(id: Long): String? {
         var error: String? = null
         val ts = timeStamp()
         viewModelScope.launch {
@@ -332,14 +378,14 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 listEventComics.value = resultado.data.results
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 error = e.toString()
             }
         }
         return error
     }
 
-    fun getCreatorComic(id: Long): String?{
+    fun getCreatorComic(id: Long): String? {
         var error: String? = null
         val ts = timeStamp()
         viewModelScope.launch {
@@ -351,10 +397,10 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 listCreatorComics.value = resultado.data.results
-                Log.i("TAG",resultado.data.results.toString())
-            }catch (e: Exception){
+                Log.i("TAG", resultado.data.results.toString())
+            } catch (e: Exception) {
                 error = e.toString()
-                Log.e("TAG",e.toString())
+                Log.e("TAG", e.toString())
             }
         }
         return error
@@ -362,7 +408,7 @@ class MainViewModel(repository: Repository): ViewModel() {
 
     // ***********************************************************************************************************
     // --------------------------- Tela Comic ----------------------//
-    fun getCharacterEvent(id: Long): String?{
+    fun getCharacterEvent(id: Long): String? {
         var error: String? = null
         val ts = timeStamp()
         viewModelScope.launch {
@@ -374,15 +420,15 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 listCharactersEvent.value = resultado.data.results
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 error = e.toString()
-                Log.e("TAG",e.toString())
+                Log.e("TAG", e.toString())
             }
         }
         return error
     }
 
-    fun getComicEvent(id: Long): String?{
+    fun getComicEvent(id: Long): String? {
         var error: String? = null
         val ts = timeStamp()
         viewModelScope.launch {
@@ -394,14 +440,14 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 listComicsEvent.value = resultado.data.results
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 error = e.toString()
             }
         }
         return error
     }
 
-    fun getSerieEvent(id: Long): String?{
+    fun getSerieEvent(id: Long): String? {
         var error: String? = null
         val ts = timeStamp()
         viewModelScope.launch {
@@ -413,14 +459,14 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 listSerieEvent.value = resultado.data.results
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 error = e.toString()
             }
         }
         return error
     }
 
-    fun getCreatorEvent(id: Long): String?{
+    fun getCreatorEvent(id: Long): String? {
         var error: String? = null
         val ts = timeStamp()
         viewModelScope.launch {
@@ -432,16 +478,16 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 listCreatorsEvent.value = resultado.data.results
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 error = e.toString()
-                Log.e("TAG",e.toString())
+                Log.e("TAG", e.toString())
             }
         }
         return error
     }
 
     // --------------------------- Tela Seri ----------------------//
-    fun getCharacterSerie(id: Long): String?{
+    fun getCharacterSerie(id: Long): String? {
         var error: String? = null
         val ts = timeStamp()
         viewModelScope.launch {
@@ -453,15 +499,15 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 listCharactersSerie.value = resultado.data.results
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 error = e.toString()
-                Log.e("TAG",e.toString())
+                Log.e("TAG", e.toString())
             }
         }
         return error
     }
 
-    fun getComicSerie(id: Long): String?{
+    fun getComicSerie(id: Long): String? {
         var error: String? = null
         val ts = timeStamp()
         viewModelScope.launch {
@@ -473,14 +519,14 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 listComicsSerie.value = resultado.data.results
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 error = e.toString()
             }
         }
         return error
     }
 
-    fun getEventSerie(id: Long): String?{
+    fun getEventSerie(id: Long): String? {
         var error: String? = null
         val ts = timeStamp()
         viewModelScope.launch {
@@ -492,14 +538,14 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 listEventsSerie.value = resultado.data.results
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 error = e.toString()
             }
         }
         return error
     }
 
-    fun getCreatorSerie(id: Long): String?{
+    fun getCreatorSerie(id: Long): String? {
         var error: String? = null
         val ts = timeStamp()
         viewModelScope.launch {
@@ -511,17 +557,17 @@ class MainViewModel(repository: Repository): ViewModel() {
                     "${ts}$apiPrivateKey$apiPublicKey".md5()
                 )
                 listCreatorsSerie.value = resultado.data.results
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 error = e.toString()
-                Log.e("TAG",e.toString())
+                Log.e("TAG", e.toString())
             }
         }
         return error
     }
 
     // TimeStamp
-    fun timeStamp(): String{
-        val tsLong = System.currentTimeMillis()/1000
+    fun timeStamp(): String {
+        val tsLong = System.currentTimeMillis() / 1000
         return tsLong.toString()
     }
 
@@ -531,7 +577,7 @@ class MainViewModel(repository: Repository): ViewModel() {
         return BigInteger(1, md.digest(toByteArray())).toString(16).padStart(32, '0')
     }
 
-    fun showToast(context: Context,msg:String){
-        Toast.makeText(context,msg, Toast.LENGTH_LONG).show()
+    fun showToast(context: Context, msg: String) {
+        Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
     }
 }
