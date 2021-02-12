@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
             android:text="Pergunta"
-            android:textColor="@color/white"
+            android:textColor="@color/marvelRed"
             android:textSize="23sp" />
 
         <View
@@ -41,7 +41,7 @@
             android:layout_marginTop="15dp"
             android:fontFamily="sans-serif"
             android:text="Em qual destes quadrinhos o super-herói Capitão América está presente?"
-            android:textColor="@color/white"
+            android:textColor="@color/lightGray"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -68,31 +68,35 @@
                 android:layout_height="match_parent"
                 android:tag="0"
                 android:text="A Era de Ultron Vol 1"
-                android:textColor="@color/white" />
+                android:buttonTint="@color/marvelRed"
+                android:textColor="@color/lightGray" />
 
             <RadioButton
                 android:id="@+id/quiFraRgOption2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:tag="1"
+                android:buttonTint="@color/marvelRed"
                 android:text="A Era do Sentinela Vol 1"
-                android:textColor="@color/white" />
+                android:textColor="@color/lightGray" />
 
             <RadioButton
                 android:id="@+id/quiFraRgOption3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:tag="2"
+                android:buttonTint="@color/marvelRed"
                 android:text="Aranhaverso Vol 1"
-                android:textColor="@color/white" />
+                android:textColor="@color/lightGray" />
 
             <RadioButton
                 android:id="@+id/quiFraRgOption4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:tag="3"
+                android:buttonTint="@color/marvelRed"
                 android:text="Pecados Originais Vol 1"
-                android:textColor="@color/white" />
+                android:textColor="@color/lightGray" />
         </RadioGroup>
     </LinearLayout>
 
@@ -115,7 +119,8 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:progress="20"
-            android:progressTint="@color/white" />
+            android:progressTint="@color/marvelRed"
+            android:backgroundTint="@color/darkgray"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -129,7 +134,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
-                android:text="VOLTAR" />
+                android:text="Previous" />
 
             <Button
                 android:id="@+id/quiFraBtnNext"
@@ -137,14 +142,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
-                android:text="PRÓXIMO" />
+                android:text="Next" />
 
             <Button
                 android:id="@+id/quiFraBtnFinish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:text="Finalizar" />
+                android:text="Finish" />
 
         </LinearLayout>
         <LinearLayout

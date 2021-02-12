@@ -3,42 +3,50 @@ package com.kotlin.marvelgeek.Fragments
 import android.app.AlertDialog
 import android.app.SearchManager
 import android.content.Context
-import android.graphics.Bitmap
 import android.os.Bundle
+import android.util.Log
 import android.view.*
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.facebook.FacebookSdk.getApplicationContext
+import com.google.firebase.auth.FirebaseAuth
 import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.ViewModel.MainViewModel
 import com.kotlin.marvelgeek.models.CharacterAdapter
+import kotlinx.android.synthetic.main.fragment_home.view.*
 
-import kotlinx.android.synthetic.main.activity_home.view.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 
 class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
     var error: String? = null
     private val viewModel: MainViewModel by activityViewModels()
+    private lateinit var auth: FirebaseAuth
+    var adapter = CharacterAdapter(this)
 
-
-    private lateinit var adapter: CharacterAdapter
+    private var offset: Int = 0
+    private val visibleThreshold: Int = 5
 
     override fun onAttach(context: Context) {
-
-        viewModel.getCharacter(100, 2)
+        if (viewModel.user == null)
+            viewModel.showToast(getApplicationContext(), "Welcome: Guest")
+        else
+            viewModel.showToast(getApplicationContext(), "Welcome: ${viewModel.user}")
         super.onAttach(context)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (activity as AppCompatActivity).supportActionBar?.show()
         setHasOptionsMenu(true)
+        offset = 0
+        if (adapter.listCharacter.isNotEmpty())
+            adapter.listCharacter.clear()
         super.onCreate(savedInstanceState)
-
+        auth = FirebaseAuth.getInstance()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -47,7 +55,7 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         inflater.inflate(R.menu.searchbar_menu, menu)
 
         val manager = requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchItem = menu?.findItem(R.id.search_icon_menu)
+        val searchItem = menu?.findItem(R.id.ic_menu_search)
         val searchView = searchItem?.actionView as androidx.appcompat.widget.SearchView
         searchView.queryHint = getString(R.string.foundCharacter) + "..."
         searchView.setSearchableInfo(manager.getSearchableInfo(requireActivity().componentName))
@@ -58,7 +66,19 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
                 searchView.clearFocus()
                 searchView.setQuery("", false)
                 searchItem.collapseActionView()
-                Toast.makeText(activity, "Query: ${query}", Toast.LENGTH_LONG).show()
+                //Log.i("Search QUERY", query.toString())
+                viewModel.search = MutableLiveData()
+                viewModel.getSearchCharacter(query.toString(), getApplicationContext())
+                viewModel.search.observe(viewLifecycleOwner) {
+                    val bundle = Bundle()
+                    //Log.i("Search", it.toString())
+                    bundle.putSerializable("characters", it)
+                    arguments = bundle
+                    findNavController().navigate(
+                        R.id.action_homeFragment2_to_searchFragment,
+                        bundle
+                    )
+                }
                 return true
             }
 
@@ -70,51 +90,82 @@ class HomeFragment : Fragment(), CharacterAdapter.OnClickItemListener {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        if (!adapter.listCharacter.isNullOrEmpty()) {
+            offset = adapter.listCharacter.size
+        }
+        //Log.i("OFFSET", offset.toString())
+        error = viewModel.getCharacter(visibleThreshold, offset)
+
         (activity as AppCompatActivity).supportActionBar?.setTitle(R.string.app_name)
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-
         //Atualizando os valores da lista
-        if (error != null){
+        if (error != null) {
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Server problem:")
-           // builder.setIcon(R.drawable.ic_info)
+            builder.setIcon(R.drawable.ic_info)
             builder.setMessage(error)
             val dialog: AlertDialog = builder.create()
             dialog.show()
         }
 
-        view.abHome.setNavigationOnClickListener{
-            //findNavController().navigate(R.id.action_homeFragment_to_favoriteFragment)
+        viewModel.listCharacter.observe(viewLifecycleOwner) {
+            adapter.addListCharacter(it)
+        }
+        view.rvHome.adapter = adapter
+        view.rvHome.layoutManager = LinearLayoutManager(activity)
+        view.rvHome.setHasFixedSize(true)
+        view.rvHome.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                if ((view.rvHome.layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition() == adapter.listCharacter.size - 1) {
+                    offset = adapter.listCharacter.size
+                    viewModel.getCharacter(visibleThreshold, offset)
+                }
+            }
+        })
+
+        view.fromHomeToFavo.setOnClickListener {
+            if (viewModel.user != null) {
+                findNavController().navigate(R.id.action_homeFragment2_to_favoriteFragment)
+            } else {
+                viewModel.showToast(it.context, "To access Favorites, sign-in with an account.")
+            }
         }
 
         view.fbQuiz.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment2_to_quizFragment)
         }
 
+        view.exitApp.setOnClickListener {
+            auth.signOut()
+            findNavController().navigate(R.id.action_homeFragment2_to_loginFragment)
+        }
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.listCharacter.observe(viewLifecycleOwner){
-            adapter.addListCharacter(it)
-        }
-        super.onViewCreated(view, savedInstanceState)
-        adapter = CharacterAdapter(this)
-        view.rvHome.adapter = adapter
-        view.rvHome.setLayoutManager(LinearLayoutManager(activity))
-        view.rvHome.setHasFixedSize(true)
+    override fun OnClickItem(position: Int) {
+        viewModel.listCharacter.value?.clear()
+        val character = adapter.listCharacter[position]
+        val bundle = Bundle()
+        bundle.putSerializable("character", character)
+        arguments = bundle
+        findNavController().navigate(R.id.action_homeFragment2_to_characterFragment, bundle)
     }
 
-    override fun OnClickItem(position: Int) {
-        val character = viewModel.listCharacter.value!![position]
-        viewModel.setCharacter(character)
-        findNavController().navigate(R.id.action_homeFragment2_to_characterFragment)
+    override fun onPause() {
+        super.onPause()
+        viewModel.listCharacter.value?.clear()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        viewModel.listCharacter.value?.clear()
     }
 }

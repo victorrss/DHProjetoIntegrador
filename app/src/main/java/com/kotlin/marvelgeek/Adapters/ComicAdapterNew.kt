@@ -10,20 +10,20 @@ import com.kotlin.marvelgeek.R
 import com.kotlin.marvelgeek.models.ComicC
 import com.squareup.picasso.Picasso
 
-class ComicAdapter(val listener: onClickListenerComic) : RecyclerView.Adapter<ComicAdapter.ViewHolderComic>() {
+class ComicAdapterNew : RecyclerView.Adapter<ComicAdapterNew.ViewHolderComicNew>() {
 
     var listComic = ArrayList<ComicC>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ComicAdapter.ViewHolderComic {
-        return ViewHolderComic(
+    ): ComicAdapterNew.ViewHolderComicNew {
+        return ViewHolderComicNew(
             LayoutInflater.from(parent.context).inflate(R.layout.item_comics, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: ComicAdapter.ViewHolderComic, position: Int) {
+    override fun onBindViewHolder(holder: ComicAdapterNew.ViewHolderComicNew, position: Int) {
         var comic: ComicC = listComic[position]
 
         Picasso.get().load("${comic.thumbnail.path}.${comic.thumbnail.extension}")
@@ -39,26 +39,10 @@ class ComicAdapter(val listener: onClickListenerComic) : RecyclerView.Adapter<Co
         notifyDataSetChanged()
     }
 
-    interface onClickListenerComic {
-        fun onClickComic(position: Int)
-    }
-
-    inner class ViewHolderComic(
+    inner class ViewHolderComicNew(
         itemView: View
-    ) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    ) : RecyclerView.ViewHolder(itemView) {
         var comicIvImage: ImageView = itemView.findViewById(R.id.comicIvImage)
         var comicTvTitle: TextView = itemView.findViewById(R.id.comicTvTitle)
-
-        init {
-            itemView.setOnClickListener(this)
-        }
-
-        override fun onClick(v: View?) {
-            val position = adapterPosition
-
-            if (position != RecyclerView.NO_POSITION) {
-                listener.onClickComic(position)
-            }
-        }
     }
 }

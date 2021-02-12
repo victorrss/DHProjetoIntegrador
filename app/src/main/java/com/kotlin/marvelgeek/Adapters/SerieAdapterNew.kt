@@ -1,6 +1,5 @@
 package com.kotlin.marvelgeek.Adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,20 +10,20 @@ import com.kotlin.marvelgeek.Entities.SerieC
 import com.kotlin.marvelgeek.R
 import com.squareup.picasso.Picasso
 
-class SerieAdapter(val listener: onClickListenerSerie) : RecyclerView.Adapter<SerieAdapter.ViewHolderSerie>() {
+class SerieAdapterNew() : RecyclerView.Adapter<SerieAdapterNew.ViewHolderSerieNew>() {
 
     var listSerie = ArrayList<SerieC>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ViewHolderSerie {
-        return ViewHolderSerie(
+    ): ViewHolderSerieNew {
+        return ViewHolderSerieNew(
             LayoutInflater.from(parent.context).inflate(R.layout.item_series, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: ViewHolderSerie, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolderSerieNew, position: Int) {
         var serie = listSerie[position]
 
         Picasso.get().load("${serie.thumbnail.path}.${serie.thumbnail.extension}")
@@ -35,31 +34,15 @@ class SerieAdapter(val listener: onClickListenerSerie) : RecyclerView.Adapter<Se
 
     override fun getItemCount(): Int = listSerie.size
 
-    fun addListSerie(list: ArrayList<SerieC>){
-        listSerie = list
-        notifyDataSetChanged()
-    }
-
-    interface onClickListenerSerie {
-        fun onClickSerie(position: Int)
-    }
-
-    inner class ViewHolderSerie(
+    inner class ViewHolderSerieNew(
         itemView: View
-    ) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    ) : RecyclerView.ViewHolder(itemView) {
         var serieIvImage: ImageView = itemView.findViewById(R.id.serieIvImage)
         var serieTvTitle: TextView = itemView.findViewById(R.id.serieTvTitle)
+    }
 
-        init {
-            itemView.setOnClickListener(this)
-        }
-
-        override fun onClick(v: View?) {
-            val position = adapterPosition
-
-            if (position != RecyclerView.NO_POSITION) {
-                listener.onClickSerie(position)
-            }
-        }
+    fun addListSerie(list: ArrayList<SerieC>) {
+        listSerie = list
+        notifyDataSetChanged()
     }
 }

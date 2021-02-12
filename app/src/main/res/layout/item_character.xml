@@ -10,7 +10,9 @@
     android:focusable="true"
     app:cardBackgroundColor="@color/darkgray"
     app:cardCornerRadius="15dp"
-    app:cardElevation="5dp">
+    app:cardElevation="5dp"
+    app:strokeWidth="2dp"
+    app:strokeColor="@color/marvelRed">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,32 +30,33 @@
         <!--                    android:src="@drawable/spiderman"/>-->
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/ivAvatar"
+            android:id="@+id/ivCharacter"
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:layout_centerInParent="true"
+            android:adjustViewBounds="false"
             android:scaleType="centerCrop"
-            app:civ_border_color="@color/black"
+            app:civ_border_color="@color/marvelRed"
             app:civ_border_width="2dp"
+            android:layout_marginTop="20dp"
             app:civ_circle_background_color="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tvNome" />
 
         <TextView
             android:id="@+id/tvDescricao"
             android:layout_width="0dp"
-            android:layout_height="148dp"
+            android:layout_height="wrap_content"
             android:justificationMode="inter_word"
-            android:paddingHorizontal="10dp"
+            android:layout_marginHorizontal="10dp"
             android:text="Descricao"
             android:textColor="@color/white"
+            android:layout_marginTop="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/ivAvatar"
-            app:layout_constraintTop_toBottomOf="@+id/tvNome"
-            app:layout_constraintVertical_bias="0.692" />
+            app:layout_constraintStart_toEndOf="@+id/ivCharacter"
+            app:layout_constraintTop_toBottomOf="@+id/tvNome" />
 
         <TextView
             android:id="@+id/tvNome"
@@ -61,11 +64,12 @@
             android:layout_height="wrap_content"
             android:text="NOME DO PERSONAGEM"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:inputType="textMultiLine"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

@@ -25,11 +25,15 @@
             android:id="@+id/action_homeFragment2_to_characterFragment"
             app:destination="@id/characterFragment" />
         <action
-            android:id="@+id/action_homeFragment2_self"
-            app:destination="@id/homeFragment2" />
-        <action
             android:id="@+id/action_homeFragment2_to_quizFragment"
             app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_searchFragment"
+            app:destination="@id/searchFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
@@ -42,12 +46,15 @@
         <action
             android:id="@+id/action_favoriteFragment_to_quizFragment"
             app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_favoriteFragment_to_action_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
     <fragment
         android:id="@+id/characterFragment"
         android:name="com.kotlin.marvelgeek.Fragments.CharacterFragment"
         android:label="fragment_character"
-        tools:layout="@layout/fragment_character" >
+        tools:layout="@layout/fragment_character">
         <action
             android:id="@+id/action_characterFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
@@ -63,6 +70,9 @@
         <action
             android:id="@+id/action_characterFragment_to_serieFragment"
             app:destination="@id/serieFragment" />
+        <action
+            android:id="@+id/action_characterFragment_to_action_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
     <fragment
         android:id="@+id/historiaFragment"
@@ -72,14 +82,31 @@
         <action
             android:id="@+id/action_historiaFragment_to_quizFragment"
             app:destination="@id/quizFragment" />
+
         <action
-            android:id="@+id/action_historiaFragment_to_authorFragment"
-            app:destination="@id/authorFragment" />
+            android:id="@+id/action_historiaFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+
+        <action
+            android:id="@+id/action_historiaFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/eventFragment"
         android:name="com.kotlin.marvelgeek.Fragments.EventFragment"
-        android:label="EventFragment" />
+        android:label="EventFragment" >
+    <action
+        android:id="@+id/action_eventFragment_to_quizFragment"
+        app:destination="@id/quizFragment" />
+
+    <action
+        android:id="@+id/action_eventFragment_to_homeFragment2"
+        app:destination="@id/homeFragment2" />
+
+    <action
+        android:id="@+id/action_eventFragment_to_favoriteFragment"
+        app:destination="@id/favoriteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/quizFragment"
         android:name="com.kotlin.marvelgeek.Fragments.QuizFragment"
@@ -89,6 +116,7 @@
             android:id="@+id/action_quizFragment_to_quizResultFragment"
             app:destination="@id/quizResultFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/quizResultFragment"
         android:name="com.kotlin.marvelgeek.Fragments.QuizResultFragment"
@@ -97,12 +125,39 @@
             android:id="@+id/action_quizResultFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
     </fragment>
-    <fragment
-        android:id="@+id/authorFragment"
-        android:name="com.kotlin.marvelgeek.Fragments.AuthorFragment"
-        android:label="AuthorFragment" />
+
     <fragment
         android:id="@+id/serieFragment"
         android:name="com.kotlin.marvelgeek.Fragments.SerieFragment"
-        android:label="SerieFragment" />
+        android:label="SerieFragment">
+    <action
+        android:id="@+id/action_serieFragment_to_quizFragment"
+        app:destination="@id/quizFragment" />
+
+    <action
+        android:id="@+id/action_serieFragment_to_homeFragment2"
+        app:destination="@id/homeFragment2" />
+
+    <action
+        android:id="@+id/action_serieFragment_to_favoriteFragment"
+        app:destination="@id/favoriteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.kotlin.marvelgeek.Fragments.SearchFragment"
+        android:label="SearchFragment" >
+    <action
+        android:id="@+id/action_searchFragment_to_quizFragment"
+        app:destination="@id/quizFragment" />
+
+    <action
+        android:id="@+id/action_searchFragment_to_homeFragment2"
+        app:destination="@id/homeFragment2" />
+        <action
+            android:id="@+id/action_searchFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_characterFragment"
+            app:destination="@id/characterFragment" />
+    </fragment>
 </navigation>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/black"
     android:backgroundTintMode="screen"
     tools:context=".Fragments.QuizFragment">
 
@@ -20,9 +20,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/logo_marvelgeek_transparente" />
+            android:src="@drawable/marvel_geek_no_bg"
+            android:background="@drawable/round_marvel"/>
     </LinearLayout>
 
     <LinearLayout
@@ -44,7 +45,8 @@
             android:layout_marginTop="15dp"
             android:isIndicator="true"
             android:numStars="5"
-            android:progressTint="@color/darkRed"
+            android:progressTint="@color/marvelRed"
+            android:progressBackgroundTint="@color/lightGray"
             android:rating="4" />
 
         <TextView
@@ -55,7 +57,7 @@
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:text="Parabéns, você acertou  4 de 5 questões do quiz!"
-            android:textColor="@color/black"
+            android:textColor="@color/lightGray"
             android:textSize="25sp" />
 
         <View
@@ -83,7 +85,7 @@
             android:layout_height="60dp"
             android:backgroundTint="@color/marvelRed"
             android:drawableLeft="@drawable/ic_baseline_share_24"
-            android:text="Compartilhar"
+            android:text="Share"
             android:textColor="@color/white" />
         <!--
                 <Button
@@ -139,7 +141,7 @@
             android:id="@+id/quiResFraBtnNewGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NOVO JOGO" />
+            android:text="New Game" />
     </LinearLayout>
     <!--
     <androidx.coordinatorlayout.widget.CoordinatorLayout

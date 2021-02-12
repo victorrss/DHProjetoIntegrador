@@ -19,9 +19,8 @@ data class Character(val id: Long,
                      val stories: StoryCharacter,
                      val events: EventCharacter,
                      val series: SerieCharacter,
-                     var color: Int,
-                     var thumb: Bitmap
-                ): Serializable
+                     var color: String?,
+                     var brightness: Float = 1.toFloat()): Serializable
 
 data class URL(val type: String,
                val url: String): Serializable

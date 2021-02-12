@@ -22,4 +22,8 @@
 
     <string name="facebook_app_id">710172689696639</string>
     <string name="fb_login_protocol_scheme">fb710172689696639</string>
+    <string name="logInVisitor">Guest Sign-in</string>
+    <string name="loginFacebook">Facebook Sign-in</string>
+    <string name="loginGoogle">Google Sign-in</string>
+    <string name="favorite">Favorites</string>
 </resources>

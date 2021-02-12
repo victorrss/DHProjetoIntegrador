@@ -22,6 +22,32 @@ interface Repository {
         @Query("hash") p6: String
     ): ResCharacter
 
+    //-------------------------------------------------------------
+
+    @GET("characters")
+    suspend fun getResultOneCharacter(
+        @Query("name") p1: String,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResCharacter
+
+    @GET("characters")
+    suspend fun getResultListCharacter(
+        @Query("nameStartsWith") p1: String,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResCharacter
+
+    @GET("characters/{id}")
+    suspend fun getResultOneCharacterById(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResCharacter
+
     @GET("characters/{id}/comics")
     suspend fun getResultComics(
         @Path("id") p1: Long,
@@ -38,6 +64,8 @@ interface Repository {
         @Query("hash") p4: String
     ): ResEvent
 
+    //-----------------------------------------------------
+
     @GET("characters/{id}/series")
     suspend fun getResultSeries(
         @Path("id") p1: Long,
@@ -46,8 +74,92 @@ interface Repository {
         @Query("hash") p4: String
     ): ResSerie
 
-    @GET("creators/{id}")
-    suspend fun getResultCreator(
+    @GET("comics/{id}/characters")
+    suspend fun getResultCharacterComics(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResCharacter
+
+    @GET("comics/{id}/events")
+    suspend fun getResultEventsComic(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResEvent
+
+    @GET("comics/{id}/creators")
+    suspend fun getResultCreatorComic(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResCreator
+
+    //--------------------------------------------------------------
+
+    @GET("events/{id}/characters")
+    suspend fun getResultCharacterEvent(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResCharacter
+
+    @GET("events/{id}/comics")
+    suspend fun getResultComicEvent(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResComic
+
+    @GET("events/{id}/series")
+    suspend fun getResultSerieEvent(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResSerie
+
+    @GET("events/{id}/creators")
+    suspend fun getResultCreatorEvent(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResCreator
+
+    //--------------------------------------------------------------
+
+    @GET("series/{id}/characters")
+    suspend fun getResultCharacterSerie(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResCharacter
+
+    @GET("series/{id}/comics")
+    suspend fun getResultComicSerie(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResComic
+
+    @GET("series/{id}/events")
+    suspend fun getResultEventSerie(
+        @Path("id") p1: Long,
+        @Query("ts") p2: String,
+        @Query("apikey") p3: String,
+        @Query("hash") p4: String
+    ): ResEvent
+
+    @GET("series/{id}/creators")
+    suspend fun getResultCreatorSerie(
         @Path("id") p1: Long,
         @Query("ts") p2: String,
         @Query("apikey") p3: String,
